@@ -41,3 +41,14 @@ body{
 .menubarItems:hover{
 color: rgb(190, 109, 3);
 }
+.popup{
+    position:absolute;
+    top: 80%;
+    left: 50%;
+    transform:translate(-50%,-50%);
+    width:650px;
+    padding: 30px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 2px 5px;
+}
