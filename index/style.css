@@ -8,6 +8,7 @@ body{
     background-image:url(FloodedKabul.jpg);
     background-size:cover;
     font-family: sans-serif;
+    
   
 }
 .menubar{
@@ -23,6 +24,7 @@ body{
     width: 120px;
     margin:15px;
     padding:15px;
+
 
 }
 .menubar ul li a{
@@ -68,4 +70,8 @@ border: radius 3px;
 
 .menubar ul li:hover .submenu1 ul li a:hover{
     color: #b6b6b6;;
+}
+.logo{
+    padding-right: 400px;
+    
 }
