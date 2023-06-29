@@ -1,107 +1,107 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: poppins;
 }
 
-body{
-    
-    background-size:cover;
+body {
+
+    background-size: cover;
     background-position: center;
 }
-.menubar{
+
+.menubar {
     background-image: url(../photo/FloodedKabul.jpg);
     height: 100vh;
     width: 100%;
     background-size: cover;
     position: relative;
-    z-index: 1;
 }
 
-.contentbox{
+.contentbox {
     width: 80%;
     height: auto;
     background-color: #FFF5F5;
     opacity: 0.9;
     position: absolute;
-    top: 85%;
-    z-index: 2;
+    top: 88%;
     left: 10%;
-    box-shadow: 4px 6px #888888;
-   
+    box-shadow: 4px 6px #c6c6c6;
+
 }
 
-a{
+a {
     text-decoration: none;
 }
-.menubarItems{
-    font-size: 20px;
+
+.menubarItems {
+    font-size: 14px;
     font-weight: bold;
     color: #454A34;
     text-transform: uppercase;
     text-align: center;
-    padding: 10px 20px;
+    padding: 5px 20px;
     margin: 10px;
     border-radius: 5px;
     cursor: pointer;
     transition: all 0.3s ease;
 }
-.logo{
+
+.logo {
     top: 0;
     float: left;
     padding: 0px 20px;
 }
-.nav{
+
+.nav {
     top: 0;
     float: right;
 }
-.menubar ul{
+
+.menubar ul {
     display: inline-flex;
     list-style: none;
 }
-.menubar ul li{
+
+.menubar ul li {
     margin: 0 5px;
     margin-top: 15px;
 }
 
-.menubarItems:hover{
-color: rgb(190, 109, 3);
+.menubarItems:hover {
+    color: rgb(190, 109, 3);
+    text-decoration: underline;
 }
-.titleText{
-    position: absolute;
-    top: 30%;
-    left: 20%;
-    margin: 250px;
-    color: #454A34;
-    transform: translate(-50%, -50%);
+
+.titleText {
+    position: relative;
+    left: 10%;
+    color: #FFF1F1;
     font-weight: bold;
-    text-transform: uppercase;
-    margin: 10px;
-    border-radius: 5px;
+    margin-top: auto;
+    width: 100%;
+    height: auto;
+    display: inline-block;
+}
+
+h1 {
+    font-size: 82px;
+    font-weight: bold;
+    text-align: left;
+    margin: 5px;
     transition: all 0.3s ease;
 }
 
-#ht1{
-    font-size: 50px;
-    font-weight: bold;
-    text-transform: uppercase;
-    text-align: left;
-    padding: 5px 0px;
-    margin: 5px;
-    border-radius: 5px;
-    transition: all 0.3s ease;
-}
-#ht2{
-    font-size: 25px;
+h2 {
+    font-size: 54px;
     font-weight: bold;
     text-align: left;
-    padding: 5px 0px;
     margin: 5px;
-    border-radius: 5px;
     transition: all 0.3s ease;
 }
-.button{
+
+.button {
     background-color: #FFF1F1;
     border: 2 px solid black;
     border-radius: 10px;
@@ -116,36 +116,53 @@ color: rgb(190, 109, 3);
     cursor: pointer;
     float: left;
     width: 170px;
+    box-shadow: 2px 3px #000000;
 }
 
-.button:hover{
+.button:hover {
     background-color: #454A34;
     color: #EDEDED;
+    border: 0px;
 }
+
 #navbar {
     overflow: hidden;
     background-color: rgba(255, 255, 255, 0);
     transition: 0.4s;
-    clear: both;
     z-index: 1020;
+    top: 0;
 }
-.content{
-    padding: 16px;
-}
-.sticky{
+
+.sticky {
     position: fixed;
     top: 0;
     width: 100%;
 }
-.sticky + .content{
-    padding-top: 60px;
-}
-#navbar.show{
+
+#navbar.show {
     opacity: 1;
     background-color: rgb(255, 255, 255);
     transition: 0.4s;
+    box-shadow: 0px 3px #c6c6c6;
 }
-.introtitle{
+
+.contentwrapper {
+    display: flex;
+    position: relative;
+    align-items: center;
+    width: 100%;
+    margin-top: 120px;
+    flex-wrap: wrap;
+    height: fit-content;
+    background-color: #EDEDED;
+    top: 80px;
+    padding-top: 10px;
+    padding-right: 50px;
+    padding-bottom: 10px;
+    padding-left: 50px;
+}
+
+.introtitle {
     font-size: 26px;
     font-weight: bold;
     color: #454A34;
@@ -154,74 +171,260 @@ color: rgb(190, 109, 3);
     padding: 10px 30px;
     margin: 10px;
 }
-.introtext{
+
+.introtext {
     font-size: 16px;
     color: #454A34;
     text-align: center;
     padding: 5px 10px;
 }
-.servicecontent{
-    width: auto;
+
+.servicecontent {
     margin: 50px;
     position: relative;
-    top: 80px;
     color: #454A34;
-    overflow: auto;
+    padding: 10px;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 5px;
+    text-align: center;
 }
-.servicetitle{
+
+.servicetitle {
     font-size: 26px;
     font-weight: bold;
     text-transform: uppercase;
-    text-align: left;
+    text-align: center;
     padding: 10px 0px;
     margin: 0px;
-    float: left;
 }
-.servicetext{
+
+.servicetext {
     font-size: 16px;
-    text-align: left;
+    text-align: justify;
     padding: 5px 0px;
     float: left;
 }
-.picture-box{
+
+.picture-box {
     float: right;
     text-align: right;
 }
-.servicecontent2{
-    display: flex;
-    width: auto;
-    margin: 50px;
-    position: relative;
-    top:80px;
 
-    color: #454A34;
-    overflow: auto;
-}
-.servicecontent3{
-    width: auto;
-    margin: 50px;
+
+.container {
     position: relative;
     top: 80px;
-
-    color: #454A34;
-    overflow: auto;
+    margin-top: 50px;
+    width: 100%;
 }
-.servicetitle2{
-    font-size: 26px;
+
+.myslides {
+    display: none;
+}
+.myslides2 {
+    display: none;
+}
+
+.prev,
+.next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+.prev:hover,
+.next:hover {
+    background-color: rgba(94, 94, 94, 0.8);
+}
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.column {
+    float: left;
+    width: 33.33%;
+}
+
+.demo {
+    opacity: 0.6;
+}
+
+.active,
+.demo:hover {
+    opacity: 1;
+}
+
+.text-blk {
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+    margin-left: 0px;
+    line-height: 25px;
+}
+
+.responsive-cell-block {
+    min-height: 75px;
+}
+
+.responsive-container-block {
+    min-height: 75px;
+    height: fit-content;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 0px;
+    margin-right: auto;
+    margin-bottom: 0px;
+    margin-left: auto;
+    justify-content: space-evenly;
+}
+
+.outer-container {
+    padding-top: 10px;
+    padding-right: 50px;
+    padding-bottom: 10px;
+    padding-left: 50px;
+    background-color: #EDEDED;
+}
+
+.inner-container {
+    max-width: 1320px;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.img-wrapper {
+    width: 100%;
+}
+
+.team-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.name {
+    font-size: 25px;
+    font-weight: bold;
+    color: 454A34;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 5px;
+    margin-left: 0px;
+}
+
+.position {
+    font-size: 16px;
+    color: #454A34;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 50px;
+    margin-left: 0px;
+}
+
+.team-img {
+    width: 100%;
+    height: 100%;
+}
+
+.team-card-container {
+    width: 210px;
+    margin: 0 0 40px 0;
+}
+footer{
+    text-align: center;
+}
+.footer{
+    background-color: #454A34;
+    color: #EDEDED;
+    padding: 20px;
+    font-size: 14px;
     font-weight: bold;
     text-transform: uppercase;
-    text-align: left;
-    padding: 10px 0px;
-    margin: 0px;
+    margin-top: 50px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+    margin-left: 0px;
+    text-align: center;
+    align-content: center;
+}
+
+.maps{
+    margin-top: 50px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+    margin-left: 0px;
+    border: 2px solid #000000;
+    width: fit-content;
+}
+  
+.footer-columns {
+    position: relative;
+    padding: 10px;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    column-gap: 15px;
+    text-align: center;
+}
+  
+.column {
+    align-content: center;
 
 }
-.servicetext2{
+  
+.column h3 {
     font-size: 16px;
-    text-align: left;
-    padding: 5px 0px;
-
 }
-.picture-box2{
-    float: left;
-    text-align: left;
+  
+.column ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+  
+.column ul li {
+    margin-bottom: 5px;
+}
+  
+form {
+    margin-bottom: 10px;
+}
+  
+input[type="email"] {
+    width: 100%;
+    padding: 5px;
+    margin-bottom: 5px;
+}
+@media (max-width: 500px) {
+    .outer-container {
+        padding: 10px 20px 10px 20px;
+    }
+
+    .section-head-text {
+        text-align: center;
+    }
 }
