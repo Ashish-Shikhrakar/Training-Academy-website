@@ -1,77 +1,227 @@
-*
-{
-    padding:0;
-    margin:0;
+*{
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
+    font-family: poppins;
 }
+
 body{
-    background-image:url(FloodedKabul.jpg);
-    background-size:cover;
-    font-family: sans-serif;
     
-  
+    background-size:cover;
+    background-position: center;
 }
 .menubar{
-    background:#393939;
+    background-image: url(../photo/FloodedKabul.jpg);
+    height: 100vh;
+    width: 100%;
+    background-size: cover;
+    position: relative;
+    z-index: 1;
+}
+
+.contentbox{
+    width: 80%;
+    height: auto;
+    background-color: #FFF5F5;
+    opacity: 0.9;
+    position: absolute;
+    top: 85%;
+    z-index: 2;
+    left: 10%;
+    box-shadow: 4px 6px #888888;
+   
+}
+
+a{
+    text-decoration: none;
+}
+.menubarItems{
+    font-size: 20px;
+    font-weight: bold;
+    color: #454A34;
+    text-transform: uppercase;
     text-align: center;
+    padding: 10px 20px;
+    margin: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.logo{
+    top: 0;
+    float: left;
+    padding: 0px 20px;
+}
+.nav{
+    top: 0;
+    float: right;
 }
 .menubar ul{
     display: inline-flex;
     list-style: none;
-    color:#fff
 }
-.menubar li{
-    width: 120px;
-    margin:15px;
-    padding:15px;
-
-
-}
-.menubar ul li a{
-    text-decoration: none;
-    color:#fff
-
-}
-
-.menubar ul li:hover{
-background:#2b2323;
-border: radius 3px;
-}
-.menubar .fa{
-    margin-right: 8px;
-}
-.submenu1{
-    display: none;
-
-}
-.menubar ul li:hover .submenu1{
-    display:block;
-    position:absolute;
-    background: #393939;
+.menubar ul li{
+    margin: 0 5px;
     margin-top: 15px;
-    margin-left: -15px;
 }
-.menubar li:hover .submenu1 ul{
 
-    display: block;
+.menubarItems:hover{
+color: rgb(190, 109, 3);
+}
+.titleText{
+    position: absolute;
+    top: 30%;
+    left: 20%;
+    margin: 250px;
+    color: #454A34;
+    transform: translate(-50%, -50%);
+    font-weight: bold;
+    text-transform: uppercase;
+    margin: 10px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+#ht1{
+    font-size: 50px;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: left;
+    padding: 5px 0px;
+    margin: 5px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+#ht2{
+    font-size: 25px;
+    font-weight: bold;
+    text-align: left;
+    padding: 5px 0px;
+    margin: 5px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+.button{
+    background-color: #FFF1F1;
+    border: 2 px solid black;
+    border-radius: 10px;
+    border-color: #A7A44E;
+    color: #454A34;
+    padding: 14px 20px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 5px;
+    cursor: pointer;
+    float: left;
+    width: 170px;
+}
+
+.button:hover{
+    background-color: #454A34;
+    color: #EDEDED;
+}
+#navbar {
+    overflow: hidden;
+    background-color: rgba(255, 255, 255, 0);
+    transition: 0.4s;
+    clear: both;
+    z-index: 1020;
+}
+.content{
+    padding: 16px;
+}
+.sticky{
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+.sticky + .content{
+    padding-top: 60px;
+}
+#navbar.show{
+    opacity: 1;
+    background-color: rgb(255, 255, 255);
+    transition: 0.4s;
+}
+.introtitle{
+    font-size: 26px;
+    font-weight: bold;
+    color: #454A34;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 10px 30px;
     margin: 10px;
 }
-.menubar li:hover .submenu1 ul li{
-    width: 150px;
-    padding:10px;
-    border-bottom: 1px dotted #fff;
-    background: transparent;
-    border-radius: 0;
+.introtext{
+    font-size: 16px;
+    color: #454A34;
+    text-align: center;
+    padding: 5px 10px;
+}
+.servicecontent{
+    width: auto;
+    margin: 50px;
+    position: relative;
+    top: 80px;
+    color: #454A34;
+    overflow: auto;
+}
+.servicetitle{
+    font-size: 26px;
+    font-weight: bold;
+    text-transform: uppercase;
     text-align: left;
+    padding: 10px 0px;
+    margin: 0px;
+    float: left;
 }
-.menubar li:hover .submenu1 ul li:last-child{
-    border-bottom: none;
+.servicetext{
+    font-size: 16px;
+    text-align: left;
+    padding: 5px 0px;
+    float: left;
 }
+.picture-box{
+    float: right;
+    text-align: right;
+}
+.servicecontent2{
+    display: flex;
+    width: auto;
+    margin: 50px;
+    position: relative;
+    top:80px;
 
-.menubar ul li:hover .submenu1 ul li a:hover{
-    color: #b6b6b6;;
+    color: #454A34;
+    overflow: auto;
 }
-.logo{
-    padding-right: 400px;
-    
+.servicecontent3{
+    width: auto;
+    margin: 50px;
+    position: relative;
+    top: 80px;
+
+    color: #454A34;
+    overflow: auto;
+}
+.servicetitle2{
+    font-size: 26px;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: left;
+    padding: 10px 0px;
+    margin: 0px;
+
+}
+.servicetext2{
+    font-size: 16px;
+    text-align: left;
+    padding: 5px 0px;
+
+}
+.picture-box2{
+    float: left;
+    text-align: left;
 }
