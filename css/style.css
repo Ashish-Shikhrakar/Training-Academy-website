@@ -10,23 +10,6 @@ body{
     font-family: sans-serif; 
 }
 
-.menubar{
-    background:#393939;
-    text-align: center;
-}
-
-.menubar ul{
-    display: inline-flex;
-    list-style: none;
-    color:#fff
-}
-
-.menubar li{
-    width: 120px;
-    margin:15px;
-    padding:15px;
-}
-
 .logo{
     padding-right: 400px;  
 }
@@ -44,54 +27,13 @@ body{
     background-size: cover;
 
 }
-.menubar ul{
-    display: inline-flex;
-    list-style: none;
-    color:#fff
-}
 
-.menubar li{
-    width: 120px;
-    margin:15px;
-    padding:15px;
-}
-
-.menubar a{
-    text-decoration: none;
-    color:#fff
-
-}
-
-.menubarItems:hover{
-color: rgb(190, 109, 3);
-}
-
-.popup{
-    position:absolute;
-    top: 80%;
-    left: 50%;
-    transform:translate(-50%,-50%);
-    width:1000px;
-    padding: 30px;
-    background: #fff;
-    border-radius: 20px;
-    box-shadow: 0px 2px 5px;
-    background: white;  
-}
-
-.aim{
-    color: #fff;
-    text-align: left;
-    text-shadow: #fff;
-    font-size: 50px;
-    margin-top: 70px;
-    margin-left: 140px;
-    font-family: sans-serif;
-    line-height: 50px;
+.menubarItems{
+color:black;
+font-size: larger;
 }
 
 .popup1{
-    
     position: absolute;
     top: 40%;
     left: 50%;
@@ -104,11 +46,14 @@ color: rgb(190, 109, 3);
     margin-top: 37px;
     text-align: center;
     color:  #B8B683;
-    font-family: Arial, Helvetica, sans-serif;
+    letter-spacing: 2px;
     line-height: 30px;
-    font-family: Georgia (serif); 
-    font-size: larger;
     font-family: 'Notable', sans-serif;
+}
+
+.popup1 p{
+    font-family: 'Poppins', sans-serif;
+    font-size: large;
 }
 
  .menubar1{
@@ -126,16 +71,18 @@ color: rgb(190, 109, 3);
 }
 
 .menubar1 li{
-    width: 120px;
-    margin:15px;
-    padding:15px;
+    width: 92px;
+    margin:13px;
+    text-align: justify;
+    margin-top: 35px;
+    margin-right:20px;
+  
 }
 
 .menubar1 a{
-    text-decoration: none;
-    
+    text-decoration: none;   
 }
-
+ 
 h1{
     text-align: center;
     position: relative;  
@@ -152,11 +99,16 @@ h1::after{
  background-color: rgb(15,15,16);
 }
 
+h2{
+    line-height: normal;
+   
+}
+
 .p{
     text-align: center;
     font-size: 30px;
     line-height: 30px;
-    margin-top: 50px; 
+    margin-top: 50px;
     font-size: larger;  
 }
 
