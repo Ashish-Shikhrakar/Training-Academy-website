@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 * {
     margin: 0;
     padding: 0;
@@ -373,6 +374,156 @@ footer{
     text-align: center;
 }
 .footer{
+=======
+*
+{
+    padding:0;
+    margin:0;
+    box-sizing: border-box;
+}
+body{
+    background-image:url(FloodedKabul.jpg);
+    background-size:cover;
+    font-family: sans-serif; 
+}
+
+.logo{
+    padding-right: 400px;  
+}
+
+body{
+    background-size:cover;
+    font-family: sans-serif;
+}
+
+.menubar{
+    text-align: center;
+    background-image: url(../photo/FloodedKabul.jpg);
+    height: 543px;
+    width: 100%;
+    background-size: cover;
+
+}
+
+.menubarItems{
+color:black;
+font-size: larger;
+}
+
+.popup1{
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 1400px;
+    height: 400px;
+    padding: 50px;
+    box-shadow: 0 5px 30px rgba(0,0,0,0,.30);
+    background:#454A34;
+    margin-top: 37px;
+    text-align: center;
+    color:  #B8B683;
+    letter-spacing: 2px;
+    line-height: 30px;
+    font-family: 'Notable', sans-serif;
+    font-size: larger;
+}
+
+.popup1 p{
+    font-family: 'Poppins', sans-serif;
+    font-size: larger;
+}
+
+ .menubar1{
+    text-align: center;
+    height: 543px;
+    width: 100%;
+    background-size: cover;
+    
+ }
+ 
+ .menubar1 ul{
+    display: inline-flex;
+    list-style: none;
+    color:#fff
+}
+
+.menubar1 li{
+    width: 92px;
+    margin:13px;
+    text-align: justify;
+    margin-top: 35px;
+    margin-right:20px;
+  
+}
+
+.menubar1 a{
+    text-decoration: none;   
+}
+ 
+h1{
+    text-align: center;
+    position: relative;  
+}
+
+h1::after{   
+ content:" ";
+ position: absolute;
+ display:block;
+ left: 40%;
+ bottom: -20.13px;
+ width: 20%;
+ height: 4px;
+ background-color: rgb(15,15,16);
+}
+
+h2{
+    line-height: normal;
+   
+}
+
+.p{
+    text-align: center;
+    font-size: 30px;
+    line-height: 30px;
+    margin-top: 50px;
+    font-size: larger;  
+}
+
+.wwr{
+    text-decoration: none;
+    font-size: 50px;
+    text-align: center; 
+    margin-top: 50px; 
+}
+
+ .p1{
+    text-align: center;
+    font-size: 30px;
+    line-height: 30px;
+    margin-top: 50px;
+    font-size: larger;  
+ }
+
+ .p2{
+    text-align: center;
+    font-size: 30px;
+    line-height: 30px;
+    margin-top: 50px;
+    font-size: larger;  
+ }
+
+   .photoOne img{
+    max-width: 320px;
+    margin-left: 40px;
+    margin-top: 50px;
+    width: 300px;
+    height: 400px;
+    margin-left: 119px; 
+  }  
+
+  .footer{
+>>>>>>> 1e1293cae806a854724b8e7763201b48b8e53374
     background-color: #454A34;
     color: #EDEDED;
     padding: 20px;
@@ -384,7 +535,11 @@ footer{
     margin-bottom: 0px;
     margin-left: 0px;
     text-align: center;
+<<<<<<< HEAD
     align-content: center;
+=======
+    align-content: center; 
+>>>>>>> 1e1293cae806a854724b8e7763201b48b8e53374
 }
 
 .maps{
@@ -436,6 +591,10 @@ input[type="email"] {
     padding: 5px;
     margin-bottom: 5px;
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 1e1293cae806a854724b8e7763201b48b8e53374
 @media (max-width: 500px) {
     .outer-container {
         padding: 10px 20px 10px 20px;
@@ -444,4 +603,8 @@ input[type="email"] {
     .section-head-text {
         text-align: center;
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 1e1293cae806a854724b8e7763201b48b8e53374
