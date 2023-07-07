@@ -92,7 +92,10 @@ font-size: larger;
  
 h1{
     text-align: center;
-    position: relative;  
+    position: relative; 
+    line-height: 50px; 
+    margin-top: 80px;
+    
 }
 
 h1::after{   
