@@ -121,7 +121,8 @@ h2{
     font-size: 30px;
     line-height: 30px;
     margin-top: 50px;
-    font-size: larger;  
+    font-size: larger;
+    margin-inline-start: 0%;  
 }
 
 .wwr{
