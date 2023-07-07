@@ -103,7 +103,10 @@ h1::after{
  bottom: -20.13px;
  width: 20%;
  height: 4px;
- background-color: rgb(15,15,16);
+ /* background-color: rgb(15,15,16); */
+background-color:#454A34;
+ 
+
 }
 
 h2{
