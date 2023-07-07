@@ -122,7 +122,8 @@ h2{
     line-height: 30px;
     margin-top: 50px;
     font-size: larger;
-    margin-inline-start: 0%;  
+    margin-inline-start: 60px;
+    margin-inline-end: 60px; 
 }
 
 .wwr{
@@ -130,6 +131,7 @@ h2{
     font-size: 50px;
     text-align: center; 
     margin-top: 50px; 
+    
 }
 
  .p1{
@@ -138,6 +140,8 @@ h2{
     line-height: 30px;
     margin-top: 50px;
     font-size: larger;  
+    margin-inline-start: 60px;  
+    margin-inline-end: 60px;
  }
 
  .p2{
@@ -146,7 +150,8 @@ h2{
     line-height: 30px;
     margin-top: 50px;
     font-size: larger;  
-    white-space: inherit;
+    margin-inline-start: 60px;  
+    margin-inline-end: 60px;
  }
 
    .photoOne img{
