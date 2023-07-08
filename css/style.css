@@ -109,11 +109,11 @@ h1::after{
 
 }
 
-h2{
+ h2{
     line-height: normal;
-    margin-top: 50px;
     text-align: center;
    
+
 }
 
 .p{
@@ -124,6 +124,7 @@ h2{
     font-size: larger;
     margin-inline-start: 60px;
     margin-inline-end: 60px; 
+    font-family: 'Poppins', sans-serif;
 }
 
 .wwr{
@@ -163,6 +164,58 @@ h2{
     margin-left: 119px; 
   }  
 
+  .contact-box{
+    width: 364px;
+    background-color: #E3E3E3;
+    box-shadow: 0 0 20px 0 #999;
+    top:125%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    position:absolute;
+    margin-top: 210px;
+  }
+    
+  form{
+    margin: 57px;
+    height: 350px;
+   
+  }
+  form h2{
+    text-align: center;
+    margin-bottom: 36px;
+   
+  }
+ 
+  .input-field{
+    width: 250px;
+    height: 40px;
+    margin-bottom: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border:1px solid #777;
+    outline: none;
+    align-items: center;
+
+}
+
+.textarea-field{
+    height: 133px;
+    padding-top: 10px;
+    align-items: center;
+}
+.btn{
+    margin-bottom: 10px;
+    padding: 14px 28px;
+    background-color: #A7A44E;
+    border: none;
+    font-family: 'Inter', sans-serif;
+    color: #fff;
+    cursor: pointer;
+    width: 100%;
+    padding: 10px;
+
+   
+  }
   .footer{
     background-color: #454A34;
     color: #EDEDED;
