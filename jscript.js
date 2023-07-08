@@ -24,6 +24,17 @@ window.addEventListener("scroll", function() {
     }
 });
 
+
+function dropdown() {
+  var x = document.getElementById("drop-table");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+
+  } else {
+    x.style.display = "none";
+  }
+}
+
 let slideIndex = 1;
 showSlides(slideIndex);
 
