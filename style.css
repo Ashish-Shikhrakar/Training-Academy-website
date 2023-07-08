@@ -1,77 +1,96 @@
-*
-{
-    padding:0;
-    margin:0;
-    box-sizing: border-box;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
 }
-body{
-    background-image:url(FloodedKabul.jpg);
-    background-size:cover;
-    font-family: sans-serif;
-    
+body {
+  width: 100%;
+  background-color:aliceblue;
+  position: relative;
+  display: flex;
+}
+div {
+  border: 2px solid black;
+  padding: 10px;
   
 }
-.menubar{
-    background:#393939;
-    text-align: center;
-}
-.menubar ul{
-    display: inline-flex;
-    list-style: none;
-    color:#fff
-}
-.menubar li{
-    width: 120px;
-    margin:15px;
-    padding:15px;
-
+.top-right table tr td{
+  text-align: left;
 
 }
-.menubar ul li a{
-    text-decoration: none;
-    color:#fff
+.top-left{
+    width: 40%;
+    margin-right: 0px;
+    border-spacing: 0px;
+    border-right: none;
+}
+.top-left img{
+  width: 20%;
+}
+.top-right{
+  width: 40%;
+  align-items:baseline;
+  border-left: none;
+  border-spacing: 0px;
+}
+.master {
+  height: 80%;
+  width: 80%;
+  border: none;
+  align-content: center;
+  border-spacing: 0px;
+  align-self: center;
+}
+.top {
+  display: flex;
+  border: none;
+  height: 10%;
+  font-weight: 15px;
+  padding-top: 10px;
+  margin-bottom: -20px;
+}
+.middle {
+  display: flex;
+  flex-direction: row;
+  border: none;
+  margin-bottom: -10px;
+  border-bottom: none;
+  text-align: left;
+  border-top: none;
+  width: 78;
 
 }
-
-.menubar ul li:hover{
-background:#2b2323;
-border: radius 3px;
+.middle-right {
+  margin-left: 0px;
+  text-align: right;
+  width: 40%;
+  padding-left: 10px;
+  border-left: none;
 }
-.menubar .fa{
-    margin-right: 8px;
+.middle-left {
+  margin-left: 0px;
+  text-align: left;
+  width: 40%;
+  padding-left: 10px;
 }
-.submenu1{
-    display: none;
-
-}
-.menubar ul li:hover .submenu1{
-    display:block;
-    position:absolute;
-    background: #393939;
-    margin-top: 15px;
-    margin-left: -15px;
-}
-.menubar li:hover .submenu1 ul{
-
-    display: block;
-    margin: 10px;
-}
-.menubar li:hover .submenu1 ul li{
-    width: 150px;
-    padding:10px;
-    border-bottom: 1px dotted #fff;
-    background: transparent;
-    border-radius: 0;
-    text-align: left;
-}
-.menubar li:hover .submenu1 ul li:last-child{
-    border-bottom: none;
+.bottom{
+  width: 78%;
+  margin-left: 10px;
+  border-top: none;
+  
 }
 
-.menubar ul li:hover .submenu1 ul li a:hover{
-    color: #b6b6b6;;
-}
-.logo{
-    padding-right: 400px;
-    
+.btn {
+  display: inline-block;
+  padding: 15px 15px;
+  font-size: 15px;
+  background: #333;
+  color: #fff;
+  margin: 15px 15px;
+  text-transform: capitalize;
+  width: 120px;
+  align-items: center;
+  padding-top: 10px;
 }
