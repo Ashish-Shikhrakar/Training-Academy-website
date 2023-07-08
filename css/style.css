@@ -426,13 +426,20 @@ footer{
     text-align: center;
     margin-top: 10px;
     margin-bottom: 10px;
+    font-family: poppins;
+
 }
 .dropdown-schedule{
     cursor: pointer;
 }
-#drop-table{
+#drop-table1, #drop-table2, #drop-table3, #drop-table4, #drop-table5, #drop-table6{
     display: none;
     transition: 0.4s;
+    background-color: #EDEDED;
+
+}
+#drop1, #drop2, #drop3, #drop4, #drop5, #drop6{
+    transform: rotate(0deg);
 }
 
 /* .footer-columns {
