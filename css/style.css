@@ -112,6 +112,7 @@ h1::after{
  h2{
     line-height: normal;
     text-align: center;
+    margin-top: 50px;
    
 
 }
@@ -174,6 +175,8 @@ h1::after{
     position:absolute;
     margin-top: 210px;
   }
+
+  
     
   form{
     margin: 57px;
