@@ -1,0 +1,96 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+body {
+  width: 100%;
+  background-color:aliceblue;
+  position: relative;
+  display: flex;
+}
+div {
+  border: 2px solid black;
+  padding: 10px;
+  
+}
+.top-right table tr td{
+  text-align: left;
+
+}
+.top-left{
+    width: 40%;
+    margin-right: 0px;
+    border-spacing: 0px;
+    border-right: none;
+}
+.top-left img{
+  width: 20%;
+}
+.top-right{
+  width: 40%;
+  align-items:baseline;
+  border-left: none;
+  border-spacing: 0px;
+}
+.master {
+  height: 80%;
+  width: 80%;
+  border: none;
+  align-content: center;
+  border-spacing: 0px;
+  align-self: center;
+}
+.top {
+  display: flex;
+  border: none;
+  height: 10%;
+  font-weight: 15px;
+  padding-top: 10px;
+  margin-bottom: -20px;
+}
+.middle {
+  display: flex;
+  flex-direction: row;
+  border: none;
+  margin-bottom: -10px;
+  border-bottom: none;
+  text-align: left;
+  border-top: none;
+  width: 78;
+
+}
+.middle-right {
+  margin-left: 0px;
+  text-align: right;
+  width: 40%;
+  padding-left: 10px;
+  border-left: none;
+}
+.middle-left {
+  margin-left: 0px;
+  text-align: left;
+  width: 40%;
+  padding-left: 10px;
+}
+.bottom{
+  width: 78%;
+  margin-left: 10px;
+  border-top: none;
+  
+}
+
+.btn {
+  display: inline-block;
+  padding: 15px 15px;
+  font-size: 15px;
+  background: #333;
+  color: #fff;
+  margin: 15px 15px;
+  text-transform: capitalize;
+  width: 120px;
+  align-items: center;
+  padding-top: 10px;
+}
+
