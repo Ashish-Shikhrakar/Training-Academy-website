@@ -23,26 +23,10 @@ window.addEventListener("scroll", function() {
         navbar.classList.remove("show")
     }
 });
-for (let i = 1; i < 7; i++) {
-  dropdown(i);
-}
 
-function dropdown(day) {
-  var x = document.getElementById("drop-table"+day);
-  var y = document.getElementById("drop"+day);
-
-
-  if (x.style.display == "none") {
-    y.style.transform = "rotate(180deg)";
-    x.style.display = "block";
-
-  } else {
-    x.style.display = "none";
-    y.style.transform = "rotate(0deg)";
-  }
-}
 
 let slideIndex = 1;
+
 showSlides(slideIndex);
 
 // Next/previous controls
@@ -50,10 +34,6 @@ function plusSlides(n) {
   showSlides(slideIndex += n);
 }
 
-// Thumbnail image controls
-function currentSlide(n) {
-  showSlides(slideIndex = n);
-}
 
 function showSlides(n) {
   let i;
@@ -93,4 +73,26 @@ function showSlides(n) {
   slides2[slideIndex-1].style.display = "block";
   //dots[slideIndex-1].className += " active";
 }
+
+
+for (let i = 1; i < 7; i++) {
+  dropdown(i);
+}
+
+function dropdown(day) {
+  var x = document.getElementById("drop-table"+day);
+  var y = document.getElementById("drop"+day);
+
+
+  if (x.style.display == "none") {
+    y.style.transform = "rotate(180deg)";
+    x.style.display = "block";
+
+  } else {
+    x.style.display = "none";
+    y.style.transform = "rotate(0deg)";
+  }
+}
+
+
 
