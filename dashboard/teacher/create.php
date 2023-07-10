@@ -1,11 +1,21 @@
-<?php 
-  $tname = "";
-  // variable = "";
+<?php
 
-  // conn
+@include ("db_connection.php");
+?>
+<?php
+  $tid = '';
+  $tname = '';
+  $taddress = '';
+  $email = '';
+  $phone = '';
+  $salary = '';
+  $cid = '';
+  $photo = '';
+  
+  
   // sql SELECT * FROM `teacher` WHERE $id = "valueID"
   // 
-  $tname = $row["tname"];
+  // $tname = $row["tname"];
 ?>
 <!doctype html>
 <html lang="en">

@@ -17,6 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $main_jat = $_POST['main_jat'];
     $education = $_POST['education'];
     $DOB = $_POST['DOB'];
+    // console.log($DOB)
     $age = $_POST['age'];
     
     // $spanValue = $_POST['spanValue'];
