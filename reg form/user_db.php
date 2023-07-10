@@ -39,6 +39,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // } elseif ($p_vdc_rm_mp === 'R.M') {
     //     $p_rm_mp_text = $_POST['p_txt_vdc_rm_mp'];
     // }
+    
+    
+
+    // // Process VDC/RM/MP selection for temporary address
     // // Process VDC/RM/MP selection for temporary address
     // if ($t_vdc_rm_mp === 'V.D.C') {
     //     $t_vdc_rm_mp_text = $_POST['t_txt_vdc_rm_mp'];
