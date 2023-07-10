@@ -13,6 +13,7 @@
             const age = calculateAge(selectedDate);
             document.getElementById("bsdate").value = (bsDate);
             document.getElementById("ag").value=(age);
+            console.log(selectedDate);
         }
 
         function convertToBS(date) {
