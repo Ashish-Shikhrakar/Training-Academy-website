@@ -1,6 +1,11 @@
 <?php
 @include ('db_connection.php');
 
+$aggre = false;
+if(isset($_POST['aggre'])){
+$aggre=$_POST['aggre'];
+}
+if($aggre){
 // Check if the form is submitted
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Retrieve form data
@@ -52,7 +57,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $guradian_name = $_POST['guradian_name'];
     $relation = $_POST['Relation'];
     $r_contact_no = $_POST['r_contact_no'];
-    $aggre=$_POST['aggre'] ? true : false;
+  
 // .. ....
     // $aggre = isset($_POST['aggre']) ? 1 : 0;
     // Prepare and bind the form data to insert into the database
@@ -71,5 +76,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Close the statement and database connection
     $stmt->close();
     $conn->close();
+}
+}
+else{
+    echo "please check ";
 }
 ?>

@@ -1,4 +1,12 @@
+<?php 
+  $tname = "";
+  // variable = "";
 
+  // conn
+  // sql SELECT * FROM `teacher` WHERE $id = "valueID"
+  // 
+  $tname = $row["tname"];
+?>
 <!doctype html>
 <html lang="en">
 
@@ -27,7 +35,7 @@
 
               <div class="form-group">
                 <label>name</label><br>
-                <input type="text" name="tname" class="form-control" placeholder="name">
+                <input type="text" name="tname" class="form-control" placeholder="name" value="<?php echo $tname ?>">
               </div>
               <div class="form-group">
                 <label>address</label>
@@ -54,6 +62,7 @@
                 <input type="file" name="photo" class="form-control">
               </div>
               <div class="form-group">
+                <input type="hidden" name="mode" value="<?php $mode ?>">
                 <button type="submit" name="save" class="btn btn-primary">save</button>
               </div>
             </form>
