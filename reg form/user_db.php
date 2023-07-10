@@ -53,7 +53,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $relation = $_POST['Relation'];
     $r_contact_no = $_POST['r_contact_no'];
     $aggre=$_POST['aggre'] ? true : false;
-// .. ...
+// .. ....
     // $aggre = isset($_POST['aggre']) ? 1 : 0;
     // Prepare and bind the form data to insert into the database
     $stmt = $conn->prepare("INSERT INTO student_reg (attempt, fname, lname, jat, main_jat, education,  contact_no, DOB, religion, faculty, p_address,p_ward, p_vdc_rm_mp, p_txt_vdc_rm_mp,t_address, t_ward, t_vdc_rm_mp, t_txt_vdc_rm_mp,father_name, f_occupation, f_contact_no, service_no, rank, mother_name, m_occupation, m_contact_no, guradian_name, relation, r_contact_no,aggre) 
