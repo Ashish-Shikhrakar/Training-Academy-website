@@ -51,7 +51,8 @@
 				if (mysqli_num_rows($result) > 0) {
 					// Loop through each row and display the elements
 					while ($row = mysqli_fetch_assoc($result)) {
-
+						$fileName=$row['photo'];
+						//echo $fileName;
 						echo "<tr>";
 						echo "<td>" . $row['tid'] . "</td>";
 						echo "<td>" . $row['tname'] . "</td>";
@@ -63,10 +64,10 @@
 
 
 						if ($row["photo"]) {
-							echo '<td><img width="100px" src="data:image/jpeg;base64,' . base64_encode($row["photo"]) . '" alt="Image"></td>';
+							echo '<td><img width="100px" src="../../uploads/'.$fileName. '" alt="Image"></td>';
 						}
 						// echo '<td><img width="100px" src="data:image/jpeg;base64,'.base64_encode($row["photo"]).'" alt="Image"><br></td>';
-				
+						/**/
 
 						// <td> '<img src="../images/" <?php echo $row['photo'];"   style="width:100px; height:100px; alt="image"></td>
 				
