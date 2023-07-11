@@ -21,10 +21,10 @@
         
                 <div class = "nav">
                     <ul>
-                        <a href="#"><li class="menubarItems">Home</li></a>
-                        <a href="#"><li  class="menubarItems">About Us</li></a>
-                        <a href="#"> <li class="menubarItems">Services</li></a>
-                        <a href="#"><li  class="menubarItems">Schedule</li></a>
+                        <a href="index.php"><li class="menubarItems">Home</li></a>
+                        <a href="about.html"><li  class="menubarItems">About Us</li></a>
+                        <a href="notice.html"> <li class="menubarItems">Notice</li></a>
+                        <a href="schedule.html"><li  class="menubarItems">Schedule</li></a>
                         <a href="#"> <li class="menubarItems">Contact</li></a>
                     </ul>
                 </div>
@@ -440,5 +440,25 @@
     </div>
 
     <script src="jscript.js"></script>
+    <script>
+        for (let i = 1; i < 7; i++) {
+            dropdown(i);
+        }
+
+        function dropdown(day) {
+        var x = document.getElementById("drop-table"+day);
+        var y = document.getElementById("drop"+day);
+
+
+        if (x.style.display == "none") {
+            y.style.transform = "rotate(180deg)";
+            x.style.display = "block";
+
+        } else {
+            x.style.display = "none";
+            y.style.transform = "rotate(0deg)";
+        }
+        }
+    </script>
 </body>
 </html>

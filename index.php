@@ -11,7 +11,7 @@
 <body>
     <div class="wrapper">
         <div class="menubar">
-            <div id="navbar">
+            <div id="navbar" style = "height: 65px;">
                 <div class="logo" style="display: inline; float: left;">
     
                     <img src="photo/logo.png">
@@ -19,16 +19,16 @@
         
                 <div class = "nav">
                     <ul>
-                        <a href="#"><li class="menubarItems">Home</li></a>
-                        <a href="#"><li  class="menubarItems">About Us</li></a>
-                        <a href="#"> <li class="menubarItems">Services</li></a>
-                        <a href="#"><li  class="menubarItems">Schedule</li></a>
+                        <a href="index.php"><li class="menubarItems">Home</li></a>
+                        <a href="about.html"><li  class="menubarItems">About Us</li></a>
+                        <a href="notice.html"> <li class="menubarItems">Notice</li></a>
+                        <a href="schedule.html"><li  class="menubarItems">Schedule</li></a>
                         <a href="#"> <li class="menubarItems">Contact</li></a>
                     </ul>
                 </div>
             </div>
             
-            <div style="position: relative; top: auto;">
+            <div style="position: absolute; top: 5%; left: 20%">
                   <h1 class="banner" style="color: #FFF1F1;">ARMY FUTURE <br> <small>Come Join Us</small></h1>
 
                 <div class="banner" style="padding: 0px;">
@@ -278,53 +278,6 @@
             <a class="next" style="color: black;" onclick="plusSlides(1)">&#10095;</a>
           
         </div>
-        <!-- <footer>
-            <div class="footer">
-                <div class="footer-columns">
-                    <div class="column">
-                        <div class="maps">
-                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3534.4475013421393!2d85.31652587497275!3d27.641623228388042!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb17e23effe8e7%3A0x59718c25400cd926!2sAim%20Gurkha%20Training%20Centre!5e0!3m2!1sen!2sus!4v1688035424975!5m2!1sen!2sus" 
-                            width="400" height="200" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                        </div>
-                    </div>
-                    <div class="column" style="margin-left: 20px;">
-                      <h2 class="introtitle" style="color: #A7A44E;padding: 0;">Services</h2>
-                      <ul class="introtext" style="color: #CCCEC8;">
-                        <li>Service 1</li>
-                        <li>Service 2</li>
-                        <li>Service 3</li>
-                      </ul>
-                    </div>
-                    <div class="column">
-                      <h2 class="introtitle" style="color: #A7A44E;padding: 0;">Services</h2>
-                      <ul class="introtext" style="color: #CCCEC8;">
-                        <li>Service 1</li>
-                        <li>Service 2</li>
-                        <li>Service 3</li>
-                      </ul>
-                    </div>
-                    <div class="column">
-                      <h2 class="introtitle" style="color: #A7A44E;padding: 0;">Contact</h2>
-                      <form>
-                        <div>
-                          <input type="email" placeholder="Enter your email" style="box-sizing: content-box;margin: 10px;">
-                        </div>
-                        <div>
-                          <button type="submit">Subscribe</button>
-                        </div>
-                        
-                      </form>
-                      <div class="social-media-links">
-
-                      </div>
-                    </div>
-                  </div>
-            </div>
-            
-            <div>
-
-            </div>
-        </footer> -->
 
         <div class="footer-clean">
           <footer>

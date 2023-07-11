@@ -75,24 +75,10 @@ function showSlides(n) {
 }
 
 
-for (let i = 1; i < 7; i++) {
-  dropdown(i);
-}
-
-function dropdown(day) {
-  var x = document.getElementById("drop-table"+day);
-  var y = document.getElementById("drop"+day);
 
 
-  if (x.style.display == "none") {
-    y.style.transform = "rotate(180deg)";
-    x.style.display = "block";
 
-  } else {
-    x.style.display = "none";
-    y.style.transform = "rotate(0deg)";
-  }
-}
+
 
 
 
