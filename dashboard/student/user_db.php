@@ -50,7 +50,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // } elseif ($t_vdc_rm_mp === 'R.M') {
     //     $t_rm_mp_text = $_POST['t_txt_vdc_rm_mp'];
     // }
-    $photo = $_FILES['pp']['name'];
+    // $photo = $_FILES['pp']['name'];
+
+    $name = $_FILES["photo"]["name"];
+    $tmp = $_FILES["photo"]["tmp_name"];
+    // print_R($_FILES);exit;
+  
+    $uploadStatus=move_uploaded_file($tmp, "../../uploadsS/".$name);
+    if($uploadStatus){
+      
+      //echo $name;exit;
+    }  
+
     $father_name = $_POST['father_name'];
     $f_occupation = $_POST['f_occupation'];
     $f_contact_no = $_POST['f_contact_no'];
@@ -66,10 +77,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 // .. ....
     // $aggre = isset($_POST['aggre']) ? 1 : 0;
     // Prepare and bind the form data to insert into the database
-    $stmt = $conn->prepare("INSERT INTO student_reg (attempt, fname, lname, jat, main_jat, education,  contact_no, DOB, age,religion, faculty, p_address,p_ward, p_vdc_rm_mp, p_txt_vdc_rm_mp,t_address, t_ward, t_vdc_rm_mp, t_txt_vdc_rm_mp,father_name, f_occupation, f_contact_no, service_no, rank, mother_name, m_occupation, m_contact_no, guradian_name, relation, r_contact_no,aggre) 
+    $stmt = $conn->prepare("INSERT INTO student_reg (attempt, fname, lname, jat, main_jat, education,  contact_no, DOB, age,religion, faculty, p_address,p_ward, p_vdc_rm_mp, p_txt_vdc_rm_mp,t_address, t_ward, t_vdc_rm_mp, t_txt_vdc_rm_mp,photo,father_name, f_occupation, f_contact_no, service_no, rank, mother_name, m_occupation, m_contact_no, guradian_name, relation, r_contact_no) 
      VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 
-    $stmt->bind_param("ssssssiiisssisssissssiiississii", $attempt, $fname, $lname, $jat, $main_jat, $education, $contact_no, $DOB,$age, $religion, $faculty, $p_address,$p_ward, $p_vdc_rm_mp, $p_txt_vdc_rm_mp,$t_address,$t_ward, $t_vdc_rm_mp, $t_txt_vdc_rm_mp, $father_name, $f_occupation, $f_contact_no, $service_no, $rank, $mother_name, $m_occupation,$m_contact_no, $guradian_name, $relation, $r_contact_no,$aggre);
+    $stmt->bind_param("ssssssiiisssisssisssssiiississi", $attempt, $fname, $lname, $jat, $main_jat, $education, $contact_no, $DOB,$age, $religion, $faculty, $p_address,$p_ward, $p_vdc_rm_mp, $p_txt_vdc_rm_mp,$t_address,$t_ward, $t_vdc_rm_mp, $t_txt_vdc_rm_mp, $name, $father_name, $f_occupation, $f_contact_no, $service_no, $rank, $mother_name, $m_occupation,$m_contact_no, $guradian_name, $relation, $r_contact_no);
 
     // Execute the prepared statement
     if ($stmt->execute()) {
@@ -84,6 +95,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 }
 else{
-    echo "please check ";
+    echo "Please verified the terms and condition ! THANK YOU !!!";
 }
 ?>

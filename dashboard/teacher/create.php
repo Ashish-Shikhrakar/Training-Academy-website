@@ -125,7 +125,7 @@ if (isset($_POST['save'])) {
   $tmp = $_FILES["photo"]["tmp_name"];
   // print_R($_FILES);exit;
 
-  $uploadStatus=move_uploaded_file($tmp, "../../uploads/".$name);
+  $uploadStatus=move_uploaded_file($tmp, "../../uploadsT/".$name);
   if($uploadStatus){
     //echo $name;exit;
   }  

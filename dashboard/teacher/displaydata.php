@@ -64,8 +64,13 @@
 
 
 						if ($row["photo"]) {
-							echo '<td><img width="100px" src="../../uploads/'.$fileName. '" alt="Image"></td>';
+							echo '<td><img width="100px" src="../../uploadsT/'.$fileName. '"alt="Image"></td>';
 						}
+
+
+
+						// echo '<td><img width="100px" src="data:image/jpeg;base64,' . base64_encode($row["photo"]) . '" alt="Image"></td>';
+						// 	echo '<td><img width="100px" src="../../uploads/'.$fileName. '" alt="Image"></td>';
 						// echo '<td><img width="100px" src="data:image/jpeg;base64,'.base64_encode($row["photo"]).'" alt="Image"><br></td>';
 						/**/
 

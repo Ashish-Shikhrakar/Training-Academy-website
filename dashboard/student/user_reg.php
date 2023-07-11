@@ -110,10 +110,10 @@
                     <br><br>
                     <!-- date of birth -->
                     <label for="datePicker">Date of Birth:</label>
-                   <input type="date" id="datePicker" name="DOB" onchange="updateLabels()"><br><br>
+                   <input type="date" id="datePicker"  onchange="updateLabels()"><br><br>
 
                     <label id="bsLabel">BS:</label>
-                    <input type="text" name="bsdt" id="bsdate">
+                    <input type="text" name="DOB" id="bsdate">
                     <!-- <span id="bsValue"></span> -->
                     <br><br>
                     
@@ -242,7 +242,7 @@
                 <div class="middle-right">
                     <!-- Photo -->
                     <label>Upload photo</label>
-                    <input type="file" class="pphoto" required name="pp">
+                    <input type="file" class="photo" required name="photo">
                     <br><br>
                     <h3>
                         <center>Family and Guardian Details</center>
@@ -290,15 +290,15 @@
                     <br><br>
                     <!-- Guardian's detail -->
                     <label>Guradian's Name</label>
-                    <input type="text" name="guradian_name" required placeholder="Full name" maxlength="30" />
+                    <input type="text" name="guradian_name"  placeholder="Full name" maxlength="30" />
                     <br><br>
                     <!-- Guardian relation -->
                     <label>Relation</label>
-                    <input type="text" name="Relation" required maxlength="30" />
+                    <input type="text" name="Relation"  maxlength="30" />
                     <br><br>
                     <!-- Guardian contact -->
                     <label>Contact no</label>
-                    <input type="number" name="r_contact_no" required maxlength="10" />
+                    <input type="number" name="r_contact_no"  maxlength="10" />
                     <br><br>
                     <!-- button -->
                     <input type="submit" class="btn" value="Submit">
