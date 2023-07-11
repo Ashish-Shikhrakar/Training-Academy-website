@@ -20,8 +20,8 @@
     </div>
     <div class="items">
         <li><i class="fas fa-chart-pie"></i><a href="#">dashboard</a></li>
-        <li><i class="fas fa-users"></i><a href="#">Student</a></li>
-        <li><i class="fas fa-user"></i><a href="teacher/teacher.php">Teacher</a></li>
+        <li><i class="fas fa-users"></i><a target="_blank" href="../dashboard/student/user_reg.php" >Student</a></li>
+        <li><i class="fas fa-user"></i><a href="../dashboard/teacher/displaydata.php">Teacher</a></li>
         <li><i class="fas fa-book"></i><a href="#">Course</a></li>
         <li><i class="fas fa-sms"></i><a href="#">Feedback</a></li>
         <li><i class="fas fa-table"></i><a href="#">Schedule</a></li>
@@ -39,7 +39,7 @@
         </div>
         <div class="profile">
             <i class="fas fa-bell"></i>
-            <img src="images/img1.jpg">
+            <img src="images/bhishma.jpg">
         </div>
     </div>
 

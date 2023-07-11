@@ -28,7 +28,7 @@
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css">
 
-  <title>Teacher data insert</title>
+  <title>Insert Teacher Data</title>
 </head>
 
 <body>
@@ -45,27 +45,27 @@
 
               <div class="form-group">
                 <label>name</label><br>
-                <input type="text" name="tname" class="form-control" placeholder="name" value="<?php echo $tname ?>">
+                <input type="text" name="tname" class="form-control" placeholder="Enter teacher's full name" value="<?php echo $tname ?>">
               </div>
               <div class="form-group">
                 <label>address</label>
-                <input type="text" name="taddress" class="form-control" placeholder="address">
+                <input type="text" name="taddress" class="form-control" placeholder="Enter teacher's address">
               </div>
               <div class="form-group">
                 <label for="">email</label>
-                <input type="text" name="email" class="form-control" placeholder="eamil">
+                <input type="text" name="email" class="form-control" placeholder="Enterteacher's eamil">
               </div>
               <div class="form-group">
                 <label for="">phone</label>
-                <input type="text" name="phone" class="form-control" placeholder="phone">
+                <input type="text" name="phone" class="form-control" placeholder="Enter teacher's phone">
               </div>
               <div class="form-group">
                 <label for="">salary</label>
-                <input type="bignit" name="salary" class="form-control" placeholder="salary">
+                <input type="bignit" name="salary" class="form-control" placeholder="Enter teacher's salary">
               </div>
               <div class="form-group">
                 <label for="">coure id</label>
-                <input type="text" name="cid" class="form-control" placeholder="cid">
+                <input type="text" name="cid" class="form-control" placeholder="Enter taecher course id">
               </div>
               <div class="form-group">
                 <label for="">photo</label>
