@@ -89,8 +89,8 @@
                     <br><br>
                     <!-- name -->
                     <label>Name</label>
-                    <input type="text" required name="Fname" placeholder="First name" maxlength="30" /><br>
-                    <br><input type="text" name="Lname" required placeholder="Last name" maxlength="30" />
+                    <input type="text" required name="fname" placeholder="First name" maxlength="30" /><br>
+                    <br><input type="text" name="lname" required placeholder="Last name" maxlength="30" />
                     <br><br>
                     <!-- jat -->
                     <label>Jaat</label>
@@ -123,11 +123,11 @@
                    <input type="text" name="age" id="ag">
                     <br><br>
                     <!-- religion -->
-                    <label>religion</label>
+                    <label>Religion</label>
                     <input type="text" name="religion" required maxlength="100" />
                     <br><br>
                     <!-- faculty -->
-                    <label> faculty</label>
+                    <label> Faculty</label>
                     <input type="text" name="faculty" required placeholder="District" maxlength="100" />
                     <br><br>
                     <!--permanent address -->
@@ -135,7 +135,7 @@
                     <input type="text" name="p_address" required placeholder="District" maxlength="100" />
                     <br><br>
                     <!--permanent ward -->
-                    <label> ward</label>
+                    <label> Ward</label>
                     <select name="p_ward" id="ward">
                         <option value="null"></option>
                         <option value="1">1</option>
@@ -224,15 +224,19 @@
                     <br><br>
                     <!--temporary VDC/RM/MP -->
                     <select name="t_vdc_rm_mp">
-                        <option value="V.D.C">V.D.C<v /option>
-                        <option value="R.M">R.M</option>
-                        <option value="M.P">M.P</option>
+                        <!-- <option value="V.D.C" <?php // echo ($t_vdc_rm_mp === "V.D.C") ? "selected" : ""; ?>>V.D.C</option>
+                        <option value="R.M" <?php // echo ($t_vdc_rm_mp === "R.M") ? "selected" : ""; ?>>R.M</option>
+                        <option value="M.P" <?php // echo ($t_vdc_rm_mp === "M.P") ? "selected" : ""; ?> >M.P</option> -->
+
+                        <option value="V.D.C" >V.D.C</option>
+                        <option value="R.M" >R.M</option>
+                        <option value="M.P" >M.P</option>
                     </select>
                     <input type="text" name="t_txt_vdc_rm_mp"  placeholder="" maxlength="100" />
                     <br><br>
                     <!-- contact number -->
                     <label>Contact no</label>
-                    <input type="tel" id="phone" name="phone" required >
+                    <input type="tel" id="phone" name="contact_no" required >
                     <br><br>
                 </div>
 
@@ -273,7 +277,7 @@
                     <input type="number" name="rank" maxlength="10" />
                     <br><br>
                     <!-- Registration -->
-                    <label>Regt</label>
+                    <label>Regtistration</label>
                     <input type="number" name="regt" maxlength="10" />
                     <br><br>
                     <!-- mother's name -->
@@ -294,7 +298,7 @@
                     <br><br>
                     <!-- Guardian relation -->
                     <label>Relation</label>
-                    <input type="text" name="Relation"  maxlength="30" />
+                    <input type="text" name="relation"  maxlength="30" />
                     <br><br>
                     <!-- Guardian contact -->
                     <label>Contact no</label>

@@ -11,8 +11,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Retrieve form data
 
     $attempt = $_POST['attempt'];
-    $fname = $_POST['Fname'];
-    $lname = $_POST['Lname'];
+    $fname = $_POST['fname'];
+    $lname = $_POST['lname'];
     $jat = $_POST['jat'];
     $main_jat = $_POST['main_jat'];
     $education = $_POST['education'];
@@ -33,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $t_vdc_rm_mp = $_POST['t_vdc_rm_mp'];
     $t_txt_vdc_rm_mp = $_POST['t_txt_vdc_rm_mp'];
     //$t_rm_mp_text = '';
-    $contact_no = $_POST['phone'];
+    $contact_no = $_POST['contact_no'];
     // // Process VDC/RM/MP selection for permanent address
     // if ($p_vdc_rm_mp === 'V.D.C') {
     //     $p_vdc_rm_mp_text = $_POST['p_txt_vdc_rm_mp'];
@@ -71,18 +71,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $m_occupation = $_POST['m_occupation'];
     $m_contact_no = $_POST['m_contact_no'];
     $guradian_name = $_POST['guradian_name'];
-    $relation = $_POST['Relation'];
+    $relation = $_POST['relation'];
     $r_contact_no = $_POST['r_contact_no'];
   
 // .. ....
     // $aggre = isset($_POST['aggre']) ? 1 : 0;
     // Prepare and bind the form data to insert into the database
-    $stmt = $conn->prepare("INSERT INTO student_reg (attempt, fname, lname, jat, main_jat, education,  contact_no, DOB, age,religion, faculty, p_address,p_ward, p_vdc_rm_mp, p_txt_vdc_rm_mp,t_address, t_ward, t_vdc_rm_mp, t_txt_vdc_rm_mp,photo,father_name, f_occupation, f_contact_no, service_no, rank, mother_name, m_occupation, m_contact_no, guradian_name, relation, r_contact_no) 
+    $stmt = $conn->prepare("INSERT INTO student_reg (attempt, fname, lname, jat, main_jat, education, DOB, age,religion, faculty, p_address,p_ward, p_vdc_rm_mp, p_txt_vdc_rm_mp,t_address, t_ward, t_vdc_rm_mp, t_txt_vdc_rm_mp, contact_no,photo,father_name, f_occupation, f_contact_no, service_no, rank, mother_name, m_occupation, m_contact_no, guradian_name, relation, r_contact_no) 
      VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 
-    $stmt->bind_param("ssssssiiisssisssisssssiiississi", $attempt, $fname, $lname, $jat, $main_jat, $education, $contact_no, $DOB,$age, $religion, $faculty, $p_address,$p_ward, $p_vdc_rm_mp, $p_txt_vdc_rm_mp,$t_address,$t_ward, $t_vdc_rm_mp, $t_txt_vdc_rm_mp, $name, $father_name, $f_occupation, $f_contact_no, $service_no, $rank, $mother_name, $m_occupation,$m_contact_no, $guradian_name, $relation, $r_contact_no);
-
-    // Execute the prepared statement
+    $stmt->bind_param("ssssssiisssisssississsiiississi", $attempt, $fname, $lname, $jat, $main_jat, $education, $DOB,$age, $religion, $faculty, $p_address,$p_ward, $p_vdc_rm_mp, $p_txt_vdc_rm_mp,$t_address,$t_ward, $t_vdc_rm_mp, $t_txt_vdc_rm_mp,$contact_no, $name, $father_name, $f_occupation, $f_contact_no, $service_no, $rank, $mother_name, $m_occupation,$m_contact_no, $guradian_name, $relation, $r_contact_no);
+        //ssssssiisssisssisssssiiiississi//Change blind parameter.
+        // Execute the prepared statement
     if ($stmt->execute()) {
         echo "Data inserted successfully.";
     } else {

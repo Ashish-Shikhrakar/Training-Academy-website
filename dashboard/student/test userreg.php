@@ -1,74 +1,150 @@
 <?php
-@include ('db_connection.php');
 
-// Check if the form is submitted
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Retrieve form data
-
-    $attempt = $_POST['attempt'];
-    $fname = $_POST['Fname'];
-    $lname = $_POST['Lname'];
-    $jat = $_POST['jat'];
-    $main_jat = $_POST['main_jat'];
-    $education = $_POST['education'];
-    $DOB = $_POST['DOB'];
-    // $age = $_POST['age'];
-    
-    // $spanValue = $_POST['spanValue'];
-    $religion = $_POST['religion'];
-    $faculty = $_POST['faculty'];
-    $p_address = $_POST['p_address'];
-    $p_ward = $_POST['p_ward'];
-    $p_vdc_rm_mp = $_POST['p_vdc_rm_mp'];
-    $p_vdc_rm_mp_text = '';
-    $p_rm_mp_text = '';
-    $t_address = $_POST['t_address'];
-    $t_ward = $_POST['t_ward'];
-    $t_vdc_rm_mp = $_POST['t_vdc_rm_mp'];
-    $t_vdc_rm_mp_text = '';
-    $t_rm_mp_text = '';
-    $contact_no = $_POST['phone'];
-
-    // // Process VDC/RM/MP selection for permanent address
-    // if ($p_vdc_rm_mp === 'V.D.C') {
-    //     $p_vdc_rm_mp_text = $_POST['p_txt_vdc_rm_mp'];
-    // } elseif ($p_vdc_rm_mp === 'R.M') {
-    //     $p_rm_mp_text = $_POST['p_txt_vdc_rm_mp'];
-    // }
-    // // Process VDC/RM/MP selection for temporary address
-    // if ($t_vdc_rm_mp === 'V.D.C') {
-    //     $t_vdc_rm_mp_text = $_POST['t_txt_vdc_rm_mp'];
-    // } elseif ($t_vdc_rm_mp === 'R.M') {
-    //     $t_rm_mp_text = $_POST['t_txt_vdc_rm_mp'];
-    // }
-    $photo = $_FILES['pp']['name'];
-    $father_name = $_POST['father_name'];
-    $f_occupation = $_POST['f_occupation'];
-    $f_contact_no = $_POST['f_contact_no'];
-    $service_no = $_POST['service_no'];
-    $rank = $_POST['rank'];
-    $mother_name = $_POST['mother_name'];
-    $m_occupation = $_POST['m_occupation'];
-    $m_contact_no = $_POST['m_contact_no'];
-    $guradian_name = $_POST['guradian_name'];
-    $relation = $_POST['Relation'];
-    $r_contact_no = $_POST['r_contact_no'];
-    $aggre = isset($_POST['aggre']) ? 1 : 0;
-
-    // Prepare and bind the form data to insert into the database
-    $stmt = $conn->prepare("INSERT INTO student_reg (attempt, fname, lname, jat, main_jat, education, DOB, age, religion, faculty, p_address, p_ward, p_vdc_rm_mp, p_txt_vdc_rm_mp, p_rm_mp_text, t_address, t_ward, t_vdc_rm_mp, t_txt_vdc_rm_mp, contact_no, photo, father_name, f_occupation, f_contact_no, service_no, rank, mother_name, m_occupation, m_contact_no, guradian_name, relation, r_contact_no, aggre) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-
-    $stmt->bind_param("sssssssisssisssisssissssisiiiiii", $attempt, $fname, $lname, $jat, $main_jat, $education, $DOB, $age, $religion, $faculty, $p_address, $p_ward, $p_vdc_rm_mp, $p_rm_mp_txt, $t_address, $t_ward, $t_txt_vdc_rm_mp, $t_vdc_rm_mp, $contact_no, $photo, $father_name, $f_occupation, $f_contact_no, $service_no, $rank, $mother_name, $m_occupation, $m_contact_no, $guradian_name, $relation, $r_contact_no, $aggre);
-
-    // Execute the prepared statement
-    if ($stmt->execute()) {
-        echo "Data inserted successfully.";
-    } else {
-        echo "Error inserting data: " . $stmt->error;
-    }
-
-    // Close the statement and database connection
-    $stmt->close();
-    $conn->close();
-}
+@include ("db_connection.php");
 ?>
+<!-- <?php
+  // $tid = '';
+  // $tname = '';
+  // $taddress = '';
+  // $email = '';
+  // $phone = '';
+  // $salary = '';
+  // $cid = '';
+  // $photo = '';
+  
+  
+  // sql SELECT * FROM `teacher` WHERE $id = "valueID"
+
+  // $sql = "SELECT * from teacher where tid = $tid";
+  // $result = $conn->query($sql);
+  // $row = $result->fetch_assoc();
+
+
+   
+  // $tname = $row["tname"];
+?> -->
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css">
+
+  <title>Insert Teacher Data</title>
+</head>
+<body>
+  <div class="container mt-5">
+    <div class="row">
+      <div class="col-md-80">
+        <div class="card">
+          <div class="card-header">
+            <h2>Insert teacher data</h2>
+          </div>
+          <div class="card-body">
+            <form action="" method="POST" enctype="multipart/form-data">
+
+              <div class="form-group">
+                <label>name</label><br>
+                <input type="text" name="tname" class="form-control" placeholder="Enter teacher's full name">
+              </div>
+              <div class="form-group">
+                <label>address</label>
+                <input type="text" name="taddress" class="form-control" placeholder="Enter teacher's address">
+              </div>
+              <div class="form-group">
+                <label for="">email</label>
+                <input type="text" name="email" class="form-control" placeholder="Enterteacher's eamil" >
+              </div>
+              <div class="form-group">
+                <label for="">phone</label>
+                <input type="text" name="phone" class="form-control" placeholder="Enter teacher's phone" >
+              </div>
+              <div class="form-group">
+                <label for="">salary</label>
+                <input type="bignit" name="salary" class="form-control" placeholder="Enter teacher's salary" >
+              </div>
+              <div class="form-group">
+                <label for="">coure id</label>
+                <input type="text" name="cid" class="form-control" placeholder="Enter teacher course id">
+              </div>
+              <div class="form-group">
+                <label for="">photo</label>
+                <input type="file" name="photo" class="form-control">
+              </div>
+              <div class="form-group">
+                <input type="hidden" name="mode" value="<?php $mode ?>">
+                <button type="submit" name="save" class="btn btn-primary">save</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <!-- jQuery, Popper.js, and Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js"></script>
+</body>
+
+</html>
+
+
+
+
+<?php
+
+$conn = mysqli_connect("localhost","root","");
+$db = mysqli_select_db($conn,'army_project');
+
+
+if (isset($_POST['save'])) {
+  $tname = $_POST['tname'];
+  $address = $_POST['taddress'];
+  $email = $_POST['email'];
+  $phone = $_POST['phone'];
+  $salary = $_POST['salary'];
+  $cid = $_POST['cid'];
+  // $file = $_FILES['photo']['tmp_name'];
+
+  //  $file = addslashes(file_get_contents($_FILES["image"]["temp_name"]));
+  // $file = isset($_FILES['photo']) ? $_FILES['photo'] : null;
+
+  $name = $_FILES["photo"]["name"];
+  $tmp = $_FILES["photo"]["tmp_name"];
+  // print_R($_FILES);exit;
+
+  $uploadStatus=move_uploaded_file($tmp, "../../uploadsT/".$name);
+  if($uploadStatus){
+    
+    //echo $name;exit;
+  }  
+  // print_r($_FILES);
+  // Validate and process the data
+
+  // Insert the data into the teacher table
+  $query = "INSERT INTO teacher (tid, tname, taddress, email, phone, salary, cid, photo) 
+            VALUES (NULL,'$tname', '$address', '$email', '$phone', '$salary', '$cid','$name')";
+  // echo $query;
+  // exit;
+  if (mysqli_query($conn, $query)) {
+    // echo "Data inserted successfully.";
+  } else {
+    echo "Error: " . mysqli_error($conn);
+  }
+
+  // Close the database connection
+  mysqli_close($conn);
+}
+
+?>
+
+
+
