@@ -4,9 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aim_Gurkha</title>
+    <!-- <link rel="stylesheet" href="dashboard/student/style.css"> -->
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/css/fontawesome.min.css">
-    
+    <style>
+      .popupcontent img{
+        width: 80px;
+        height: 55px;
+      }
+    </style>
 </head>
 <body>
     <div class="wrapper">
@@ -32,7 +38,7 @@
                   <h1 class="banner" style="color: #FFF1F1;">ARMY FUTURE <br> <small>Come Join Us</small></h1>
 
                 <div class="banner" style="padding: 0px;">
-                    <button class="button">Apply Now</button>
+                    <button class="button" onclick = "openpopup()">Apply Now</button>
                 </div>
             </div>
             
@@ -279,6 +285,16 @@
           
         </div>
 
+        <div class="popupnotice" id="popup">
+            <div class="popupcontent" style = "overflow:hidden;overflow-y:scroll;height:620px;text-align:left;">
+                <img src="photo/close.png" style="width:20px;height:20px;float:right;margin:5px;cursor:pointer;" onclick="closepopup()">
+                <?php
+                  include('dashboard/student/user_reg.php');
+                ?>
+            <button type="button" onclick="closepopup()">Close</button>
+            </div>
+        </div>
+
         <div class="footer-clean">
           <footer>
               <div class="responsive-container-block">
@@ -338,5 +354,16 @@
 
     </div>
     <script src="jscript.js"></script>
+    <script>
+      let popup = document.getElementById("popup");
+      function openpopup(){
+            popup.classList.add("open-popup");
+        }
+
+        function closepopup(){
+
+            popup.classList.remove("open-popup");
+        }
+    </script>
 </body>
 </html>
