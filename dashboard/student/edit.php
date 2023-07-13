@@ -1,83 +1,103 @@
 <?php
 @include("db_connection.php");
-
 $st_id = '';
 $attempt = '';
-$fname= '';
+$fname = '';
 $lname = '';
 $jat = '';
 $main_jat = '';
 $education = '';
-$p_address= '';
+$DOB = '';
+$age = '';
+$religion = '';
+$faculty = '';
+$p_address = '';
+$p_ward = '';
+$p_vdc_rm_mp = '';
+$p_txt_vdc_rm_mp = '';
+$t_address = '';
+$t_ward = '';
+$t_vdc_rm_mp = '';
+$t_txt_vdc_rm_mp = '';
+$contact_no = '';
+
+// $name = $_FILES["photo"]["name"];
+// $tmp = $_FILES["photo"]["tmp_name"];
+// $uploadStatus=move_uploaded_file($tmp, "../../uploadsS/".$name);
+// if($uploadStatus){  
+//   //echo $name;exit;
+// }  
+
+$father_name = '';
+$f_occupation = '';
+$f_contact_no = '';
+$service_no = '';
+$rank = '';
+$mother_name = '';
+$m_occupation = '';
+$m_contact_no = '';
+$guradian_name = '';
+$relation = '';
+$r_contact_no = '';
 
 
-$errorMessage = '';
-$sucessMessage = '';
+if (isset($_POST["st_id"])) {
+    $tid = $_POST["st_id"];
 
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    //get method show the data of the client 
+    $sql = "SELECT * FROM student_reg WHERE st_id = '$st_id'";
 
-    if (!isset($_POST['tid'])) {
-        header("location :/ARMY-WEBSITE-PROJECT/dashboard/teacher/displatdata.php");
-        exit;
+    // Execute the query
+    $result = mysqli_query($conn, $sql);
+
+    // Check if there are any rows returned
+    if (mysqli_num_rows($result) > 0) {
+        // Loop through each row and display the elements
+
+        $row = mysqli_fetch_assoc($result);
+
+        $attempt = $_POST['attempt'];
+        $fname = $_POST['fname'];
+        $lname = $_POST['lname'];
+        $jat = $_POST['jat'];
+        $main_jat = $_POST['main_jat'];
+        $education = $_POST['education'];
+        $DOB = $_POST['DOB'];
+        $age = $_POST['age'];
+        $religion = $_POST['religion'];
+        $faculty = $_POST['faculty'];
+        $p_address = $_POST['p_address'];
+        $p_ward = $_POST['p_ward'];
+        $p_vdc_rm_mp = $_POST['p_vdc_rm_mp'];
+        $p_txt_vdc_rm_mp = $_POST['p_txt_vdc_rm_mp'];
+        $t_address = $_POST['t_address'];
+        $t_ward = $_POST['t_ward'];
+        $t_vdc_rm_mp = $_POST['t_vdc_rm_mp'];
+        $t_txt_vdc_rm_mp = $_POST['t_txt_vdc_rm_mp'];
+        $contact_no = $_POST['contact_no'];
+
+        // $name = $_FILES["photo"]["name"];
+        // $tmp = $_FILES["photo"]["tmp_name"];
+        // $uploadStatus=move_uploaded_file($tmp, "../../uploadsS/".$name);
+        // if($uploadStatus){
+        //   //echo $name;exit;
+        // }  
+
+        $father_name = $_POST['father_name'];
+        $f_occupation = $_POST['f_occupation'];
+        $f_contact_no = $_POST['f_contact_no'];
+        $service_no = $_POST['service_no'];
+        $rank = $_POST['rank'];
+        $mother_name = $_POST['mother_name'];
+        $m_occupation = $_POST['m_occupation'];
+        $m_contact_no = $_POST['m_contact_no'];
+        $guradian_name = $_POST['guradian_name'];
+        $relation = $_POST['relation'];
+        $r_contact_no = $_POST['r_contact_no'];
+
     }
-    $tid = $_POST["tid"];
-
-    $sql = "SELECT * from teacher where tid = $tid";
-    $result = $conn->query($sql);
-    $row = $result->fetch_assoc();
-
-    if (!$row) {
-        header("location :/ARMY-WEBSITE-PROJECT/dashboard/teacher/displatdata.php");
-        exit;
-    }
-    $tid = $_POST['tid'];
-    $tname = $_POST['tname'];
-    $taddress = $_POST['taddress'];
-    $email = $_POST['email'];
-    $phone = $_POST['phone'];
-    $salary = $_POST['salary'];
-    $cid = $_POST['cid'];
-    // $file = addslashes(file_get_contents($_FILES["images"]["temp_name"]));
-    $file = $_FILES['photo']['tmp_name'];
-
-    do {
-        if (empty($tid) || empty($tname) || empty($taddress) || empty($email) || empty($phone) || empty($salary) || empty($cid) || empty($photo)) {
-            $errorMessage = "Fields are required";
-            break;
-        }
-        $sql = "UPDATE teacher" . "SET tname = '$tname',taddress = '$taddress', email = '$email' , phone = '$phone', salary = '$salary' , cid='$cid' ,photo = '$photo' " . "WHERE tid = $tid" ;
-        $result = $conn->query($sql);
-
-        if(!$result){
-            $errorMessage = "Invalid query : ". $conn->error;
-            break;
-
-        }
-        else{
-            $sucessMessage ="Update data sucessfully";
-
-            header("location :/ARMY-WEBSITE-PROJECT/dashboard/teacher/displatdata.php");
-        exit;
-        }
-    } while (true);
-}
-else {
-    //post method
-    $tid = $_POST['tid'];
-    $tname = $_POST['tname'];
-    $taddress = $_POST['taddress'];
-    $email = $_POST['email'];
-    $phone = $_POST['phone'];
-    $salary = $_POST['salary'];
-    $cid = $_POST['cid'];
-    // $file = addslashes(file_get_contents($_FILES["images"]["temp_name"]));
-    $file = $_FILES['photo']['tmp_name'];
-
 
 }
-
 
 ?>
 
@@ -107,7 +127,7 @@ else {
             const bsDate = convertToBS(selectedDate);
             const age = calculateAge(selectedDate);
             document.getElementById("bsdate").value = (bsDate);
-            document.getElementById("ag").value=(age);
+            document.getElementById("ag").value = (age);
             console.log(selectedDate);
         }
 
@@ -136,7 +156,7 @@ else {
             return Math.max(age, 0);
         }
     </script>
-    
+
 </head>
 
 <body>
@@ -184,8 +204,8 @@ else {
                     <br><br>
                     <!-- name -->
                     <label>Name</label>
-                    <input type="text" required name="fname" placeholder="First name" maxlength="30" /><br>
-                    <br><input type="text" name="lname" required placeholder="Last name" maxlength="30" />
+                    <input type="text" required name="fname" placeholder="First name"value="<?php echo $fname; ?>" maxlength="30" /><br>
+                    <br><input type="text" name="lname" required placeholder="Last name" value="<?php echo $lname; ?>" maxlength="30" />
                     <br><br>
                     <!-- jat -->
                     <label>Jaat</label>
@@ -205,17 +225,17 @@ else {
                     <br><br>
                     <!-- date of birth -->
                     <label for="datePicker">Date of Birth:</label>
-                   <input type="date" id="datePicker"  onchange="updateLabels()"><br><br>
+                    <input type="date" id="datePicker" onchange="updateLabels()"><br><br>
 
                     <label id="bsLabel">BS:</label>
                     <input type="text" name="DOB" id="bsdate">
                     <!-- <span id="bsValue"></span> -->
                     <br><br>
-                    
+
                     <!-- age -->
                     <label id="ageLabel">Age:</label>
-                   <!-- <span id="age" ></span><br><br> -->
-                   <input type="text" name="age" id="ag">
+                    <!-- <span id="age" ></span><br><br> -->
+                    <input type="text" name="age" id="ag">
                     <br><br>
                     <!-- religion -->
                     <label>Religion</label>
@@ -323,15 +343,15 @@ else {
                         <option value="R.M" <?php // echo ($t_vdc_rm_mp === "R.M") ? "selected" : ""; ?>>R.M</option>
                         <option value="M.P" <?php // echo ($t_vdc_rm_mp === "M.P") ? "selected" : ""; ?> >M.P</option> -->
 
-                        <option value="V.D.C" >V.D.C</option>
-                        <option value="R.M" >R.M</option>
-                        <option value="M.P" >M.P</option>
+                        <option value="V.D.C">V.D.C</option>
+                        <option value="R.M">R.M</option>
+                        <option value="M.P">M.P</option>
                     </select>
-                    <input type="text" name="t_txt_vdc_rm_mp"  placeholder="" maxlength="100" />
+                    <input type="text" name="t_txt_vdc_rm_mp" placeholder="" maxlength="100" />
                     <br><br>
                     <!-- contact number -->
                     <label>Contact no</label>
-                    <input type="tel" id="phone" name="contact_no" required >
+                    <input type="tel" id="phone" name="contact_no" required>
                     <br><br>
                 </div>
 
@@ -357,7 +377,7 @@ else {
                     <br><br>
                     <!-- contact number -->
                     <label>Contact no</label>
-                    <input type="tel" id="phone" name="f_contact_no"  required>
+                    <input type="tel" id="phone" name="f_contact_no" required>
                     <br><br>
                     <p> If father is /was in the British Army /GSPF/<br>Indian Army
                         /Nepal Government Officier/<br>Nepal Army or Nepal
@@ -389,15 +409,15 @@ else {
                     <br><br>
                     <!-- Guardian's detail -->
                     <label>Guradian's Name</label>
-                    <input type="text" name="guradian_name"  placeholder="Full name" maxlength="30" />
+                    <input type="text" name="guradian_name" placeholder="Full name" maxlength="30" />
                     <br><br>
                     <!-- Guardian relation -->
                     <label>Relation</label>
-                    <input type="text" name="relation"  maxlength="30" />
+                    <input type="text" name="relation" maxlength="30" />
                     <br><br>
                     <!-- Guardian contact -->
                     <label>Contact no</label>
-                    <input type="number" name="r_contact_no"  maxlength="10" />
+                    <input type="number" name="r_contact_no" maxlength="10" />
                     <br><br>
                     <!-- button -->
                     <input type="submit" class="btn" value="Submit">
@@ -406,15 +426,17 @@ else {
 
             </div>
             <div class="bottom">
-            <P>
+                <P>
 
-                <input type="checkbox" name ="aggre">  I will accept all the rules and regulation of this institute and if do any
-                mistakes or if I’m not able to follow the rules and regulation of this institute then I will accept any
-                punishment from this AIM GURKHA.
-            </P>
-        </div>
+                    <input type="checkbox" name="aggre"> I will accept all the rules and regulation of this institute
+                    and if do any
+                    mistakes or if I’m not able to follow the rules and regulation of this institute then I will accept
+                    any
+                    punishment from this AIM GURKHA.
+                </P>
+            </div>
         </form>
-       
+
     </div>
 
 </body>

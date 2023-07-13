@@ -110,10 +110,10 @@
                     <br><br>
                     <!-- date of birth -->
                     <label for="datePicker">Date of Birth:</label>
-                   <input type="date" id="datePicker"  onchange="updateLabels()"><br><br>
+                   <input type="date" id="datePicker" name="DOB"  onchange="updateLabels()"><br><br>
 
                     <label id="bsLabel">BS:</label>
-                    <input type="text" name="DOB" id="bsdate">
+                    <input type="text"  id="bsdate">
                     <!-- <span id="bsValue"></span> -->
                     <br><br>
                     

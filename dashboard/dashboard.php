@@ -8,7 +8,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
-    <link rel="stylesheet" href="css/style2.css">
+    <link rel="stylesheet" href="css/dashboard.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
 <body>
@@ -20,13 +20,13 @@
     </div>
     <div class="items">
         <li><i class="fas fa-chart-pie"></i><a href="#">dashboard</a></li>
-        <li><i class="fas fa-users"></i><a target="_blank" href="../dashboard/student/studentdata.php" >Student</a></li>
-        <li><i class="fas fa-user"></i><a href="../dashboard/teacher/teacherdata.php">Teacher</a></li>
-        <li><i class="fas fa-book"></i><a href="#">Course</a></li>
+        <li><i class="fas fa-users"></i><a  href="../dashboard/student/studentdata.php" >Student</a></li>
+        <li><i class="fas fa-user" onclick="showteacher()"></i><a href="#"></a>Teacher</a></li>
+        <li><i class="fas fa-book"></i><a href="../dashboard/course/coursedata.php">Course</a></li>
         <li><i class="fas fa-sms"></i><a href="#">Feedback</a></li>
         <li><i class="fas fa-table"></i><a href="#">Schedule</a></li>
     </div>
-
+    <!--<a href="../dashboard/teacher/teacherdata.php">-->
    </section> 
 
 <section id="interface">
@@ -37,7 +37,11 @@
                 <input type="text" placeholder="serach">
             </div>
         </div>
+        <div class="head">
+        <h3>Army Training Academy</h3>
+        </div>
         <div class="profile">
+            
             <i class="fas fa-bell"></i>
             <img src="images/bhishma.jpg">
         </div>
@@ -50,14 +54,14 @@
     <div class="val-box">
         <i class="fas fa-users"></i>
         <div>
-            <h3>8,425</h3>
+            <h3>425</h3>
             <span>Students</span>
         </div>
     </div>
     <div class="val-box">
         <i class="fas fa-book"></i>
         <div>
-            <h3>7</h3>
+            <h3>13</h3>
             <span>Course</span>
         </div>
     </div>
@@ -71,15 +75,25 @@
     <div class="val-box">
         <i class="fas fa-table"></i>
         <div>
-            <h3>112</h3>
+            <h3>15</h3>
             <span>Schedule</span>
         </div>
         
     </div>
+    <div id="teacher" style="visibility:hidden;">
+        <?php
+            include('teacher/teacherdata.php')
+        ?>
+    </div>
    </div>
 </section>
 
-
+<script>
+    let x =document.getElementById('teacher');
+    function showteacher(){
+        x.style.visibility('visible')
+    }
+</script>
 </body>
 </html>
 
