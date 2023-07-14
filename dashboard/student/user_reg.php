@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Student Registration Form</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script>
         function updateLabels() {
             const selectedDate = new Date(document.getElementById("datePicker").value);
@@ -48,16 +50,17 @@
     <div class="master">
         <div class="top">
             <div class="top-left">
-                <img src="logo.png"><br><br>
-                <p>Training Center,Dholahity,Lalitpur
-                    Nepal.<br> ph: 01-5574095/9851046632
+                <img src="logo.png"><br>
+                <p><b>Training Center,Dholahity,Lalitpur
+                <br> <i class="fa fa-phone"></i>
+                 01-5574095/+977-9851046632</b>
                 </p>
             </div>
             <div class="top-right">
                 <table border="1" style="border-collapse:collapse">
                     <tr>
                         <td width="30"></td>
-                        <td align="center"> pan no:-602988144</td>
+                        <td align="center"><b>pan no:-602988144<b></td>
                         <td width="30"></td>
                     </tr>
                 </table>
@@ -77,9 +80,9 @@
 
 
                     <!-- Reporting date -->
-                    <label>Reporting date</label>
+                    <!-- <label>Reporting date</label>
                     <input type="date" name="reporting_date">
-                    <br><br>
+                    <br><br> -->
                     <!-- attempt -->
                     <label>Attempt:</label>
                     <input type="radio" name="attempt" value="1st" />1st
@@ -89,9 +92,9 @@
                     <br><br>
                     <!-- name -->
                     <label>Name</label>
-                    <input type="text" required name="fname" placeholder="First name" maxlength="30" /><br>
-                    <br><input type="text" name="lname" required placeholder="Last name" maxlength="30" />
-                    <br><br>
+                    <input type="text" required name="Fname" placeholder="First name" maxlength="30" /><br><br>
+                    <label>Last Name</label>
+                    <input type="text" required name="Lname" placeholder="Last name" maxlength="30" /><br><br>
                     <!-- jat -->
                     <label>Jaat</label>
                     <input type="text" name="jat" placeholder="" maxlength="30" />
@@ -110,10 +113,10 @@
                     <br><br>
                     <!-- date of birth -->
                     <label for="datePicker">Date of Birth:</label>
-                   <input type="date" id="datePicker" name="DOB"  onchange="updateLabels()"><br><br>
+                   <input type="date" id="datePicker" name="DOB" onchange="updateLabels()"><br><br>
 
                     <label id="bsLabel">BS:</label>
-                    <input type="text"  id="bsdate">
+                    <input type="text" name="bsdt" id="bsdate">
                     <!-- <span id="bsValue"></span> -->
                     <br><br>
                     
@@ -123,11 +126,11 @@
                    <input type="text" name="age" id="ag">
                     <br><br>
                     <!-- religion -->
-                    <label>Religion</label>
+                    <label>religion</label>
                     <input type="text" name="religion" required maxlength="100" />
                     <br><br>
                     <!-- faculty -->
-                    <label> Faculty</label>
+                    <label> faculty</label>
                     <input type="text" name="faculty" required placeholder="District" maxlength="100" />
                     <br><br>
                     <!--permanent address -->
@@ -135,7 +138,7 @@
                     <input type="text" name="p_address" required placeholder="District" maxlength="100" />
                     <br><br>
                     <!--permanent ward -->
-                    <label> Ward</label>
+                    <label> ward</label>
                     <select name="p_ward" id="ward">
                         <option value="null"></option>
                         <option value="1">1</option>
@@ -224,19 +227,15 @@
                     <br><br>
                     <!--temporary VDC/RM/MP -->
                     <select name="t_vdc_rm_mp">
-                        <!-- <option value="V.D.C" <?php // echo ($t_vdc_rm_mp === "V.D.C") ? "selected" : ""; ?>>V.D.C</option>
-                        <option value="R.M" <?php // echo ($t_vdc_rm_mp === "R.M") ? "selected" : ""; ?>>R.M</option>
-                        <option value="M.P" <?php // echo ($t_vdc_rm_mp === "M.P") ? "selected" : ""; ?> >M.P</option> -->
-
-                        <option value="V.D.C" >V.D.C</option>
-                        <option value="R.M" >R.M</option>
-                        <option value="M.P" >M.P</option>
+                        <option value="V.D.C">V.D.C</option>
+                        <option value="R.M">R.M</option>
+                        <option value="M.P">M.P</option>
                     </select>
                     <input type="text" name="t_txt_vdc_rm_mp"  placeholder="" maxlength="100" />
                     <br><br>
                     <!-- contact number -->
                     <label>Contact no</label>
-                    <input type="tel" id="phone" name="contact_no" required >
+                    <input type="tel" id="phone" name="phone" required >
                     <br><br>
                 </div>
 
@@ -245,8 +244,8 @@
 
                 <div class="middle-right">
                     <!-- Photo -->
-                    <label>Upload photo</label>
-                    <input type="file" class="photo" required name="photo">
+                    <p>Upload photo</p>
+                    <input type="file" class="pphoto" required name="pp">
                     <br><br>
                     <h3>
                         <center>Family and Guardian Details</center>
@@ -277,7 +276,7 @@
                     <input type="number" name="rank" maxlength="10" />
                     <br><br>
                     <!-- Registration -->
-                    <label>Regtistration</label>
+                    <label>Regt</label>
                     <input type="number" name="regt" maxlength="10" />
                     <br><br>
                     <!-- mother's name -->
@@ -294,29 +293,31 @@
                     <br><br>
                     <!-- Guardian's detail -->
                     <label>Guradian's Name</label>
-                    <input type="text" name="guradian_name"  placeholder="Full name" maxlength="30" />
+                    <input type="text" name="guradian_name" required placeholder="Full name" maxlength="30" />
                     <br><br>
                     <!-- Guardian relation -->
                     <label>Relation</label>
-                    <input type="text" name="relation"  maxlength="30" />
+                    <input type="text" name="Relation" required maxlength="30" />
                     <br><br>
                     <!-- Guardian contact -->
                     <label>Contact no</label>
-                    <input type="number" name="r_contact_no"  maxlength="10" />
-                    <br><br>
+                    <input type="number" name="r_contact_no" required maxlength="10" />
+                    <br><br><br>
                     <!-- button -->
-                    <input type="submit" class="btn" value="Submit">
-                    <input type="reset" class="btn" value="Reset">
+                    <input type="submit" class="btn" value="Submit" style="height:45px">
+                    <input type="reset" class="btn" value="Reset" style="height:45px">
                 </div>
 
             </div>
             <div class="bottom">
             <P>
 
-                <input type="checkbox" name ="aggre">  I will accept all the rules and regulation of this institute and if do any
+                <input type="checkbox" name ="aggre"> <b> I will accept all the rules and regulation of this institute and if do any
                 mistakes or if I’m not able to follow the rules and regulation of this institute then I will accept any
-                punishment from this AIM GURKHA.
-            </P>
+                punishment from this AIM GURKHA.</b>
+                <br>
+               <b> नोट: भर्ना गर्दा बुझाएको भर्ना शुल्क कुनै कारण बस CANDIDATE बिभिद कारणले ट्रेनिंग न आएमा या ट्रेनिंग सेन्टर छोडेमा या बहिष्कार गरिएमा फेरी फिर्ता पाइने छैन,धन्यबाद |</b>
+             </p>
         </div>
         </form>
        
