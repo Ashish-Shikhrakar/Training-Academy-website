@@ -16,17 +16,18 @@
    <section id="menu">
     <div class="logo">
         <img src="images/logo.png" alt="">
-        <h2>Hamro Admin</h2>
+        <h2>Admin Panel</h2>
     </div>
     <div class="items">
         <li><i class="fas fa-chart-pie"></i><a href="#">dashboard</a></li>
         <li><i class="fas fa-users"></i><a  href="../dashboard/student/studentdata.php" >Student</a></li>
-        <li><i class="fas fa-user" onclick="showteacher()"></i><a href="#"></a>Teacher</a></li>
+        <li><i class="fas fa-user"></i></i> <a  href="../dashboard/teacher/teacherdata.php">Teacher</a></li>
         <li><i class="fas fa-book"></i><a href="../dashboard/course/coursedata.php">Course</a></li>
         <li><i class="fas fa-sms"></i><a href="#">Feedback</a></li>
         <li><i class="fas fa-table"></i><a href="#">Schedule</a></li>
     </div>
-    <!--<a href="../dashboard/teacher/teacherdata.php">-->
+  
+        <!-- onclick="showteacher()"></i><a href="#"> -->
    </section> 
 
 <section id="interface">
@@ -43,7 +44,7 @@
         <div class="profile">
             
             <i class="fas fa-bell"></i>
-            <img src="images/bhishma.jpg">
+            <a href="https://www.facebook.com/binod.poudel.79230"><img src="images/bhishma.jpg"></a>
         </div>
     </div>
 

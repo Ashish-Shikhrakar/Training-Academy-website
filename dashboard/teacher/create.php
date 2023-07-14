@@ -36,6 +36,8 @@ if (isset($_POST["tid"])) {
     $phone = $row["phone"];
     $salary = $row["salary"];
     $cid = $row["cid"];
+    $foto = $row["photo"];
+    $changed_ph = '';
 //      $name = $_FILES["photo"]["name"];
 //      $tmp = $_FILES["photo"]["tmp_name"];
 }
@@ -75,6 +77,9 @@ if (isset($_POST["tid"])) {
               <?php echo ($mode === "Add") ? "Insert " : "Update "; ?>teacher data
             </h2>
           </div>
+          <div>
+            <a href="teacherdata.php"><h3 style="text-decoration:none;">See Teacher Data</h3></a>
+          </div>
           <div class="card-body">
             <!-- <?php //echo $submit_message ?> -->
             <form action="" method="POST" enctype="multipart/form-data">
@@ -105,7 +110,7 @@ if (isset($_POST["tid"])) {
                   value="<?php echo $salary; ?>">
               </div>
               <div class="form-group">
-                <label for="">coure id</label>
+                <label for="">course id</label>
                 <input type="text" name="cid" class="form-control" placeholder="Enter teacher course id"
                   value="<?php echo $cid; ?>">
               </div>
@@ -117,13 +122,15 @@ if (isset($_POST["tid"])) {
                 } elseif ($mode === "Update") {
                   if ($row["photo"]) {
                     echo '<br><td><img id="hidephoto" width="100px" src="../../uploadsT/'.$row['photo']. '"alt="Image"></td>';
+                    echo '<input type = "text" name="photo-text" value = '.$foto.' style="visibility:hidden">';
                   }
                   echo '<input type="file" name="photo" class="form-control" onchange="pictureChanged()">';
-                  
+                  // $changed_ph = $_FILES['photo']['name'];
+                  // echo '<br><td><img id="dhidephoto" width="100px" src="../../uploadsT/'.$changed_ph. '"alt="Image"></td>';
                 }
               ?>
                 
-                <!-- <input type = "text" name="photo-text"> -->
+                <!--  -->
               </div>
               <div class="form-group">
                 <input type="hidden" name="mode" value="<?php echo $mode; ?>">
@@ -191,13 +198,13 @@ if (isset($_POST['save'])) {
     $query = "INSERT INTO teacher (tid, tname, taddress, email, phone, salary, cid, photo) 
             VALUES (NULL,'$tname', '$taddress', '$email', '$phone', '$salary', '$cid','$name')";
   } elseif ($mode === "Update") {
-    if (isset($_FILES['photo'])) {
+    $check = $_FILES['photo']['name'];
+    if ($check!='') {
       $query = "UPDATE `teacher` SET `tname`='$tname',`taddress`='$taddress',`email`= '$email',`phone`= '$phone',`salary`= '$salary',`cid`='$cid', `photo`= '$name' WHERE tid = '$tid'";
     } else {
       // $query = "UPDATE `teacher` SET `tname`='$tname',`taddress`='$taddress',`email`= '$email',`phone`= '$phone',`salary`= '$salary',`cid`='$cid', `photo`= $foto WHERE tid = ";
-      $query = "UPDATE `teacher` SET `tname`= '$tname',`taddress`= '$taddress',`email`= '$email',`phone`= '$phone',`salary`= '$salary',`cid`='$cid' WHERE `tid`= '$tid'";
+      $query = "UPDATE `teacher` SET `tname`= '$tname',`taddress`= '$taddress',`email`= '$email',`phone`= '$phone',`salary`= '$salary',`cid`='$cid', `photo`= '$foto' WHERE `tid`= '$tid'";
     }
-    
   }
   
   //echo $tmp;
