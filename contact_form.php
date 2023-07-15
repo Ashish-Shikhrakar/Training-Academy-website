@@ -71,43 +71,6 @@
 </body>
 </html>
 
-<?php
-@include("db_connection.php");
-$host = 'localhost';
-$username = 'root';
-$password = '';
-$database = 'army_project';
-$conn = new mysqli($host, $username, $password, $database);
-
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-
-// Check for form submission
-
-if ($_SERVER['REQUEST_METHOD'] === 'POST'){
-    $u_name = $_POST['u_name'];
-    $u_email = $_POST['u_email'];
-    $phone= $_POST['phone'];
-    $u_message = $_POST['u_message'];
-
-
-    $stmt = $conn->prepare("INSERT INTO user_feedback (u_name,u_email,phone,u_message) VALUES (?, ?, ?, ?)");
-    $stmt->bind_param("ssis", $u_name, $u_email, $phone, $u_message);
-    // Execute query
-    if (! $stmt->execute()) {
-        echo "Error : " . $stmt->error;
-    } 
-    else {
-
-        // echo "Data inserted successfully.";
-    }
-    // Close the database connection
-    $stmt->close();
-    $conn->close();
-}
-?>
  
  <div class = "maps" style="position: relative; margin-left:25px; float: left;">
   <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3534.4475013421393!2d85.31652587497275!3d27.641623228388042!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb17e23effe8e7%3A0x59718c25400cd926!2sAim%20Gurkha%20Training%20Centre!5e0!3m2!1sen!2sus!4v1688035424975!5m2!1sen!2sus" 
@@ -161,5 +124,3 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST'){
 
 </body>
 </html>
-
-
