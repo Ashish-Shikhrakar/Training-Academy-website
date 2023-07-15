@@ -50,13 +50,16 @@
     color:#000;
     text-align:center;
     margin-left:  10px; ">Student feedback</h2>
+	<br>
+	<a class="btn btn-primary" href="../dashboard.php" role="button">Back</a>
+	<br>
             <table border="1" cellpadding="7px" cellspacing="7px" style=" border-collapse: collapse" ;>
 				<thead>
 					<tr>
 						<th>ID</th>
-						<th>Student Name</th>
-						<th>Student Email</th>
-						<th>Student Phone</th>
+						<th>User Name</th>
+						<th>Email</th>
+						<th>Phone</th>
 						<th>Message</th>
                         <th>Action</th>
 					</tr>

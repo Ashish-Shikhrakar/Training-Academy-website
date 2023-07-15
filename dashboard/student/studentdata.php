@@ -54,7 +54,7 @@
 		<div class="container my-9">
 			<h2 style="text-align:center">Student Information</h2>
 
-			<a class="btn btn-primary" href="user_reg.php" role="button">Add Student</a>
+			<a class="btn btn-primary" href="user_reg.php" role="button">Add Student</a>  <a class="btn btn-primary" href="../dashboard.php" role="button">Back</a>
 			<table border="1" cellpadding="7px" cellspacing="7px" style=" border-collapse: collapse" ;>
 				<thead>
 					<tr>
@@ -69,11 +69,11 @@
                         <th>Age</th>
                         <th>Religion</th>
                         <th>Faculty</th>
-						<th>Permanent Address</th>
+						<th>Perm Address</th>
                         <th>Ward</th>
                         <th>VDC/RM/MP</th>
                         <th>V.D.C /R.M /M.P</th>
-                        <th>Temporary Address</th>
+                        <th>Temp Address</th>
                         <th>Ward</th>
                         <th>VDC/RM/MP</th>
                         <th>V.D.C /R.M /M.P</th>

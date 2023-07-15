@@ -42,6 +42,7 @@
 			<h2 style="">Course information</h2>
 
 			<a  href="course.php" role="button"><input type="button" class="btn btn-primary" href="course.php" value="Add New" role="button"></a>
+			<a class="btn btn-primary" href="../dashboard.php" role="button">Back</a>
 			
 			
 			<!-- <a class="btn btn-primary" href="course.php" role="button">Add Course</a> -->

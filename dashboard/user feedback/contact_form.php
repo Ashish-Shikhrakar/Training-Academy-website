@@ -338,7 +338,7 @@ input[type="email"] {
 
 
  <div class="contact-box">
-  <form method="POST" action="" > 
+  <form method="POST" action=""  onsubmit="sendEmail(); reset(); return false;"> 
     <!-- form method="POST" action="userfeedback.php" -->
     <h2>Contact Form</h2>
     <input type="text" class="input-field" required name="u_name" placeholder="Name">
@@ -348,7 +348,24 @@ input[type="email"] {
     <input type="submit" value=" Send Message" name="save"  class="btn"> 
   </form>
  </div>
+<script src="https://smtpjs.com/v3/smtp.js"></script>
 
+<!-- user feedback message direct on gmail account  -->
+<!-- <script> -->
+    function sendEmail(){
+            Email.send({
+                Host : "smtp.gmail.com",
+                Username : "bhishmapoudel408@gmail.com",
+                Password : "password",
+                To : 'bhishma.192006@ncit.edu.np',
+                From : document.getElementById("email").value,
+                Subject : "New feedback from user",
+                Body : "And this is the body",
+            }).then(
+                message => alert(message sent sucessfully)
+            );
+    }
+</script>
 </body>
 </html>
 
