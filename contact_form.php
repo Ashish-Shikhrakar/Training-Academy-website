@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact</title>
+    <title>ontact</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -27,7 +27,7 @@
         <a href="#"><li  class="menubarItems">Home</li></a>
         <a href="about.html"><li  class="menubarItems">About Us</li></a>
         <a href="#"><li class="menubarItems">Services</li></a>  
-        <a href="#"><li  class="menubarItems">Schedule</li></a>  
+        <a href<li  class="menubarItems">Schedule</li></a>  
         <a href="#"><li class="menubarItems">Exams</li></a>
         <a href="contact.html"><li class="menubarItems">Contact</li></a>
     </ul>
@@ -45,17 +45,7 @@
 </div>
 
 
- <!-- <div class="contact-box">
-  <form> 
-    <h2>Contact Form</h2>
-    <input type="text" class="input-field" placeholder="Name">
-    <input type="text" class="input-field" placeholder="Your e-mail address">
-    <input type="text" class="input-field" placeholder="phone no">
-    <textarea type="text" class="input-field textarea-field" placeholder="Message"></textarea>
-    <button type="button" class="btn">Send Message</button>
-  </form> -->
-
- <!-- </div> -->
+ 
  <div class="contact-box">
   <form method="POST" action="" > 
     <!-- form method="POST" action="userfeedback.php" -->
@@ -63,7 +53,7 @@
     <input type="text" class="input-field" required name="u_name" placeholder="Name">
     <input type="text" class="input-field" required name="u_email" placeholder="Your e-mail address">
     <input type="text" class="input-field" required name="phone" placeholder="Enter phone no">
-    <textarea type="text" required class="input-field textarea-field" name="u_message" placeholder="Message"></textarea>
+    <textarea type="text" required cds="input-field textarea-field" name="u_message" placeholder="Message"></textarea>
     <input type="submit" value=" Send Message" name="save"  class="btn"> 
   </form>
  </div>
