@@ -338,20 +338,21 @@ input[type="email"] {
 
 
  <div class="contact-box">
-  <form method="POST" action=""  onsubmit="sendEmail(); reset(); return false;"> 
+  <form method="POST" action="https://formspree.io/f/mqkvkvde""> 
+
     <!-- form method="POST" action="userfeedback.php" -->
     <h2>Contact Form</h2>
-    <input type="text" class="input-field" required name="u_name" placeholder="Name">
-    <input type="text" class="input-field" required name="u_email" placeholder="Your e-mail address">
-    <input type="text" class="input-field" required name="phone" placeholder="Enter phone no">
-    <textarea type="text" required class="input-field textarea-field" name="u_message" placeholder="Message"></textarea>
-    <input type="submit" value=" Send Message" name="save"  class="btn"> 
+    <input type="text" class="input-field" required name="name" autocomplete="false" placeholder="Name">
+    <input type="text" class="input-field" required name="email" autocomplete="false" placeholder="demo@gmail.com">
+    <input type="text" class="input-field" required name="phone" autocomplete="false" placeholder="Enter phone no">
+    <textarea type="text" required class="input-field textarea-field" autocomplete="false"  name="message" placeholder="Message"></textarea>
+    <input type="submit" value="Send Message" name="save"  class="btn"> 
   </form>
  </div>
-<script src="https://smtpjs.com/v3/smtp.js"></script>
+<script src="https://formspree.io/f/xdororlo"></script>
 
 <!-- user feedback message direct on gmail account  -->
-<!-- <script> -->
+<!-- <script>
     function sendEmail(){
             Email.send({
                 Host : "smtp.gmail.com",
@@ -365,7 +366,7 @@ input[type="email"] {
                 message => alert(message sent sucessfully)
             );
     }
-</script>
+</script> -->
 </body>
 </html>
 
@@ -385,13 +386,13 @@ if ($conn->connect_error) {
 // Check for form submission
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST'){
-    $u_name = $_POST['u_name'];
-    $u_email = $_POST['u_email'];
+    $u_name = $_POST['name'];
+    $u_email = $_POST['email'];
     $phone= $_POST['phone'];
-    $u_message = $_POST['u_message'];
+    $u_message = $_POST['message'];
 
 
-    $stmt = $conn->prepare("INSERT INTO user_feedback (u_name,u_email,phone,u_message) VALUES (?, ?, ?, ?)");
+    $stmt = $conn->prepare("INSERT INTO user_feedback (name,email,phone,message) VALUES (?, ?, ?, ?)");
     $stmt->bind_param("ssis", $u_name, $u_email, $phone, $u_message);
     // Execute query
     if (! $stmt->execute()) {
