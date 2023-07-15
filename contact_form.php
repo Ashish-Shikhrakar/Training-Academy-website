@@ -27,7 +27,7 @@
         <a href="#"><li  class="menubarItems">Home</li></a>
         <a href="about.html"><li  class="menubarItems">About Us</li></a>
         <a href="#"><li class="menubarItems">Services</li></a>  
-        <a href<li  class="menubarItems">Schedule</li></a>  
+        <a href="#"><li class="menubarItems">Schedule</li></a>  
         <a href="#"><li class="menubarItems">Exams</li></a>
         <a href="contact.html"><li class="menubarItems">Contact</li></a>
     </ul>
