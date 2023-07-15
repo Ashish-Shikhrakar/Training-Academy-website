@@ -46,17 +46,59 @@
 
 
  
- <div class="contact-box">
+<div class="contact-box">
   <form method="POST" action="" > 
     <!-- form method="POST" action="userfeedback.php" -->
     <h2>Contact Form</h2>
     <input type="text" class="input-field" required name="u_name" placeholder="Name">
     <input type="text" class="input-field" required name="u_email" placeholder="Your e-mail address">
     <input type="text" class="input-field" required name="phone" placeholder="Enter phone no">
-    <textarea type="text" required cds="input-field textarea-field" name="u_message" placeholder="Message"></textarea>
+    <textarea type="text" required class="input-field textarea-field" name="u_message" placeholder="Message"></textarea>
     <input type="submit" value=" Send Message" name="save"  class="btn"> 
   </form>
  </div>
+
+</body>
+</html>
+
+<?php
+@include("db_connection.php");
+$host = 'localhost';
+$username = 'root';
+$password = '';
+$database = 'army_project';
+$conn = new mysqli($host, $username, $password, $database);
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+// Check for form submission
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST'){
+    $u_name = $_POST['u_name'];
+    $u_email = $_POST['u_email'];
+    $phone= $_POST['phone'];
+    $u_message = $_POST['u_message'];
+
+
+    $stmt = $conn->prepare("INSERT INTO user_feedback (u_name,u_email,phone,u_message) VALUES (?, ?, ?, ?)");
+    $stmt->bind_param("ssis", $u_name, $u_email, $phone, $u_message);
+    // Execute query
+    if (! $stmt->execute()) {
+        echo "Error : " . $stmt->error;
+    } 
+    else {
+
+        // echo "Data inserted successfully.";
+    }
+    // Close the database connection
+    $stmt->close();
+    $conn->close();
+}
+?>
+
 
 </body>
 </html>
