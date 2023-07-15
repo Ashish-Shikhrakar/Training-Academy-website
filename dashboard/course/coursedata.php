@@ -39,9 +39,9 @@
 <body>
 	<form action="" method="POST" enctype="multipart/form-data">
 		<div class="container my-5">
-			<h2 style="text-align:center;">Course information</h2>
+			<h2 style="">Course information</h2>
 
-			<a class="btn btn-primary" href="course.php" role="button"><input type="button" class="btn btn-primary" href="course.php" value="Add New" role="button"></a>
+			<a  href="course.php" role="button"><input type="button" class="btn btn-primary" href="course.php" value="Add New" role="button"></a>
 			
 			
 			<!-- <a class="btn btn-primary" href="course.php" role="button">Add Course</a> -->

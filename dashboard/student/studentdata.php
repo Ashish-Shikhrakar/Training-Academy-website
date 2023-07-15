@@ -1,3 +1,10 @@
+<?php   
+
+@include("db_connection.php");
+?>
+
+
+
 <!DOCTYPE html>
 <html>
 
@@ -12,7 +19,7 @@
         function editThis(st_id) {
             var form = document.createElement("form");
             form.method = "POST";
-            form.action = "student_reg.php";
+            form.action = "edit.php";
 
             var input = document.createElement("input");
             input.type = "hidden";
@@ -88,16 +95,16 @@
 					</tr>
 			</thead>
                 <?php
-				$conn = mysqli_connect("localhost", "root", "");
-				$db = mysqli_select_db($conn, 'army_project');
+				// $conn = mysqli_connect("localhost", "root", "");
+				// $db = mysqli_select_db($conn, 'army_project');
 
 				// $query = "SELECT * FROM student_reg";
 				// $query_run = mysqli_query($conn,$query);
 				// while ($row = mysqli_fetch_array($query_run)) {
 				// Check if the connection was successful
-				if (!$conn) {
-					die("Connection failed: " . mysqli_connect_error());
-				}
+				// if (!$conn) {
+				// 	die("Connection failed: " . mysqli_connect_error());
+				// }
 
 
 				$sql = "SELECT * FROM student_reg";

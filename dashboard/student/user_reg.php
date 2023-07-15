@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
     <script>
         function updateLabels() {
             const selectedDate = new Date(document.getElementById("datePicker").value);
@@ -50,7 +51,7 @@
     <div class="master">
         <div class="top">
             <div class="top-left">
-                <img src="logo.png"><br>
+                <img src="../images/logo.png"><br>
                 <p><b>Training Center,Dholahity,Lalitpur
                 <br> <i class="fa fa-phone"></i>
                  01-5574095/+977-9851046632</b>
@@ -91,7 +92,7 @@
                     <input type="radio" name="attempt" value="4th" />4th
                     <br><br>
                     <!-- name -->
-                    <label>Name</label>
+                    <label>First Name</label>
                     <input type="text" required name="Fname" placeholder="First name" maxlength="30" /><br><br>
                     <label>Last Name</label>
                     <input type="text" required name="Lname" placeholder="Last name" maxlength="30" /><br><br>
@@ -126,11 +127,11 @@
                    <input type="text" name="age" id="ag">
                     <br><br>
                     <!-- religion -->
-                    <label>religion</label>
+                    <label>Religion</label>
                     <input type="text" name="religion" required maxlength="100" />
                     <br><br>
                     <!-- faculty -->
-                    <label> faculty</label>
+                    <label> Faculty</label>
                     <input type="text" name="faculty" required placeholder="District" maxlength="100" />
                     <br><br>
                     <!--permanent address -->
@@ -138,7 +139,7 @@
                     <input type="text" name="p_address" required placeholder="District" maxlength="100" />
                     <br><br>
                     <!--permanent ward -->
-                    <label> ward</label>
+                    <label> Ward</label>
                     <select name="p_ward" id="ward">
                         <option value="null"></option>
                         <option value="1">1</option>
@@ -188,7 +189,7 @@
                     <input type="text" name="t_address" placeholder="District" maxlength="100" />
                     <br><br>
                     <!--temporary ward -->
-                    <label> ward</label>
+                    <label> Ward</label>
                     <select name="t_ward" id="ward">
                         <option value="null"></option>
                         <option value="1">1</option>
@@ -244,7 +245,7 @@
 
                 <div class="middle-right">
                     <!-- Photo -->
-                    <p>Upload photo</p>
+                    <p>Upload Photo</p>
                     <input type="file" class="pphoto" required name="pp">
                     <br><br>
                     <h3>

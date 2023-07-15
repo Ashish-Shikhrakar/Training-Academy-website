@@ -19,7 +19,7 @@
             <div class="col-md-80">
                 <div class="card">
                     <div class="card-header">
-                        <h2>Course data</h2>
+                        <h2>Insert Course Information</h2>
                     </div>
                     <div class="card-body">
                         <form action="" method="POST" enctype="multipart/form-data">

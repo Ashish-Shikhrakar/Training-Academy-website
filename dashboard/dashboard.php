@@ -19,11 +19,11 @@
         <h2>Admin Panel</h2>
     </div>
     <div class="items">
-        <li><i class="fas fa-chart-pie"></i><a href="#">dashboard</a></li>
+        <li><i class="fas fa-chart-pie"></i><a href="dashboard.php">Dashboard</a></li>
         <li><i class="fas fa-users"></i><a  href="../dashboard/student/studentdata.php" >Student</a></li>
         <li><i class="fas fa-user"></i></i> <a  href="../dashboard/teacher/teacherdata.php">Teacher</a></li>
         <li><i class="fas fa-book"></i><a href="../dashboard/course/coursedata.php">Course</a></li>
-        <li><i class="fas fa-sms"></i><a href="#">Feedback</a></li>
+        <li><i class="fas fa-sms"></i><a href="../dashboard/user feedback/userfeedback.php">Feedback</a></li>
         <li><i class="fas fa-table"></i><a href="#">Schedule</a></li>
     </div>
   
@@ -59,18 +59,19 @@
             <span>Students</span>
         </div>
     </div>
-    <div class="val-box">
-        <i class="fas fa-book"></i>
-        <div>
-            <h3>13</h3>
-            <span>Course</span>
-        </div>
-    </div>
+  
     <div class="val-box">
         <i class="fas fa-user"></i>
         <div>
             <h3>13</h3>
             <span>Teacher</span>
+        </div>
+    </div>
+    <div class="val-box">
+        <i class="fas fa-book"></i>
+        <div>
+            <h3>13</h3>
+            <span>Course</span>
         </div>
     </div>
     <div class="val-box">

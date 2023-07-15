@@ -13,12 +13,6 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-// $sql = "SELECT * from teacher";
-// $result =$conn->query($sql);
-
-// if(!$result){
-//    die("invalid query:".$conn->error);
-// }
 ?>
 
 
