@@ -138,7 +138,7 @@ if (isset($_POST["tid"])) {
                 <button type="submit" name="save" class="btn btn-primary">
                   <?php echo $mode; ?>
                 </button>
-                <button type="reset" name="reset" class="btn btn-primary">claer</button>
+                <button type="reset" name="reset" class="btn btn-primary">clear</button>
               </div>
             </form>
           </div>
@@ -161,9 +161,6 @@ if (isset($_POST["tid"])) {
 
 
 <?php
-
-// $conn = mysqli_connect("localhost", "root", "");
-// $db = mysqli_select_db($conn, 'army_project');
 
 
 if (isset($_POST['save'])) {

@@ -10,8 +10,9 @@ include($_SERVER['DOCUMENT_ROOT'].'/ARMY-WEBSITE-PROJECT/dashboard/common/sideba
 	<form action="" method="POST" enctype="multipart/form-data">
 		<div class="container my-5">
 			<h2 style="text-align:center;">Teacher information</h2>
-			<a class="btn btn-primary" href="create.php" role="button">Add Teacher</a> <a class="btn btn-primary" href="../dashboard.php" role="button">Back</a>
-			<table border="1" cellpadding="7px" cellspacing="7px" style=" border-collapse: collapse" ;>
+			<a class="btn btn-primary" href="create.php" role="button">Add Teacher</a>
+			 <!-- <a class="btn btn-primary" href="../dashboard.php" role="button">Back</a> -->
+			<table class="table table-border">
 				<thead>
 					<tr>
 						<th>ID</th>

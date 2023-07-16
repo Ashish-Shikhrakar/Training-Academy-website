@@ -8,8 +8,6 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css">
-
     <title>Insert Course</title>
 </head>
 
@@ -38,13 +36,10 @@
                                 <label for="">coure id</label>
                                 <input type="text" name="cid" class="form-control" required placeholder="Enter teacher course id">
                             </div>
-                            <!-- <div class="form-group">
-                            <label for="">photo</label>
-                            <input type="file" name="photo" class="form-control">
-                            </div> -->
+                            
                             <div class="form-group">
                                 <button type="submit" name="save" value="Insert" class="btn btn-primary">Add new</button>
-                            <!-- <button type="submit" name="save" class="btn btn-primary"> Insert</button> -->
+                                <button type="reset" name="reset" class="btn btn-primary">clear</button>
                             </div>
                     </form>
                 </div>

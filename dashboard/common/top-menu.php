@@ -32,7 +32,7 @@
     <div class="profile">
 
         <i class="bi bi-bell"></i>
-        <a href="logout.php"><i class="bi bi-box-arrow-right"></i></a>
-        <a href="register_form.php"><img src="<?php echo $rootUrl . '/dashboard/images/bhishma.jpg' ?>"></a>
+        <a href=" <?php echo $rootUrl .'/dashboard/logout.php'?> "><i class="bi bi-box-arrow-right"></i></a>
+        <a href=" <?php echo $rootUrl .'/dashboard/register_form.php'?> "><img src="<?php echo $rootUrl .'/dashboard/images/bhishma.jpg' ?>"></a>
     </div>
 </div>

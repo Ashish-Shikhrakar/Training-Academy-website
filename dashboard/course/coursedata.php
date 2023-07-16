@@ -8,15 +8,15 @@ include($_SERVER['DOCUMENT_ROOT'] . '/ARMY-WEBSITE-PROJECT/dashboard/common/side
 
 		<form action="" method="POST" enctype="multipart/form-data">
 			<div class="container my-5">
-				<h2 style="">Course information</h2>
+				<h2 style="text-align:center">Course Information</h2>
 
 				<a href="course.php" role="button"><input type="button" class="btn btn-primary" href="course.php"
 						value="Add New" role="button"></a>
-				<a class="btn btn-primary" href="../dashboard.php" role="button">Back</a>
+				<!-- <a class="btn btn-primary" href="../dashboard.php" role="button">Back</a> -->
 
 
 				<!-- <a class="btn btn-primary" href="course.php" role="button">Add Course</a> -->
-				<table border="1" cellpadding="7px" cellspacing="7px" style=" border-collapse: collapse" ;>
+				<table class="table table-border">
 					<thead>
 						<tr>
 							<th>ID</th>
@@ -70,7 +70,7 @@ include($_SERVER['DOCUMENT_ROOT'] . '/ARMY-WEBSITE-PROJECT/dashboard/common/side
 	function editThis(cr_id) {
 		var form = document.createElement("form");
 		form.method = "POST";
-		form.action = "course.php";
+		form.action = "edit.php";
 
 		var input = document.createElement("input");
 		input.type = "hidden";

@@ -7,28 +7,13 @@ include($_SERVER['DOCUMENT_ROOT'].'/ARMY-WEBSITE-PROJECT/dashboard/common/sideba
 <section id ="interface" >
    <?php  include($_SERVER['DOCUMENT_ROOT'].'/ARMY-WEBSITE-PROJECT/dashboard/common/top-menu.php')?>
 	
-
-
-
-<!DOCTYPE html>
-<html>
-
-<head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Student Information</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
-        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-	<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"> -->
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css">
-	
-</head>
-<body>
+   
 <form action="" method="POST" enctype="multipart/form-data">
 		<div class="container my-9">
 			<h2 style="text-align:center">Student Information</h2>
 
-			<a class="btn btn-primary" href="user_reg.php" role="button">Add Student</a>  <a class="btn btn-primary" href="../dashboard.php" role="button">Back</a>
+			<a class="btn btn-primary" href="user_reg.php" role="button">Add Student</a> 
+             <!-- <a class="btn btn-primary" href="../dashboard.php" role="button">Back</a> -->
 			<!-- <table border="1" cellpadding="7px" cellspacing="7px" style=" border-collapse: collapse" ;> -->
                 <table class="table table-border">
 				<thead>
@@ -70,18 +55,7 @@ include($_SERVER['DOCUMENT_ROOT'].'/ARMY-WEBSITE-PROJECT/dashboard/common/sideba
 					</tr>
 			</thead>
                 <?php
-				// $conn = mysqli_connect("localhost", "root", "");
-				// $db = mysqli_select_db($conn, 'army_project');
-
-				// $query = "SELECT * FROM student_reg";
-				// $query_run = mysqli_query($conn,$query);
-				// while ($row = mysqli_fetch_array($query_run)) {
-				// Check if the connection was successful
-				// if (!$conn) {
-				// 	die("Connection failed: " . mysqli_connect_error());
-				// }
-
-
+				
 				$sql = "SELECT * FROM student_reg";
 
 				// Execute the query

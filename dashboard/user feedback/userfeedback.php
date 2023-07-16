@@ -10,16 +10,11 @@ include($_SERVER['DOCUMENT_ROOT'].'/ARMY-WEBSITE-PROJECT/dashboard/common/sideba
 
 <form action="" method="POST" enctype="multipart/form-data">
 		<div class="container my-5">
-			<h2 style=" text-transform: uppercase; letter-spacing:.1em;
-    line-height: normal; 
-    font-size: 2rem; 
-    color:#000;
-    text-align:center;
-    margin-left:  10px; ">Student feedback</h2>
+			<h2 style="text-align:center">Student feedback</h2>
 	<br>
-	<a class="btn btn-primary" href="../dashboard.php" role="button">Back</a>
+	<!-- <a class="btn btn-primary" href="../dashboard.php" role="button">Back</a> -->
 	<br>
-            <table border="1" cellpadding="7px" cellspacing="7px" style=" border-collapse: collapse" ;>
+            <table class="table table-border">
 				<thead>
 					<tr>
 						<th>ID</th>

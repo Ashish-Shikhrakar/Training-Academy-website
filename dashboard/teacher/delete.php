@@ -29,6 +29,7 @@ if (isset($_POST["tid"])) {
         mysqli_stmt_close($statement);
         
         header("location: displaydata.php?error=none");
+        
         exit();
     }
     delete_inventory($conn, $tid);

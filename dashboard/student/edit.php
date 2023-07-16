@@ -1,5 +1,5 @@
 <?php
-@include("db_connection.php");
+include("config.php");
 
 
 $st_id = '';
@@ -114,10 +114,8 @@ if (isset($_POST["st_id"])) {
 <html lang="en">
 
 <head>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
-        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-	<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"> -->
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css">	
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Update Student</title>
@@ -193,10 +191,10 @@ if (isset($_POST["st_id"])) {
 
 
                     <!-- Reporting date
-                    <label>Reporting date</label>
-                    <input type="date" name="reporting_date">
-                    <br><br> -->
-                    <!-- attempt -->
+                    <label for="rdate">Reporting date</label>
+                    <input type="date" name="reporting_date" id="rdate">
+                    <br><br> --> -->
+                    <!-- attempt
                     <label>Attempt:</label>
                     <input type="radio" id="first" <?php echo ($attempt === "1st") ? 'checked' : ''; ?> name="attempt" value="1st" /><label for="first">1st</label>
                     <input type="radio" id="second" <?php echo ($attempt === "2nd") ? 'checked' : ''; ?> name="attempt" value="2nd" /><label for="second">2nd</label>
