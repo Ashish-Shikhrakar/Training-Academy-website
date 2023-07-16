@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,10 +13,13 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200&family=Quicksand&display=swap" rel="stylesheet">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+<script src="https://common.olemiss.edu/_js/sweet-alert/sweet-alert.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://common.olemiss.edu/_js/sweet-alert/sweet-alert.css">
 
 
 </head>
 <body>
+  
     <div class="menubar1">
         <div class="logo" style="display: inline; float: left;">
             <img src="photo/logo.png">
@@ -58,6 +60,21 @@
   </form>
  </div>
 
+ <div class="contact-box">
+  <form method="POST" action="" > 
+    <!-- form method="POST" action="userfeedback.php" -->
+    <h2>Contact Form</h2>
+    <input type="text" class="input-field" required name="u_name" placeholder="Name">
+    <input type="text" class="input-field" required name="u_email" placeholder="Your e-mail address">
+    <input type="text" class="input-field" required name="phone" placeholder="Enter phone no">
+    <textarea type="text" required class="input-field textarea-field" name="u_message" placeholder="Message"></textarea>
+    <input type="submit" value=" Send Message" name="save"  class="btn"> 
+  </form>
+ </div>
+
+</body>
+</html>
+
 <?php
 @include("db_connection.php");
 $host = 'localhost';
@@ -74,27 +91,38 @@ if ($conn->connect_error) {
 // Check for form submission
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST'){
+  if(isset($_POST['save'])){
     $u_name = $_POST['u_name'];
     $u_email = $_POST['u_email'];
     $phone= $_POST['phone'];
     $u_message = $_POST['u_message'];
 
-    $stmt = $conn->prepare("INSERT INTO user_feedback (u_name,u_email,phone,u_message) VALUES (?, ?, ?, ?)");
-    $stmt->bind_param("ssis", $u_name, $u_email, $phone, $u_message);
-    // Execute query
-    if (! $stmt->execute()) {
-        echo "Error : " . $stmt->error;
-    } 
-    else {
 
-      echo "Data inserted successfully.";
-
+    // $stmt = $conn->prepare("INSERT INTO user_feedback (u_name,u_email,phone,u_message) VALUES (?, ?, ?, ?)");
+    // $stmt->bind_param("ssis", $u_name, $u_email, $phone, $u_message);
+    // // Execute query
+    // if (! $stmt->execute()) {
+    //     echo "Error : " . $stmt->error;
+    // } 
+    $insert="INSERT INTO user_feedback(u_name,u_email,phone,u_message) VALUES ('$u_name', '$u_email', '$phone', '$u_message')";
+    $query= mysqli_query($conn,$insert);
+    if($query){
+      ?>
+      <script>
+        swal({
+  title: "submitted",
+  text: "Data inserted!",
+  icon: "success",
+});
+      </script>
+      <?php
     }
+  }
     // Close the database connection
-    $stmt->close();
-    $conn->close();
-}
-?> 
+    // $stmt->close();
+    // $conn->close();
+ }
+?>
 
 <footer>
 
