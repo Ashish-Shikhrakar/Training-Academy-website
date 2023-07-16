@@ -1,7 +1,12 @@
-<?php   
+<?php 
 
-@include("db_connection.php");
-?>
+include($_SERVER['DOCUMENT_ROOT'].'/ARMY-WEBSITE-PROJECT/dashboard/common/header.php');
+include($_SERVER['DOCUMENT_ROOT'].'/ARMY-WEBSITE-PROJECT/dashboard/common/sidebar.php')?>
+
+    
+<section id ="interface" >
+   <?php  include($_SERVER['DOCUMENT_ROOT'].'/ARMY-WEBSITE-PROJECT/dashboard/common/top-menu.php')?>
+	
 
 
 
@@ -16,40 +21,7 @@
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 	<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"> -->
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css">
-	<script>
-
-        function editThis(st_id) {
-            var form = document.createElement("form");
-            form.method = "POST";
-            form.action = "edit.php";
-
-            var input = document.createElement("input");
-            input.type = "hidden";
-            input.name = "st_id";
-            input.value = st_id;
-
-            form.appendChild(input);
-
-            document.body.appendChild(form);
-            form.submit();
-        }
-
-        function deleteThis(st_id) {
-            var form = document.createElement("form");
-            form.method = "POST";
-            form.action = "delete.php";
-
-            var input = document.createElement("input");
-            input.type = "hidden";
-            input.name = "st_id";
-            input.value = st_id;
-
-            form.appendChild(input);
-
-            document.body.appendChild(form);
-            form.submit();
-        }
-    </script>
+	
 </head>
 <body>
 <form action="" method="POST" enctype="multipart/form-data">
@@ -183,7 +155,40 @@
 
 
 
+<script>
 
+        function editThis(st_id) {
+            var form = document.createElement("form");
+            form.method = "POST";
+            form.action = "edit.php";
+
+            var input = document.createElement("input");
+            input.type = "hidden";
+            input.name = "st_id";
+            input.value = st_id;
+
+            form.appendChild(input);
+
+            document.body.appendChild(form);
+            form.submit();
+        }
+
+        function deleteThis(st_id) {
+            var form = document.createElement("form");
+            form.method = "POST";
+            form.action = "delete.php";
+
+            var input = document.createElement("input");
+            input.type = "hidden";
+            input.name = "st_id";
+            input.value = st_id;
+
+            form.appendChild(input);
+
+            document.body.appendChild(form);
+            form.submit();
+        }
+    </script>
 
 
 
@@ -195,9 +200,7 @@
         crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js"
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
-        crossorigin="anonymous"></script>
-</body>
-</html>
+
 
 
 
