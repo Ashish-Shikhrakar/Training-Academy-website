@@ -486,13 +486,13 @@ if (isset($_POST["submit"])) {
     $r_contact_no = $_POST['r_contact_no'];
     $sid = $_POST['sid'];
 
-    $query = "UPDATE `student_reg` SET `attempt`='$attempt',`fname`='$fname',`lname`='$lname',`jat`='$jat',`main_jat`='$main_jat',`education`='$education',`DOB`='$DOB',`age`='$age',`religion`='$religion',`faculty`='$faculty',`p_address`='$p_address',`p_ward`='$p_ward',`p_vdc_rm_mp`='$p_vdc_rm_mp',`p_txt_vdc_rm_mp`='$p_txt_vdc_rm_mp',`t_address`='$t_address',`t_ward`='$t_ward',`t_vdc_rm_mp`='$t_vdc_rm_mp',`t_txt_vdc_rm_mp`='$t_txt_vdc_rm_mp',`contact_no`='$contact_no',`father_name`='$father_name',`f_occupation`='$f_occupation',`f_contact_no`='$f_contact_no',`service_no`='$service_no',`rank`='$rank',`mother_name`='$mother_name',`m_occupation`='$m_occupation',`m_contact_no`='$m_contact_no',`guradian_name`='$guradian_name',`relation`='$relation',`r_contact_no`='r_contact_no' WHERE st_id= '$sid'";
+    $query = "UPDATE `student_reg` SET `attempt`='$attempt',`fname`='$fname',`lname`='$lname',`jat`='$jat',`main_jat`='$main_jat',`education`='$education',`DOB`='$DOB',`age`='$age',`religion`='$religion',`faculty`='$faculty',`p_address`='$p_address',`p_ward`='$p_ward',`p_vdc_rm_mp`='$p_vdc_rm_mp',`p_txt_vdc_rm_mp`='$p_txt_vdc_rm_mp',`t_address`='$t_address',`t_ward`='$t_ward',`t_vdc_rm_mp`='$t_vdc_rm_mp',`t_txt_vdc_rm_mp`='$t_txt_vdc_rm_mp',`contact_no`='$contact_no',`father_name`='$father_name',`f_occupation`='$f_occupation',`f_contact_no`='$f_contact_no',`service_no`='$service_no',`rank`='$rank',`mother_name`='$mother_name',`m_occupation`='$m_occupation',`m_contact_no`='$m_contact_no',`guradian_name`='$guradian_name',`relation`='$relation',`r_contact_no`='$r_contact_no' WHERE st_id= '$sid'";
 
     if (mysqli_query($conn, $query)) {
 
         // header("location: user_reg.php?error=none");
 
-        header('Location: user_reg.php?error=none');
+        //header('Location: user_reg.php?error=none');
 
         // echo 'Updated successfully ';
         // }

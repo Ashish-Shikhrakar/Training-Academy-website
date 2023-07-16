@@ -313,7 +313,7 @@
             <div class="bottom">
             <P>
 
-                <input type="checkbox" name ="aggre"> <b> I will accept all the rules and regulation of this institute and if do any
+               <label for="check"><input type="checkbox" id="check" name ="aggre"> </label> <b> I will accept all the rules and regulation of this institute and if do any
                 mistakes or if I’m not able to follow the rules and regulation of this institute then I will accept any
                 punishment from this AIM GURKHA.</b>
                 <br>
