@@ -32,6 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $t_ward = $_POST['t_ward'];
     $t_vdc_rm_mp = $_POST['t_vdc_rm_mp'];
     $t_txt_vdc_rm_mp = $_POST['t_txt_vdc_rm_mp'];
+    
     //$t_rm_mp_text = '';
     $contact_no = $_POST['contact_no'];
     

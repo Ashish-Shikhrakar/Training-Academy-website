@@ -93,9 +93,9 @@
                     <br><br>
                     <!-- name -->
                     <label>First Name</label>
-                    <input type="text" required name="Fname" placeholder="First name" maxlength="30" /><br><br>
+                    <input type="text" required name="fname" placeholder="First name" maxlength="30" /><br><br>
                     <label>Last Name</label>
-                    <input type="text" required name="Lname" placeholder="Last name" maxlength="30" /><br><br>
+                    <input type="text" required name="lname" placeholder="Last name" maxlength="30" /><br><br>
                     <!-- jat -->
                     <label>Jaat</label>
                     <input type="text" name="jat" placeholder="" maxlength="30" />
@@ -236,7 +236,7 @@
                     <br><br>
                     <!-- contact number -->
                     <label>Contact no</label>
-                    <input type="tel" id="phone" name="phone" required >
+                    <input type="tel" id="phone" name="contact_no" required >
                     <br><br>
                 </div>
 
@@ -246,7 +246,7 @@
                 <div class="middle-right">
                     <!-- Photo -->
                     <p>Upload Photo</p>
-                    <input type="file" class="pphoto" required name="pp">
+                    <input type="file" class="pphoto" required name="photo">
                     <br><br>
                     <h3>
                         <center>Family and Guardian Details</center>
@@ -298,7 +298,7 @@
                     <br><br>
                     <!-- Guardian relation -->
                     <label>Relation</label>
-                    <input type="text" name="Relation" required maxlength="30" />
+                    <input type="text" name="relation" required maxlength="30" />
                     <br><br>
                     <!-- Guardian contact -->
                     <label>Contact no</label>

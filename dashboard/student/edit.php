@@ -42,10 +42,11 @@ $m_contact_no = '';
 $guradian_name = '';
 $relation = '';
 $r_contact_no = '';
+$sid = '';
 
 
 if (isset($_POST["st_id"])) {
-    $tid = $_POST["st_id"];
+    $st_id = $_POST["st_id"];
 
 
     $sql = "SELECT * FROM student_reg WHERE st_id = '$st_id'";
@@ -59,44 +60,46 @@ if (isset($_POST["st_id"])) {
 
         $row = mysqli_fetch_assoc($result);
 
-        $attempt = $_POST['attempt'];
-        $fname = $_POST['fname'];
-        $lname = $_POST['lname'];
-        $jat = $_POST['jat'];
-        $main_jat = $_POST['main_jat'];
-        $education = $_POST['education'];
-        $DOB = $_POST['DOB'];
-        $age = $_POST['age'];
-        $religion = $_POST['religion'];
-        $faculty = $_POST['faculty'];
-        $p_address = $_POST['p_address'];
-        $p_ward = $_POST['p_ward'];
-        $p_vdc_rm_mp = $_POST['p_vdc_rm_mp'];
-        $p_txt_vdc_rm_mp = $_POST['p_txt_vdc_rm_mp'];
-        $t_address = $_POST['t_address'];
-        $t_ward = $_POST['t_ward'];
-        $t_vdc_rm_mp = $_POST['t_vdc_rm_mp'];
-        $t_txt_vdc_rm_mp = $_POST['t_txt_vdc_rm_mp'];
-        $contact_no = $_POST['contact_no'];
+        $attempt = $row['attempt'];
+        $fname = $row['fname'];
+        $lname = $row['lname'];
+        $jat = $row['jat'];
+        $main_jat = $row['main_jat'];
+        $education = $row['education'];
+        $DOB = $row['DOB'];
+        $age = $row['age'];
+        $religion = $row['religion'];
+        $faculty = $row['faculty'];
+        $p_address = $row['p_address'];
+        $p_ward = $row['p_ward'];
+        $p_vdc_rm_mp = $row['p_vdc_rm_mp'];
+        $p_txt_vdc_rm_mp = $row['p_txt_vdc_rm_mp'];
+        $t_address = $row['t_address'];
+        $t_ward = $row['t_ward'];
+        $t_vdc_rm_mp = $row['t_vdc_rm_mp'];
+        $t_txt_vdc_rm_mp = $row['t_txt_vdc_rm_mp'];
+        $contact_no = $row['contact_no'];
 
-        $name = $_FILES["photo"]["name"];
-        $tmp = $_FILES["photo"]["tmp_name"];
-        $uploadStatus=move_uploaded_file($tmp, "../../uploadsS/".$name);
-        if($uploadStatus){
-          //echo $name;exit;
-        }  
+        
 
-        $father_name = $_POST['father_name'];
-        $f_occupation = $_POST['f_occupation'];
-        $f_contact_no = $_POST['f_contact_no'];
-        $service_no = $_POST['service_no'];
-        $rank = $_POST['rank'];
-        $mother_name = $_POST['mother_name'];
-        $m_occupation = $_POST['m_occupation'];
-        $m_contact_no = $_POST['m_contact_no'];
-        $guradian_name = $_POST['guradian_name'];
-        $relation = $_POST['relation'];
-        $r_contact_no = $_POST['r_contact_no'];
+        $father_name = $row['father_name'];
+        $f_occupation = $row['f_occupation'];
+        $f_contact_no = $row['f_contact_no'];
+        $service_no = $row['service_no'];
+        $rank = $row['rank'];
+        $mother_name = $row['mother_name'];
+        $m_occupation = $row['m_occupation'];
+        $m_contact_no = $row['m_contact_no'];
+        $guradian_name = $row['guradian_name'];
+        $relation = $row['relation'];
+        $r_contact_no = $row['r_contact_no'];
+
+        // $name = $_FILES["photo"]["name"];
+        // $tmp = $_FILES["photo"]["tmp_name"];
+        // $uploadStatus=move_uploaded_file($tmp, "../../uploadsS/".$name);
+        // if($uploadStatus){
+        //   //echo $name;exit;
+        // }  
 
     }
 
@@ -111,6 +114,10 @@ if (isset($_POST["st_id"])) {
 <html lang="en">
 
 <head>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"> -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Update Student</title>
@@ -172,7 +179,7 @@ if (isset($_POST["st_id"])) {
                 </table>
             </div>
         </div>
-        <form method="post" action="user_db.php" enctype="multipart/form-data">
+        <form method="post" action="" enctype="multipart/form-data">
             <div class="middle">
 
                 <div class="middle-left">
@@ -191,19 +198,19 @@ if (isset($_POST["st_id"])) {
                     <br><br> -->
                     <!-- attempt -->
                     <label>Attempt:</label>
-                    <input type="radio" name="attempt" value="1st" />1st
-                    <input type="radio" name="attempt" value="2nd" />2nd
-                    <input type="radio" name="attempt" value="3rd" />3rd
-                    <input type="radio" name="attempt" value="4th" />4th
+                    <input type="radio" id="first" <?php echo ($attempt === "1st") ? 'checked' : ''; ?> name="attempt" value="1st" /><label for="first">1st</label>
+                    <input type="radio" id="second" <?php echo ($attempt === "2nd") ? 'checked' : ''; ?> name="attempt" value="2nd" /><label for="second">2nd</label>
+                    <input type="radio" id="third" <?php echo ($attempt === "3rd") ? 'checked' : ''; ?> name="attempt" value="3rd" /><label for="third">3rd</label>
+                    <input type="radio" id="fourth" <?php echo ($attempt === "4th") ? 'checked' : ''; ?> name="attempt" value="4th" /><label for="fourth">4th</label>
                     <br><br>
                     <!-- name -->
                     <label>Name</label>
-                    <input type="text" required name="fname" placeholder="Enter First name"value="<?php echo $fname; ?>" maxlength="30" /><br>
+                    <input type="text" required name="fname" placeholder="Enter First name" value="<?php echo $fname; ?>" maxlength="30" /><br>
                     <br><input type="text" name="lname" required placeholder="Enter Last name" value="<?php echo $lname; ?>" maxlength="30" />
                     <br><br>
                     <!-- jat -->
                     <label>Jaat</label>
-                    <input type="text" name="jat" placeholder="Enter your jaat" value="<?php echo $jat ?>" maxlength="30" />
+                    <input type="text" name="jat" placeholder="Enter your jaat" value="<?php echo $jat; ?>" maxlength="30" />
                     <br> <br>
                     <!-- main jat -->
                     <label>Main Jaat</label>
@@ -333,13 +340,10 @@ if (isset($_POST["st_id"])) {
                     <br><br>
                     <!--temporary VDC/RM/MP -->
                     <select name="t_vdc_rm_mp">
-                        <!-- <option value="V.D.C" <?php // echo ($t_vdc_rm_mp === "V.D.C") ? "selected" : ""; ?>>V.D.C</option>
-                        <option value="R.M" <?php // echo ($t_vdc_rm_mp === "R.M") ? "selected" : ""; ?>>R.M</option>
-                        <option value="M.P" <?php // echo ($t_vdc_rm_mp === "M.P") ? "selected" : ""; ?> >M.P</option> -->
+                        <option value="V.D.C" <?php echo ($t_vdc_rm_mp === "V.D.C") ? "selected" : ""; ?>>V.D.C</option>
+                        <option value="R.M" <?php echo ($t_vdc_rm_mp=== "R.M") ? "selected" : ""; ?>>R.M</option>
+                        <option value="M.P" <?php echo ($t_vdc_rm_mp === "M.P") ? "selected" : ""; ?> >M.P</option>
 
-                        <option value="V.D.C">V.D.C</option>
-                        <option value="R.M">R.M</option>
-                        <option value="M.P">M.P</option>
                     </select>
                     <input type="text" name="t_txt_vdc_rm_mp" placeholder="Please  choose your address" maxlength="100" value="<?php echo $t_txt_vdc_rm_mp; ?>"/>
                     <br><br>
@@ -354,9 +358,9 @@ if (isset($_POST["st_id"])) {
 
                 <div class="middle-right">
                     <!-- Photo -->
-                    <label>Upload photo</label>
-                    <input type="file" class="photo" required name="photo">
-                    <br><br>
+                    <!-- <label>Upload photo</label>
+                    <input type="file" class="photo" name="photo">
+                    <br><br> -->
                     <h3>
                         <center>Family and Guardian Details</center>
                     </h3>
@@ -413,8 +417,9 @@ if (isset($_POST["st_id"])) {
                     <label>Contact no</label>
                     <input type="number" name="r_contact_no" maxlength="10" placeholder="Enter contact number" value="<?php echo $r_contact_no; ?>"/>
                     <br><br>
+                    <input type="hidden" name="sid" value="<?php echo $st_id; ?>">
                     <!-- button -->
-                    <input type="submit" class="btn" value="Submit">
+                    <input type="submit" class="btn btn-primary" name="submit" value="Submit">
                     <input type="reset" class="btn" value="Reset">
                 </div>
 
@@ -432,6 +437,15 @@ if (isset($_POST["st_id"])) {
 
     </div>
 
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
 </body>
 
 </html>
@@ -439,19 +453,53 @@ if (isset($_POST["st_id"])) {
 
 <?php 
 
+if (isset($_POST["submit"])) {
+    $attempt = $_POST['attempt'];
+    $fname = $_POST['fname'];
+    $lname = $_POST['lname'];
+    $jat = $_POST['jat'];
+    $main_jat = $_POST['main_jat'];
+    $education = $_POST['education'];
+    $DOB = $_POST['DOB'];
+    $age = $_POST['age'];
+    $religion = $_POST['religion'];
+    $faculty = $_POST['faculty'];
+    $p_address = $_POST['p_address'];
+    $p_ward = $_POST['p_ward'];
+    $p_vdc_rm_mp = $_POST['p_vdc_rm_mp'];
+    $p_txt_vdc_rm_mp = $_POST['p_txt_vdc_rm_mp'];
+    $t_address = $_POST['t_address'];
+    $t_ward = $_POST['t_ward'];
+    $t_vdc_rm_mp = $_POST['t_vdc_rm_mp'];
+    $t_txt_vdc_rm_mp = $_POST['t_txt_vdc_rm_mp'];
+    $contact_no = $_POST['contact_no'];
+    $father_name = $_POST['father_name'];
+    $f_occupation = $_POST['f_occupation'];
+    $f_contact_no = $_POST['f_contact_no'];
+    $service_no = $_POST['service_no'];
+    $rank = $_POST['rank'];
+    $mother_name = $_POST['mother_name'];
+    $m_occupation = $_POST['m_occupation'];
+    $m_contact_no = $_POST['m_contact_no'];
+    $guradian_name = $_POST['guradian_name'];
+    $relation = $_POST['relation'];
+    $r_contact_no = $_POST['r_contact_no'];
+    $sid = $_POST['sid'];
 
-$query = "UPDATE `student_reg` SET `attempt`='$attempt',`fname`='$fname',`lname`='$lname',`jat`='$jat',`main_jat`='$main_jat',`education`='$education',`DOB`='$DOB',`age`='$age',`religion`='$religion',`faculty`='$faculty',`p_address`='$p_address',`p_ward`='$p_ward',`p_vdc_rm_mp`='$p_vdc_rm_mp',`p_txt_vdc_rm_mp`='$p_txt_vdc_rm_mp',`t_address`='$t_address',`t_ward`='$t_ward',`t_vdc_rm_mp`='$t_vdc_rm_mp',`t_txt_vdc_rm_mp`='$t_txt_vdc_rm_mp',`contact_no`='$contact_no',`photo`='$name',`father_name`='$father_name',`f_occupation`='$f_occupation',`f_contact_no`='$f_contact_no',`service_no`='$service_no',`rank`='$rank',`mother_name`='$mother_name',`m_occupation`='$m_occupation',`m_contact_no`='$m_contact_no',`guradian_name`='$guradian_name',`relation`='$relation',`r_contact_no`='r_contact_no' WHERE st_id= '$st_id'";
+    $query = "UPDATE `student_reg` SET `attempt`='$attempt',`fname`='$fname',`lname`='$lname',`jat`='$jat',`main_jat`='$main_jat',`education`='$education',`DOB`='$DOB',`age`='$age',`religion`='$religion',`faculty`='$faculty',`p_address`='$p_address',`p_ward`='$p_ward',`p_vdc_rm_mp`='$p_vdc_rm_mp',`p_txt_vdc_rm_mp`='$p_txt_vdc_rm_mp',`t_address`='$t_address',`t_ward`='$t_ward',`t_vdc_rm_mp`='$t_vdc_rm_mp',`t_txt_vdc_rm_mp`='$t_txt_vdc_rm_mp',`contact_no`='$contact_no',`father_name`='$father_name',`f_occupation`='$f_occupation',`f_contact_no`='$f_contact_no',`service_no`='$service_no',`rank`='$rank',`mother_name`='$mother_name',`m_occupation`='$m_occupation',`m_contact_no`='$m_contact_no',`guradian_name`='$guradian_name',`relation`='$relation',`r_contact_no`='r_contact_no' WHERE st_id= '$sid'";
 
+    if (mysqli_query($conn, $query)) {
 
+        // header("location: user_reg.php?error=none");
 
-if (mysqli_query($conn, $query)) {
-    // 
-    // header("location:user_reg.php?error=none");
-   
+        header('Location: user_reg.php?error=none');
+
+        // echo 'Updated successfully ';
+        // }
+        // else{
+        // echo "Error: " . mysqli_error($conn);
     }
-    else{
-    echo "Error: " . mysqli_error($conn);
-  }
-  mysqli_close($conn);
-//}
+    mysqli_close($conn);
+}
+
 ?>
