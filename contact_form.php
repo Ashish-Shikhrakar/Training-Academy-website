@@ -58,9 +58,6 @@
   </form>
  </div>
 
-</body>
-</html>
-
 <?php
 @include("db_connection.php");
 $host = 'localhost';
@@ -82,7 +79,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST'){
     $phone= $_POST['phone'];
     $u_message = $_POST['u_message'];
 
-
     $stmt = $conn->prepare("INSERT INTO user_feedback (u_name,u_email,phone,u_message) VALUES (?, ?, ?, ?)");
     $stmt->bind_param("ssis", $u_name, $u_email, $phone, $u_message);
     // Execute query
@@ -91,31 +87,27 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST'){
     } 
     else {
 
-        // echo "Data inserted successfully.";
+      echo "Data inserted successfully.";
+
     }
     // Close the database connection
     $stmt->close();
     $conn->close();
 }
-?>
+?> 
 
-
-</body>
-</html>
-
- 
- <div class = "maps" style="position: relative; margin-left:25px; float: left;">
-  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3534.4475013421393!2d85.31652587497275!3d27.641623228388042!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb17e23effe8e7%3A0x59718c25400cd926!2sAim%20Gurkha%20Training%20Centre!5e0!3m2!1sen!2sus!4v1688035424975!5m2!1sen!2sus" 
-      width="400" height="240" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-      
-</div>
 <footer>
-  
+
   <div class="footer">
     <div class="container">
+    <div class = "maps" style="position: relative; float: left;">
+  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3534.4475013421393!2d85.31652587497275!3d27.641623228388042!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb17e23effe8e7%3A0x59718c25400cd926!2sAim%20Gurkha%20Training%20Centre!5e0!3m2!1sen!2sus!4v1688035424975!5m2!1sen!2sus" 
+      width="360" height="240" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      
+</div>
       <div class="row">
        
-      <div class="footer-col">
+      <div class="footer-col" style = "text-align:left;">
         <h4>Product</h4>
         <ul>
           <li><a href="#">Installation Manual</a></li>
@@ -148,9 +140,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST'){
     </div>
     </div>
 
-    <div class="ag" >Aim Gurkha</div>
-       <span  class="spn">&copy;2023 All Rights Reserved</span>
+    <div class="ag" >
+      Aim Gurkha
+      <div  class="spn">&copy;2023 All Rights Reserved</div>
     </div>
+       
+  </div>
  
 </footer>
 

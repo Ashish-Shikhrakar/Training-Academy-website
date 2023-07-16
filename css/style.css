@@ -236,19 +236,20 @@ h1::after{
 
   .footer{
     background-color: #454A34;
-    padding: 90px;
+    padding: 20px;
     margin-top: 570px;
     text-align: center;
     width:100%;
+    height: fit-content;
 
   }
   
   .footer-col{
-    width: 100%;
+    width: -webkit-fill-available;
     padding:0 10px;
     margin-left: 120px;
     margin:10px;
-    align-items: center;
+    text-align: left;
     height: 150px;
     
   }
@@ -256,10 +257,8 @@ h1::after{
     font-size: 17px;
     color: #A7A44E;
     margin-bottom: 35px;
-    text-align: center;
     font-weight: 1000;
     position: relative;
-  
   }
   
 .footer-col ul li:not(:last-child){
@@ -303,24 +302,26 @@ text-decoration: none;
   }
 }
 .maps{
-  margin-top: 670px;
-  border-color:black;
+  margin-right: 20px;
+  margin-bottom: 0px;
+  margin-left: 0px;
+  margin-top: 20px;
+  border: 2px solid #000000;
+  width: fit-content;
 }
 .ag{
   font-family: 'Inter', sans-serif;
   color: #A7A44E;
   text-align: center;
-  margin-top: 110px;
-  margin-right:1px;
   text-transform: uppercase;
-
+  margin-top: 40px;
 
 }
 .spn{
   font-family: 'Inter', sans-serif;
   color: #FFFFFF;
   text-align: center;
-  margin-top: 800px;
+  margin-top: 10px;
   margin-right: 1px;
   font-size: small;
 }
