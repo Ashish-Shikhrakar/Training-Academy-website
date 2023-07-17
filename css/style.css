@@ -597,6 +597,15 @@ footer{
     box-shadow: 0 5px 5px rgba(0, 0, 0,0.4);
   }
 
+  .contact-box{
+    width: 364px;
+    background-color: #E3E3E3;
+    box-shadow: 0 0 12px 0 #999;
+    position: relative;
+    transform: translate(-50%,0%);
+    left: 50%;
+  }
+
 .footer-clean {
     padding:50px 0;
     background-color:#454A34;
