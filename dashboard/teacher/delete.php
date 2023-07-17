@@ -20,7 +20,7 @@ if (isset($_POST["tid"])) {
         $statement = mysqli_stmt_init($conn);
         
         if (!mysqli_stmt_prepare($statement, $sql)) {
-            header("location: displaydata.php?error=statementfailed");
+            header("location: teacherdata.php?error=statementfailed");
             exit();
         }
         
@@ -28,7 +28,7 @@ if (isset($_POST["tid"])) {
         mysqli_stmt_execute($statement);
         mysqli_stmt_close($statement);
         
-        header("location: displaydata.php?error=none");
+        header("location: teacherdata.php?error=none");
         
         exit();
     }

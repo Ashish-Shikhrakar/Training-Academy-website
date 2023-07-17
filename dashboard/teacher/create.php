@@ -1,6 +1,6 @@
 <?php
 
-@include("db_connection.php");
+include("db_connection.php");
 
 $tid = '';
 $tname = '';
@@ -8,7 +8,6 @@ $taddress = '';
 $email = '';
 $phone = '';
 $salary = '';
-
 $cid = '';
 $submit_message = '';
 $mode = "Add";
@@ -78,7 +77,9 @@ if (isset($_POST["tid"])) {
             </h2>
           </div>
           <div>
-            <a href="teacherdata.php"><h3 style="text-decoration:none;">See Teacher Data</h3></a>
+            <!-- <a href="teacherdata.php"><h3 style="text-decoration:none;">See Teacher Data</h3></a> -->
+            <a class="btn btn-primary" href="../teacher/teacherdata.php" role="button">Back</a>
+
           </div>
           <div class="card-body">
             <!-- <?php //echo $submit_message ?> -->
@@ -208,7 +209,7 @@ if (isset($_POST['save'])) {
   //echo $tmp;
   
   if (mysqli_query($conn, $query)) {
-    // 
+    // <?php echo $rootUrl.'
     header("location: create.php?error=none");
    
     }

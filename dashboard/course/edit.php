@@ -1,6 +1,6 @@
 <?php
-$conn = mysqli_connect("localhost", "root", "");
-$db = mysqli_select_db($conn, 'army_project');
+$conn = mysqli_connect("localhost", "root","", "army_project");
+// $db = mysqli_select_db($conn, 'army_project');
 
     $cr_id='';
     $cname = '';
@@ -39,7 +39,7 @@ $db = mysqli_select_db($conn, 'army_project');
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css">
 
-    <title>Insert Course</title>
+    <title>Course</title>
 </head>
 
 <body>
@@ -52,6 +52,7 @@ $db = mysqli_select_db($conn, 'army_project');
                     </div>
                     <div class="card-body">
                         <form action="" method="POST" enctype="multipart/form-data">
+                        <a class="btn btn-primary" href="../course/coursedata.php" role="button">Back</a>
 
                             <div class="form-group">
                                 <label>Subject Name</label><br>
@@ -100,7 +101,7 @@ if (isset($_POST['submit'])) {
 
 
 //    $query = "UPDATE course SET cname = '$cname', c_t_name = '$c_t_name', cid = '$cid' WHERE cr_id =' $cr_id'";
-   $query = "UPDATE `course` SET `cname`='cname',`c_t_name`='c_t_name',`cid`='cid' WHERE `cr_id` = '$cr_id'";
+   $query = "UPDATE `course` SET `cname`='$cname',`c_t_name`='$c_t_name',`cid`='$cid' WHERE `cr_id` = '$cr_id'";
 
     // Execute query
     if (mysqli_query($conn, $query)) {

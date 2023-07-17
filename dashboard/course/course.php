@@ -21,6 +21,8 @@
                     </div>
                     <div class="card-body">
                         <form action="" method="POST" enctype="multipart/form-data">
+                        <a class="btn btn-primary" href="../course/coursedata.php" role="button">Back</a>
+
 
                             <div class="form-group">
                                 <label>Subject Name</label><br>

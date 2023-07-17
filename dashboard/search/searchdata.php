@@ -44,15 +44,28 @@ include($_SERVER['DOCUMENT_ROOT'].'/ARMY-WEBSITE-PROJECT/dashboard/common/sideba
                             </thead>
                             <tbody>
                                 <?php
+                               
+                                if (isset($_POST['search_txt'])) {
+                                    echo 
+                                    '<script>
+                                        let clearMe = document.getElementById("clearMe");
+                                        clearMe.innerHTML = "";
+                                    </script>';
+                                
+                                    if ($_POST["search_txt"] === '') {
+                                        // do nothing
+                                    } else {
                               
-                                $conn = mysqli_connect("localhost","root","","army_project");
+                                    $conn = mysqli_connect("localhost","root","","army_project");
                                     if(isset($_POST['search_btn'])){
                                         $search_txt = $_POST['search_txt'];
 
                                         $query = "SELECT * FROM teacher where CONCAT(tname,taddress,email) like '%$search_txt %' ";
                                         $query_run=mysqli_query($conn,$query);
+                                        
 
                                         if(mysqli_num_rows($query_run)>0){
+                                                echo '<div id="clearMe">';
 
                                                 while($row = mysqli_fetch_array($query_run)){
 
@@ -70,6 +83,7 @@ include($_SERVER['DOCUMENT_ROOT'].'/ARMY-WEBSITE-PROJECT/dashboard/common/sideba
                                                     </tr>
                                                   <?php
                                                 }
+                                                echo '</div>';
                                         }
                                         else{
                                             ?>
@@ -79,6 +93,8 @@ include($_SERVER['DOCUMENT_ROOT'].'/ARMY-WEBSITE-PROJECT/dashboard/common/sideba
                                             <?php
                                         }
                                     }
+                                }
+                            }
                                 ?>
                                
                             </tbody>

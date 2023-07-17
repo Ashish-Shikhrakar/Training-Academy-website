@@ -1,5 +1,12 @@
+
 <?php
-include("config.php");
+
+$conn = new mysqli("localhost", "root", "", "army_project");
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
 
 
 $st_id = '';
@@ -79,8 +86,6 @@ if (isset($_POST["st_id"])) {
         $t_vdc_rm_mp = $row['t_vdc_rm_mp'];
         $t_txt_vdc_rm_mp = $row['t_txt_vdc_rm_mp'];
         $contact_no = $row['contact_no'];
-
-        
 
         $father_name = $row['father_name'];
         $f_occupation = $row['f_occupation'];
@@ -181,31 +186,20 @@ if (isset($_POST["st_id"])) {
             <div class="middle">
 
                 <div class="middle-left">
-                    <h2>
-                        <center>Application Form</center>
-                    </h2>
+                    <h2><center>Application Form</center></h2>
                     <br>
-                    <h3>
-                        <center>Personal Detail</center>
-                    </h3>
+                    <h3><center>Personal Detail</center></h3>
 
-
-                    <!-- Reporting date
-                    <label for="rdate">Reporting date</label>
-                    <input type="date" name="reporting_date" id="rdate">
-                    <br><br> --> -->
-                    <!-- attempt
-                    <label>Attempt:</label>
                     <input type="radio" id="first" <?php echo ($attempt === "1st") ? 'checked' : ''; ?> name="attempt" value="1st" /><label for="first">1st</label>
                     <input type="radio" id="second" <?php echo ($attempt === "2nd") ? 'checked' : ''; ?> name="attempt" value="2nd" /><label for="second">2nd</label>
                     <input type="radio" id="third" <?php echo ($attempt === "3rd") ? 'checked' : ''; ?> name="attempt" value="3rd" /><label for="third">3rd</label>
                     <input type="radio" id="fourth" <?php echo ($attempt === "4th") ? 'checked' : ''; ?> name="attempt" value="4th" /><label for="fourth">4th</label>
                     <br><br>
                     <!-- name -->
-                    <label>Name</label>
+                    <label>First Name</label>
                     <input type="text" required name="fname" placeholder="Enter First name" value="<?php echo $fname; ?>" maxlength="30" /><br>
-                    <br><input type="text" name="lname" required placeholder="Enter Last name" value="<?php echo $lname; ?>" maxlength="30" />
-                    <br><br>
+                    <label>Last Name</label>
+                    <input type="text" name="lname" required placeholder="Enter Last name" value="<?php echo $lname; ?>" maxlength="30" /><br><br>
                     <!-- jat -->
                     <label>Jaat</label>
                     <input type="text" name="jat" placeholder="Enter your jaat" value="<?php echo $jat; ?>" maxlength="30" />
@@ -217,9 +211,9 @@ if (isset($_POST["st_id"])) {
                     <!-- education -->
                     <label>Educatiion</label>
                     <select name="education" id="edu">
-                        <option value="see">SEE</option>
-                        <option value="10 +2">10 +2</option>
-                        <option value="Bachelor">Bachelor</option>
+                        <option value="SEE" <?php echo ($education === "SEE")? "selected" : ""; ?>>SEE</option>
+                        <option value="10 +2" <?php echo ($education === "10 +2")? "selected" : ""; ?>>10 +2</option>
+                        <option value="Bachelor" <?php echo ($education === "Bachelor")? "selected" : ""; ?>>Bachelor</option>
                     </select>
                     <br><br>
                     <!-- date of birth -->
@@ -252,45 +246,46 @@ if (isset($_POST["st_id"])) {
                     <label> Ward</label>
                     <select name="p_ward" id="ward">
                         <option value="null"></option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                        <option value="8">8</option>
-                        <option value="9">9</option>
-                        <option value="10">10</option>
-                        <option value="11">11</option>
-                        <option value="12">12</option>
-                        <option value="13">13</option>
-                        <option value="14">14</option>
-                        <option value="15">15</option>
-                        <option value="16">16</option>
-                        <option value="17">17</option>
-                        <option value="18">18</option>
-                        <option value="19">19</option>
-                        <option value="20">20</option>
-                        <option value="21">21</option>
-                        <option value="22">22</option>
-                        <option value="23">23</option>
-                        <option value="24">24</option>
-                        <option value="25">25</option>
-                        <option value="26">26</option>
-                        <option value="27">27</option>
-                        <option value="28">28</option>
-                        <option value="29">29</option>
-                        <option value="30">30</option>
-                        <option value="31">31</option>
-                        <option value="32">32</option>
+                        <option value="1" <?php echo ($p_ward === "1") ? "selected" : ""; ?>>1</option>
+                        <option value="2" <?php echo ($p_ward === "2") ? "selected" : ""; ?>>2</option>
+                        <option value="3" <?php echo ($p_ward === "3") ? "selected" : ""; ?>>3</option>
+                        <option value="4" <?php echo ($p_ward === "4") ? "selected" : ""; ?>>4</option>
+                        <option value="5" <?php echo ($p_ward === "5") ? "selected" : ""; ?>>5</option>
+                        <option value="6" <?php echo ($p_ward === "6") ? "selected" : ""; ?>>6</option>
+                        <option value="7" <?php echo ($p_ward === "7") ? "selected" : ""; ?>>7</option>
+                        <option value="8" <?php echo ($p_ward === "8") ? "selected" : ""; ?>>8</option>
+                        <option value="9" <?php echo ($p_ward === "9") ? "selected" : ""; ?>>9</option>
+                        <option value="10" <?php echo ($p_ward === "10") ? "selected" : ""; ?>>10</option>
+                        <option value="11" <?php echo ($p_ward === "11") ? "selected" : ""; ?>>11</option>
+                        <option value="12" <?php echo ($p_ward === "12") ? "selected" : ""; ?>>12</option>
+                        <option value="13" <?php echo ($p_ward === "13") ? "selected" : ""; ?>>13</option>
+                        <option value="14" <?php echo ($p_ward === "14") ? "selected" : ""; ?>>14</option>
+                        <option value="15" <?php echo ($p_ward === "15") ? "selected" : ""; ?>>15</option>
+                        <option value="16" <?php echo ($p_ward === "16") ? "selected" : ""; ?>>16</option>
+                        <option value="17" <?php echo ($p_ward === "17") ? "selected" : ""; ?>>17</option>
+                        <option value="18" <?php echo ($p_ward === "18") ? "selected" : ""; ?>>18</option>
+                        <option value="19" <?php echo ($p_ward === "19") ? "selected" : ""; ?>>19</option>
+                        <option value="20" <?php echo ($p_ward === "20") ? "selected" : ""; ?>>20</option>
+                        <option value="21" <?php echo ($p_ward === "21") ? "selected" : ""; ?>>21</option>
+                        <option value="22" <?php echo ($p_ward === "22") ? "selected" : ""; ?>>22</option>
+                        <option value="23" <?php echo ($p_ward === "23") ? "selected" : ""; ?>>23</option>
+                        <option value="24" <?php echo ($p_ward === "24") ? "selected" : ""; ?>>24</option>
+                        <option value="25" <?php echo ($p_ward === "25") ? "selected" : ""; ?>>25</option>
+                        <option value="26" <?php echo ($p_ward === "26") ? "selected" : ""; ?>>26</option>
+                        <option value="27" <?php echo ($p_ward === "27") ? "selected" : ""; ?>>27</option>
+                        <option value="28" <?php echo ($p_ward === "28") ? "selected" : ""; ?>>28</option>
+                        <option value="29" <?php echo ($p_ward === "29") ? "selected" : ""; ?>>29</option>
+                        <option value="30" <?php echo ($p_ward === "30") ? "selected" : ""; ?>>30</option>
+                        <option value="31" <?php echo ($p_ward === "31") ? "selected" : ""; ?>>31</option>
+                        <option value="32" <?php echo ($p_ward === "32") ? "selected" : ""; ?>>32</option>
                     </select>
                     <br><br>
                     <!--permanent VDC/RM/MP -->
                     <select name="p_vdc_rm_mp">
-                        <option value="V.D.C">V.D.C</option>
-                        <option value="R.M">R.M</option>
-                        <option value="M.P">M.P</option>
+                        <option value="">Select</option>
+                        <option value="V.D.C" <?php echo ($p_vdc_rm_mp === 'V.D.C')?'selected':''; ?>>V.D.C</option>
+                        <option value="R.M" <?php echo ($p_vdc_rm_mp === 'R.M')?'selected':''; ?>>R.M</option>
+                        <option value="M.P" <?php echo ($p_vdc_rm_mp === 'M.P')?'selected':''; ?>>M.P</option>
                     </select>
                     <input type="text" name="p_txt_vdc_rm_mp" required placeholder="Please  choose your address" maxlength="100" value="<?php echo $p_txt_vdc_rm_mp; ?>"/>
                     <br><br>
@@ -302,42 +297,43 @@ if (isset($_POST["st_id"])) {
                     <label> ward</label>
                     <select name="t_ward" id="ward">
                         <option value="null"></option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                        <option value="8">8</option>
-                        <option value="9">9</option>
-                        <option value="10">10</option>
-                        <option value="11">11</option>
-                        <option value="12">12</option>
-                        <option value="13">13</option>
-                        <option value="14">14</option>
-                        <option value="15">15</option>
-                        <option value="16">16</option>
-                        <option value="17">17</option>
-                        <option value="18">18</option>
-                        <option value="19">19</option>
-                        <option value="20">20</option>
-                        <option value="21">21</option>
-                        <option value="22">22</option>
-                        <option value="23">23</option>
-                        <option value="24">24</option>
-                        <option value="25">25</option>
-                        <option value="26">26</option>
-                        <option value="27">27</option>
-                        <option value="28">28</option>
-                        <option value="29">29</option>
-                        <option value="30">30</option>
-                        <option value="31">31</option>
-                        <option value="32">32</option>
+                        <option value="1" <?php echo ($t_ward === "1") ? "selected" : ""; ?>>1</option>
+                        <option value="2" <?php echo ($t_ward === "2") ? "selected" : ""; ?>>2</option>
+                        <option value="3" <?php echo ($t_ward === "3") ? "selected" : ""; ?>>3</option>
+                        <option value="4" <?php echo ($t_ward === "4") ? "selected" : ""; ?>>4</option>
+                        <option value="5" <?php echo ($t_ward === "5") ? "selected" : ""; ?>>5</option>
+                        <option value="6" <?php echo ($t_ward === "6") ? "selected" : ""; ?>>6</option>
+                        <option value="7" <?php echo ($t_ward === "7") ? "selected" : ""; ?>>7</option>
+                        <option value="8" <?php echo ($t_ward === "8") ? "selected" : ""; ?>>8</option>
+                        <option value="9" <?php echo ($t_ward === "9") ? "selected" : ""; ?>>9</option>
+                        <option value="10" <?php echo ($t_ward === "10") ? "selected" : ""; ?>>10</option>
+                        <option value="11" <?php echo ($t_ward === "11") ? "selected" : ""; ?>>11</option>
+                        <option value="12" <?php echo ($t_ward === "12") ? "selected" : ""; ?>>12</option>
+                        <option value="13" <?php echo ($t_ward === "13") ? "selected" : ""; ?>>13</option>
+                        <option value="14" <?php echo ($t_ward === "14") ? "selected" : ""; ?>>14</option>
+                        <option value="15" <?php echo ($t_ward === "15") ? "selected" : ""; ?>>15</option>
+                        <option value="16" <?php echo ($t_ward === "16") ? "selected" : ""; ?>>16</option>
+                        <option value="17" <?php echo ($t_ward === "17") ? "selected" : ""; ?>>17</option>
+                        <option value="18" <?php echo ($t_ward === "18") ? "selected" : ""; ?>>18</option>
+                        <option value="19" <?php echo ($t_ward === "19") ? "selected" : ""; ?>>19</option>
+                        <option value="20" <?php echo ($t_ward === "20") ? "selected" : ""; ?>>20</option>
+                        <option value="21" <?php echo ($t_ward === "21") ? "selected" : ""; ?>>21</option>
+                        <option value="22" <?php echo ($t_ward === "22") ? "selected" : ""; ?>>22</option>
+                        <option value="23" <?php echo ($t_ward === "23") ? "selected" : ""; ?>>23</option>
+                        <option value="24" <?php echo ($t_ward === "24") ? "selected" : ""; ?>>24</option>
+                        <option value="25" <?php echo ($t_ward === "25") ? "selected" : ""; ?>>25</option>
+                        <option value="26" <?php echo ($t_ward === "26") ? "selected" : ""; ?>>26</option>
+                        <option value="27" <?php echo ($t_ward === "27") ? "selected" : ""; ?>>27</option>
+                        <option value="28" <?php echo ($t_ward === "28") ? "selected" : ""; ?>>28</option>
+                        <option value="29" <?php echo ($t_ward === "29") ? "selected" : ""; ?>>29</option>
+                        <option value="30" <?php echo ($t_ward === "30") ? "selected" : ""; ?>>30</option>
+                        <option value="31" <?php echo ($t_ward === "31") ? "selected" : ""; ?>>31</option>
+                        <option value="32" <?php echo ($t_ward === "32") ? "selected" : ""; ?>>32</option>
                     </select>
                     <br><br>
                     <!--temporary VDC/RM/MP -->
                     <select name="t_vdc_rm_mp">
+                        <option value="">Select</option>
                         <option value="V.D.C" <?php echo ($t_vdc_rm_mp === "V.D.C") ? "selected" : ""; ?>>V.D.C</option>
                         <option value="R.M" <?php echo ($t_vdc_rm_mp=== "R.M") ? "selected" : ""; ?>>R.M</option>
                         <option value="M.P" <?php echo ($t_vdc_rm_mp === "M.P") ? "selected" : ""; ?> >M.P</option>
@@ -488,9 +484,9 @@ if (isset($_POST["submit"])) {
 
     if (mysqli_query($conn, $query)) {
 
-        // header("location: user_reg.php?error=none");
+        // header("location: studentdata.php?error=none");
 
-        //header('Location: user_reg.php?error=none');
+        // header('Location: studentdata.php?error=none');
 
         // echo 'Updated successfully ';
         // }
