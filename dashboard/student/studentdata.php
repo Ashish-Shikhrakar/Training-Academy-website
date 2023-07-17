@@ -29,11 +29,11 @@ include($_SERVER['DOCUMENT_ROOT'].'/ARMY-WEBSITE-PROJECT/dashboard/common/sideba
                         <th>Age</th>
                         <th>Religion</th>
                         <th>Faculty</th>
-						<th>Perm Address</th>
+						<th>P-Address</th>
                         <th>Ward</th>
                         <th>VDC/RM/MP</th>
                         <th>V.D.C /R.M /M.P</th>
-                        <th>Temp Address</th>
+                        <th>T-Address</th>
                         <th>Ward</th>
                         <th>VDC/RM/MP</th>
                         <th>V.D.C /R.M /M.P</th>
