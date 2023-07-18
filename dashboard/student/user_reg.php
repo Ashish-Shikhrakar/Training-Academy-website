@@ -295,19 +295,19 @@
                     <br><br>
                     <!-- Guardian's detail -->
                     <label>Guradian's Name</label>
-                    <input type="text" name="guradian_name" required placeholder="Full name" maxlength="30" />
+                    <input type="text" name="guradian_name"  placeholder="Full name" maxlength="30" />
                     <br><br>
                     <!-- Guardian relation -->
                     <label>Relation</label>
-                    <input type="text" name="relation" required maxlength="30" />
+                    <input type="text" name="relation"  maxlength="30" />
                     <br><br>
                     <!-- Guardian contact -->
                     <label>Contact no</label>
-                    <input type="number" name="r_contact_no" required maxlength="10" />
+                    <input type="number" name="r_contact_no"  maxlength="10" />
                     <br><br><br>
                     <!-- button -->
-                    <input type="submit" class="btn" value="Submit" style="height:45px">
-                    <input type="reset" class="btn" value="Reset" style="height:45px">
+                    <input type="submit" class="btn btn-primary" value="Submit" style="height:45px">
+                    <input type="reset" class="btn " value="Reset" style="height:45px">
                 </div>
 
             </div>

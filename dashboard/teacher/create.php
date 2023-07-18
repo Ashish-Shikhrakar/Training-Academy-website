@@ -182,7 +182,7 @@ if (isset($_POST['save'])) {
   
   // print_R($_FILES);exit;
 
-  $uploadStatus = move_uploaded_file($tmp, "../../uploadsT/" . $name);
+  $uploadStatus = move_uploaded_file($tmp, "../../uploadsS/" . $name);
   if ($uploadStatus) {
 
     //echo $name;exit;

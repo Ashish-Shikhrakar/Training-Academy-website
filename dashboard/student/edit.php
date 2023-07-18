@@ -30,6 +30,7 @@ $t_vdc_rm_mp = '';
 $t_txt_vdc_rm_mp = '';
 $contact_no = '';
 $name='';
+$foto='';
 
 // $name = $_FILES["photo"]["name"];
 // $tmp = $_FILES["photo"]["tmp_name"];
@@ -50,6 +51,7 @@ $guradian_name = '';
 $relation = '';
 $r_contact_no = '';
 $sid = '';
+$changed_ph = '';
 
 
 if (isset($_POST["st_id"])) {
@@ -160,7 +162,12 @@ if (isset($_POST["st_id"])) {
             return Math.max(age, 0);
         }
     </script>
-
+<script>
+    function pictureChanged(){
+      var image = document.getElementById("hidephoto");
+      image.style.display = "none";
+    }
+  </script>
 </head>
 
 <body>
@@ -352,9 +359,10 @@ if (isset($_POST["st_id"])) {
 
                 <div class="middle-right">
                     <!-- Photo -->
-                    <!-- <label>Upload photo</label>
-                    <input type="file" class="photo" name="photo">
-                    <br><br> -->
+                    <label>Upload photo</label>
+                    <input type="file" class="pphoto" required name="photo">
+                    <br><br>
+                    <br><br>
                     <h3>
                         <center>Family and Guardian Details</center>
                     </h3>
@@ -414,7 +422,7 @@ if (isset($_POST["st_id"])) {
                     <input type="hidden" name="sid" value="<?php echo $st_id; ?>">
                     <!-- button -->
                     <input type="submit" class="btn btn-primary" name="submit" value="Submit">
-                    <input type="reset" class="btn" value="Reset">
+                    <input type="reset" class="btn btn-primary" value="Reset">
                 </div>
 
             </div>
@@ -484,9 +492,9 @@ if (isset($_POST["submit"])) {
 
     if (mysqli_query($conn, $query)) {
 
-        // header("location: studentdata.php?error=none");
+        //header("location: ../studentdata.php");
 
-        // header('Location: studentdata.php?error=none');
+        // header('Location: ../studentdata.php?error=none');
 
         // echo 'Updated successfully ';
         // }
