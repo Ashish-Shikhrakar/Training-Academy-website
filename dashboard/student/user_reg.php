@@ -93,20 +93,20 @@
                     <input type="radio" name="attempt" value="4th" />4th
                     <br><br>
                     <!-- name -->
-                    <label>Name</label>
-                    <input type="text"  name="Fname" placeholder="First name" maxlength="30" /><br><br>
+                    <label>First Name</label>
+                    <input type="text"  name="fname" required placeholder="First name" maxlength="30" /><br><br>
                     <label>Last Name</label>
-                    <input type="text"  name="Lname" placeholder="Last name" maxlength="30" /><br><br>
+                    <input type="text"  name="lname" required placeholder="Last name" maxlength="30" /><br><br>
                     <!-- jat -->
                     <label>Jaat</label>
-                    <input type="text" name="jat" placeholder="" maxlength="30" />
+                    <input type="text" name="jat" required placeholder="" maxlength="30" />
                     <br> <br>
                     <!-- main jat -->
                     <label>Main Jaat</label>
-                    <input type="text" name="main_jat" placeholder="" maxlength="30" />
+                    <input type="text" name="main_jat" required placeholder="" maxlength="30" />
                     <br><br>
                     <!-- education -->
-                    <label>Educatiion</label>
+                    <label>Education</label>
                     <select name="education" id="edu">
                         <option value="see">SEE</option>
                         <option value="10 +2">10 +2</option>
@@ -129,15 +129,15 @@
                     <br><br>
                     <!-- religion -->
                     <label>religion</label>
-                    <input type="text" name="religion"  maxlength="100" />
+                    <input type="text" required name="religion"  maxlength="100" />
                     <br><br>
                     <!-- faculty -->
                     <label> faculty</label>
-                    <input type="text" name="faculty"  placeholder="District" maxlength="100" />
+                    <input type="text" name="faculty" required  placeholder="District" maxlength="100" />
                     <br><br>
                     <!--permanent address -->
                     <label>Permanent Address</label>
-                    <input type="text" name="p_address"  placeholder="District" maxlength="100" />
+                    <input type="text" name="p_address" required  placeholder="District" maxlength="100" />
                     <br><br>
                     <!--permanent ward -->
                     <label> Ward</label>
@@ -183,11 +183,11 @@
                         <option value="R.M">R.M</option>
                         <option value="M.P">M.P</option>
                     </select>
-                    <input type="text" name="p_txt_vdc_rm_mp"  placeholder="" maxlength="100" />
+                    <input type="text" name="p_txt_vdc_rm_mp" required placeholder="" maxlength="100" />
                     <br><br>
                     <!--temporary address -->
                     <label>Temporary Address</label>
-                    <input type="text" name="t_address" placeholder="District" maxlength="100" />
+                    <input type="text" name="t_address" required placeholder="District" maxlength="100" />
                     <br><br>
                     <!--temporary ward -->
                     <label> Ward</label>
@@ -233,11 +233,11 @@
                         <option value="R.M">R.M</option>
                         <option value="M.P">M.P</option>
                     </select>
-                    <input type="text" name="t_txt_vdc_rm_mp"  placeholder="" maxlength="100" />
+                    <input type="text" name="t_txt_vdc_rm_mp" required placeholder="" maxlength="100" />
                     <br><br>
                     <!-- contact number -->
                     <label>Contact no</label>
-                    <input type="tel" id="phone" name="phone"  >
+                    <input type="tel" required id="phone" name="contact_no"  >
                     <br><br>
                 </div>
 
@@ -255,15 +255,15 @@
                     <br><br>
                     <!-- father's name -->
                     <label>Father's Name</label>
-                    <input type="text" name="father_name"  placeholder="Enter name" maxlength="30" />
+                    <input type="text" name="father_name" required  placeholder="Enter name" maxlength="30" />
                     <br><br>
                     <!-- father's occupation -->
                     <label> Occupation</label>
-                    <input type="text" name="f_occupation" placeholder="" maxlength="30" />
+                    <input type="text" name="f_occupation" required placeholder="" maxlength="30" />
                     <br><br>
                     <!-- contact number -->
                     <label>Contact no</label>
-                    <input type="tel" id="phone" name="f_contact_no"  >
+                    <input type="tel" id="phone" required name="f_contact_no"  >
                     <br><br>
                     <p> If father is /was in the British Army /GSPF/<br>Indian Army
                         /Nepal Government Officier/<br>Nepal Army or Nepal
@@ -283,15 +283,15 @@
                     <br><br>
                     <!-- mother's name -->
                     <label>Mother's Name</label>
-                    <input type="text" name="mother_name"  placeholder="Full name" maxlength="30" />
+                    <input type="text" name="mother_name" required placeholder="Full name" maxlength="30" />
                     <br><br>
                     <!-- mother's occupation -->
                     <label> Occupation</label>
-                    <input type="text" name="m_occupation" placeholder="" maxlength="30" />
+                    <input type="text" name="m_occupation" required placeholder="" maxlength="30" />
                     <br><br>
                     <!-- contact number -->
                     <label>Contact no</label>
-                    <input type="tel" id="phone" name="m_contact_no" >
+                    <input type="tel" id="phone" required name="m_contact_no" >
                     <br><br>
                     <!-- Guardian's detail -->
                     <label>Guradian's Name</label>
