@@ -7,7 +7,8 @@
     <title>Student Registration Form</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <script>
         function updateLabels() {
             const selectedDate = new Date(document.getElementById("datePicker").value);
@@ -47,10 +48,11 @@
 </head>
 
 <body>
+    
     <div class="master">
         <div class="top">
             <div class="top-left">
-                <img src="logo.png"><br>
+                <img src="../images/logo.png"><br>
                 <p><b>Training Center,Dholahity,Lalitpur
                 <br> <i class="fa fa-phone"></i>
                  01-5574095/+977-9851046632</b>
@@ -138,7 +140,7 @@
                     <input type="text" name="p_address"  placeholder="District" maxlength="100" />
                     <br><br>
                     <!--permanent ward -->
-                    <label> ward</label>
+                    <label> Ward</label>
                     <select name="p_ward" id="ward">
                         <option value="null"></option>
                         <option value="1">1</option>
@@ -188,7 +190,7 @@
                     <input type="text" name="t_address" placeholder="District" maxlength="100" />
                     <br><br>
                     <!--temporary ward -->
-                    <label> ward</label>
+                    <label> Ward</label>
                     <select name="t_ward" id="ward">
                         <option value="null"></option>
                         <option value="1">1</option>
@@ -312,7 +314,7 @@
             <div class="bottom">
             <P>
 
-                <input type="checkbox" name ="aggre"> <b> I will accept all the rules and regulation of this institute and if do any
+               <label for="check"><input type="checkbox" id="check" name ="aggre"> </label> <b> I will accept all the rules and regulation of this institute and if do any
                 mistakes or if I’m not able to follow the rules and regulation of this institute then I will accept any
                 punishment from this AIM GURKHA.</b>
                 <br>

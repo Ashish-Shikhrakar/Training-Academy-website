@@ -1,6 +1,6 @@
 <?php
 
-@include("db_connection.php");
+include("db_connection.php");
 
 $tid = '';
 $tname = '';
@@ -8,10 +8,11 @@ $taddress = '';
 $email = '';
 $phone = '';
 $salary = '';
-
 $cid = '';
 $submit_message = '';
 $mode = "Add";
+// $name = '';
+// $tmp = '';
 
 if (isset($_POST["tid"])) {
   $tid = $_POST["tid"];
@@ -34,7 +35,10 @@ if (isset($_POST["tid"])) {
     $phone = $row["phone"];
     $salary = $row["salary"];
     $cid = $row["cid"];
-  
+    $foto = $row["photo"];
+    $changed_ph = '';
+//      $name = $_FILES["photo"]["name"];
+//      $tmp = $_FILES["photo"]["tmp_name"];
 }
 
 }
@@ -54,6 +58,12 @@ if (isset($_POST["tid"])) {
   <title>
     <?php echo ($mode === "Add") ? "Insert " : "Update "; ?>Teacher Data
   </title>
+  <script>
+    function pictureChanged(){
+      var image = document.getElementById("hidephoto");
+      image.style.display = "none";
+    }
+  </script>
 </head>
 
 <body>
@@ -65,6 +75,11 @@ if (isset($_POST["tid"])) {
             <h2>
               <?php echo ($mode === "Add") ? "Insert " : "Update "; ?>teacher data
             </h2>
+          </div>
+          <div>
+            <!-- <a href="teacherdata.php"><h3 style="text-decoration:none;">See Teacher Data</h3></a> -->
+            <a class="btn btn-primary" href="../teacher/teacherdata.php" role="button">Back</a>
+
           </div>
           <div class="card-body">
             <!-- <?php //echo $submit_message ?> -->
@@ -96,13 +111,27 @@ if (isset($_POST["tid"])) {
                   value="<?php echo $salary; ?>">
               </div>
               <div class="form-group">
-                <label for="">coure id</label>
+                <label for="">course id</label>
                 <input type="text" name="cid" class="form-control" placeholder="Enter teacher course id"
                   value="<?php echo $cid; ?>">
               </div>
               <div class="form-group">
-                <label for="">photo</label>
-                <input type="file" name="photo" class="form-control">
+              <label for="">photo</label>
+              <?php 
+                if ($mode === "Add") {
+                  echo '<input type="file" name="photo" class="form-control">';
+                } elseif ($mode === "Update") {
+                  if ($row["photo"]) {
+                    echo '<br><td><img id="hidephoto" width="100px" src="../../uploadsT/'.$row['photo']. '"alt="Image"></td>';
+                    echo '<input type = "text" name="photo-text" value = '.$foto.' style="visibility:hidden">';
+                  }
+                  echo '<input type="file" name="photo" class="form-control" onchange="pictureChanged()">';
+                  // $changed_ph = $_FILES['photo']['name'];
+                  // echo '<br><td><img id="dhidephoto" width="100px" src="../../uploadsT/'.$changed_ph. '"alt="Image"></td>';
+                }
+              ?>
+                
+                <!--  -->
               </div>
               <div class="form-group">
                 <input type="hidden" name="mode" value="<?php echo $mode; ?>">
@@ -110,6 +139,7 @@ if (isset($_POST["tid"])) {
                 <button type="submit" name="save" class="btn btn-primary">
                   <?php echo $mode; ?>
                 </button>
+                <button type="reset" name="reset" class="btn btn-primary">clear</button>
               </div>
             </form>
           </div>
@@ -133,18 +163,14 @@ if (isset($_POST["tid"])) {
 
 <?php
 
-$conn = mysqli_connect("localhost", "root", "");
-$db = mysqli_select_db($conn, 'army_project');
-
 
 if (isset($_POST['save'])) {
   $tname = $_POST['tname'];
-  $address = $_POST['taddress'];
+  $taddress = $_POST['taddress'];
   $email = $_POST['email'];
   $phone = $_POST['phone'];
   $salary = $_POST['salary'];
   $cid = $_POST['cid'];
-
   $mode = $_POST['mode'];
   // $file = $_FILES['photo']['tmp_name'];
 
@@ -153,6 +179,7 @@ if (isset($_POST['save'])) {
 
   $name = $_FILES["photo"]["name"];
   $tmp = $_FILES["photo"]["tmp_name"];
+  
   // print_R($_FILES);exit;
 
   $uploadStatus = move_uploaded_file($tmp, "../../uploadsT/" . $name);
@@ -163,17 +190,26 @@ if (isset($_POST['save'])) {
   // print_r($_FILES);
   // Validate and process the data
 
+
+
   if ($mode === "Add") {
     // Insert the data into the teacher table
     $query = "INSERT INTO teacher (tid, tname, taddress, email, phone, salary, cid, photo) 
-            VALUES (NULL,'$tname', '$address', '$email', '$phone', '$salary', '$cid','$name')";
+            VALUES (NULL,'$tname', '$taddress', '$email', '$phone', '$salary', '$cid','$name')";
   } elseif ($mode === "Update") {
-    $query = "UPDATE `teacher` SET `tname`='$tname',`taddress`='$address',`email`= '$email',`phone`= '$phone',`salary`= '$salary',`cid`='$cid',`photo`= '$name' WHERE tid = $tid";
+    $check = $_FILES['photo']['name'];
+    if ($check!='') {
+      $query = "UPDATE `teacher` SET `tname`='$tname',`taddress`='$taddress',`email`= '$email',`phone`= '$phone',`salary`= '$salary',`cid`='$cid', `photo`= '$name' WHERE tid = '$tid'";
+    } else {
+      // $query = "UPDATE `teacher` SET `tname`='$tname',`taddress`='$taddress',`email`= '$email',`phone`= '$phone',`salary`= '$salary',`cid`='$cid', `photo`= $foto WHERE tid = ";
+      $query = "UPDATE `teacher` SET `tname`= '$tname',`taddress`= '$taddress',`email`= '$email',`phone`= '$phone',`salary`= '$salary',`cid`='$cid', `photo`= '$foto' WHERE `tid`= '$tid'";
+    }
   }
-  // echo $query;
-  // exit;
+  
+  //echo $tmp;
+  
   if (mysqli_query($conn, $query)) {
-    // 
+    // <?php echo $rootUrl.'
     header("location: create.php?error=none");
    
     }

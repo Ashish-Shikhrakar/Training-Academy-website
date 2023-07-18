@@ -1,54 +1,18 @@
-<!DOCTYPE html>
-<html>
+<?php 
 
-<head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Teacher Information</title>
-	<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"> -->
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css">
-	<script>
-        function editThis(tid) {
-            var form = document.createElement("form");
-            form.method = "POST";
-            form.action = "create.php";
+include($_SERVER['DOCUMENT_ROOT'].'/ARMY-WEBSITE-PROJECT/dashboard/common/header.php');
+include($_SERVER['DOCUMENT_ROOT'].'/ARMY-WEBSITE-PROJECT/dashboard/common/sidebar.php')?>
 
-            var input = document.createElement("input");
-            input.type = "hidden";
-            input.name = "tid";
-            input.value = tid;
-
-            form.appendChild(input);
-
-            document.body.appendChild(form);
-            form.submit();
-        }
-
-        function deleteThis(tid) {
-            var form = document.createElement("form");
-            form.method = "POST";
-            form.action = "delete.php";
-
-            var input = document.createElement("input");
-            input.type = "hidden";
-            input.name = "tid";
-            input.value = tid;
-
-            form.appendChild(input);
-
-            document.body.appendChild(form);
-            form.submit();
-        }
-    </script>
-
-</head>
-
-<body>
+    
+<section id ="interface" >
+   <?php  include($_SERVER['DOCUMENT_ROOT'].'/ARMY-WEBSITE-PROJECT/dashboard/common/top-menu.php')?>
+	
 	<form action="" method="POST" enctype="multipart/form-data">
 		<div class="container my-5">
 			<h2 style="text-align:center;">Teacher information</h2>
 			<a class="btn btn-primary" href="create.php" role="button">Add Teacher</a>
-			<table border="1" cellpadding="7px" cellspacing="7px" style=" border-collapse: collapse" ;>
+			 <!-- <a class="btn btn-primary" href="../dashboard.php" role="button">Back</a> -->
+			<table class="table table-border">
 				<thead>
 					<tr>
 						<th>ID</th>
@@ -130,6 +94,37 @@
 			</table>
 		</div>
 	</form>
-</body>
+</section>
+	<script>
+        function editThis(tid) {
+            var form = document.createElement("form");
+            form.method = "POST";
+            form.action = "create.php";
 
-</html>
+            var input = document.createElement("input");
+            input.type = "hidden";
+            input.name = "tid";
+            input.value = tid;
+
+            form.appendChild(input);
+
+            document.body.appendChild(form);
+            form.submit();
+        }
+
+        function deleteThis(tid) {
+            var form = document.createElement("form");
+            form.method = "POST";
+            form.action = "delete.php";
+
+            var input = document.createElement("input");
+            input.type = "hidden";
+            input.name = "tid";
+            input.value = tid;
+
+            form.appendChild(input);
+
+            document.body.appendChild(form);
+            form.submit();
+        }
+    </script>

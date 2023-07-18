@@ -250,9 +250,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // } elseif ($p_vdc_rm_mp === 'R.M') {
     //     $p_rm_mp_text = $_POST['p_txt_vdc_rm_mp'];
     // }
-    
-    
-
     // // Process VDC/RM/MP selection for temporary address
     // // Process VDC/RM/MP selection for temporary address
     // if ($t_vdc_rm_mp === 'V.D.C') {
@@ -439,7 +436,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $stmt = $conn->prepare("INSERT INTO student_reg (attempt, fname, lname, jat, main_jat, education, DOB, age,religion, faculty, p_address,p_ward, p_vdc_rm_mp, p_txt_vdc_rm_mp,t_address, t_ward, t_vdc_rm_mp, t_txt_vdc_rm_mp, contact_no,photo,father_name, f_occupation, f_contact_no, service_no, rank, mother_name, m_occupation, m_contact_no, guradian_name, relation, r_contact_no) 
      VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 
-    $stmt->bind_param("ssssssiisssisssississsiiississi", $attempt, $fname, $lname, $jat, $main_jat, $education, $DOB,$age, $religion, $faculty, $p_address,$p_ward, $p_vdc_rm_mp, $p_txt_vdc_rm_mp,$t_address,$t_ward, $t_vdc_rm_mp, $t_txt_vdc_rm_mp,$contact_no, $name, $father_name, $f_occupation, $f_contact_no, $service_no, $rank, $mother_name, $m_occupation,$m_contact_no, $guradian_name, $relation, $r_contact_no);
+    $stmt->bind_param("sssssssisssisssississsiiississi", $attempt, $fname, $lname, $jat, $main_jat, $education, $DOB,$age, $religion, $faculty, $p_address,$p_ward, $p_vdc_rm_mp, $p_txt_vdc_rm_mp,$t_address,$t_ward, $t_vdc_rm_mp, $t_txt_vdc_rm_mp,$contact_no, $name, $father_name, $f_occupation, $f_contact_no, $service_no, $rank, $mother_name, $m_occupation,$m_contact_no, $guradian_name, $relation, $r_contact_no);
         //ssssssiisssisssisssssiiiississi//Change blind parameter.
         // Execute the prepared statement
     if($valch==true){
@@ -452,7 +449,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Close the statement and database connection
     $stmt->close();
     $conn->close();
-}
+    }
 }
 else{
     echo "Please verified the terms and condition ! THANK YOU !!!";
