@@ -27,7 +27,7 @@
       const bsYear = date.getFullYear() + 57;
       const bsMonth = (date.getMonth() + 3) % 12 || 12;
       const bsDay = (date.getDate() + 2) % 30 || 30;
-      return ${bsYear}-${bsMonth}-${bsDay};
+      return `${bsYear}-${bsMonth}-${bsDay}`;
     }
 
     function calculateAge(selectedDate) {
