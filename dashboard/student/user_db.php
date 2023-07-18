@@ -54,12 +54,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     //validation for first name
-    if(empty($_POST['Fname'])){
+    if(empty($_POST['fname'])){
         $error.="<br>first name required";
         $valch=false;
     }
     else{
-        $fname =test_input($_POST['Fname']);//required
+        $fname =test_input($_POST['fname']);//required
         if(test_name($fname)==false){
             $error.="<br> enter valid name";
             $valch=false;
@@ -67,12 +67,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     //validation for last name
-    if(empty($_POST['Lname'])){
+    if(empty($_POST['lname'])){
         $error.="<br>last name required";
         $valch=false;
     }
     else{
-        $lname =test_input($_POST['Lname']);//required
+        $lname =test_input($_POST['lname']);//required
         if(test_name($lname)==false){
             $error.="<br> enter valid name";
             $valch=false;
@@ -231,12 +231,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     //$t_rm_mp_text = '';
 
     //validation for contact number
-    if(empty($_POST['phone'])){
+    if(empty($_POST['contact_no'])){
         $error.="<br>contact required";
         $valch=false;
     }
     else{
-        $contact_no=$_POST['phone'];//required max length 10
+        $contact_no=$_POST['contact_no'];//required max length 10
         if(validatePhone($contact_no)==false){
             $error.="<br> enter valid number";
             $valch=false;
@@ -398,7 +398,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
 
-    if(empty($_POST['Relation'])){
+    if(empty($_POST['relation'])){
         $error.="<br>gurdian relation  required";
         $valch=false;
     }
