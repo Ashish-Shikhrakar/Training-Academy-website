@@ -92,9 +92,9 @@
                     <br><br>
                     <!-- name -->
                     <label>Name</label>
-                    <input type="text" required name="Fname" placeholder="First name" maxlength="30" /><br><br>
+                    <input type="text"  name="Fname" placeholder="First name" maxlength="30" /><br><br>
                     <label>Last Name</label>
-                    <input type="text" required name="Lname" placeholder="Last name" maxlength="30" /><br><br>
+                    <input type="text"  name="Lname" placeholder="Last name" maxlength="30" /><br><br>
                     <!-- jat -->
                     <label>Jaat</label>
                     <input type="text" name="jat" placeholder="" maxlength="30" />
@@ -127,15 +127,15 @@
                     <br><br>
                     <!-- religion -->
                     <label>religion</label>
-                    <input type="text" name="religion" required maxlength="100" />
+                    <input type="text" name="religion"  maxlength="100" />
                     <br><br>
                     <!-- faculty -->
                     <label> faculty</label>
-                    <input type="text" name="faculty" required placeholder="District" maxlength="100" />
+                    <input type="text" name="faculty"  placeholder="District" maxlength="100" />
                     <br><br>
                     <!--permanent address -->
                     <label>Permanent Address</label>
-                    <input type="text" name="p_address" required placeholder="District" maxlength="100" />
+                    <input type="text" name="p_address"  placeholder="District" maxlength="100" />
                     <br><br>
                     <!--permanent ward -->
                     <label> ward</label>
@@ -181,7 +181,7 @@
                         <option value="R.M">R.M</option>
                         <option value="M.P">M.P</option>
                     </select>
-                    <input type="text" name="p_txt_vdc_rm_mp" required placeholder="" maxlength="100" />
+                    <input type="text" name="p_txt_vdc_rm_mp"  placeholder="" maxlength="100" />
                     <br><br>
                     <!--temporary address -->
                     <label>Temporary Address</label>
@@ -235,7 +235,7 @@
                     <br><br>
                     <!-- contact number -->
                     <label>Contact no</label>
-                    <input type="tel" id="phone" name="phone" required >
+                    <input type="tel" id="phone" name="phone"  >
                     <br><br>
                 </div>
 
@@ -245,7 +245,7 @@
                 <div class="middle-right">
                     <!-- Photo -->
                     <p>Upload photo</p>
-                    <input type="file" class="pphoto" required name="pp">
+                    <input type="file" class="pphoto"  name="photo">
                     <br><br>
                     <h3>
                         <center>Family and Guardian Details</center>
@@ -253,7 +253,7 @@
                     <br><br>
                     <!-- father's name -->
                     <label>Father's Name</label>
-                    <input type="text" name="father_name" required placeholder="Enter name" maxlength="30" />
+                    <input type="text" name="father_name"  placeholder="Enter name" maxlength="30" />
                     <br><br>
                     <!-- father's occupation -->
                     <label> Occupation</label>
@@ -261,7 +261,7 @@
                     <br><br>
                     <!-- contact number -->
                     <label>Contact no</label>
-                    <input type="tel" id="phone" name="f_contact_no"  required>
+                    <input type="tel" id="phone" name="f_contact_no"  >
                     <br><br>
                     <p> If father is /was in the British Army /GSPF/<br>Indian Army
                         /Nepal Government Officier/<br>Nepal Army or Nepal
@@ -281,7 +281,7 @@
                     <br><br>
                     <!-- mother's name -->
                     <label>Mother's Name</label>
-                    <input type="text" name="mother_name" required placeholder="Full name" maxlength="30" />
+                    <input type="text" name="mother_name"  placeholder="Full name" maxlength="30" />
                     <br><br>
                     <!-- mother's occupation -->
                     <label> Occupation</label>
@@ -289,19 +289,19 @@
                     <br><br>
                     <!-- contact number -->
                     <label>Contact no</label>
-                    <input type="tel" id="phone" name="m_contact_no" required>
+                    <input type="tel" id="phone" name="m_contact_no" >
                     <br><br>
                     <!-- Guardian's detail -->
                     <label>Guradian's Name</label>
-                    <input type="text" name="guradian_name" required placeholder="Full name" maxlength="30" />
+                    <input type="text" name="guradian_name"  placeholder="Full name" maxlength="30" />
                     <br><br>
                     <!-- Guardian relation -->
                     <label>Relation</label>
-                    <input type="text" name="Relation" required maxlength="30" />
+                    <input type="text" name="relation"  maxlength="30" />
                     <br><br>
                     <!-- Guardian contact -->
                     <label>Contact no</label>
-                    <input type="number" name="r_contact_no" required maxlength="10" />
+                    <input type="tel" name="r_contact_no"  maxlength="10" />
                     <br><br><br>
                     <!-- button -->
                     <input type="submit" class="btn" value="Submit" style="height:45px">
