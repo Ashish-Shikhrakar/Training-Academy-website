@@ -73,9 +73,52 @@
  </div>
 
 </body>
-</html>
+
 
 <?php
+function test_input($data) {
+  $data = trim($data);//Strip unnecessary characters (extra space, tab, newline) from the user input data
+  $data = stripslashes($data);//Remove backslashes (\) from the user input data
+  $data = htmlspecialchars($data);//converts special characters to HTML entities
+  return $data;
+}
+function test_name($data){
+  if (!preg_match("/^[a-zA-Z-' ]*$/",$data)) {
+      return false;
+  }
+  else {
+      return true;
+  }
+}
+function validatePhone($phone) {
+
+// Check if the phone number is a valid format
+if (!preg_match("/^[0-9]{10}+$/", $phone)) {
+  return false;
+
+}
+// The phone number is valid
+else{
+  return true;
+}
+}
+// This function validates an email address.
+function validateEmail($email) {
+  // Check if the email address is valid.
+  if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+      return false;
+  }
+
+  // Check if the email address is in the blacklist.
+  // $blacklist = array('example@domain.com', 'example2@domain.com');
+  // if (in_array($email, $blacklist)) {
+  //     return false;
+  // }
+
+  // The email address is valid.
+  return true;
+}
+$nameErr = $emailErr = $phoneErr ="";
 @include("db_connection.php");
 $host = 'localhost';
 $username = 'root';
@@ -92,10 +135,40 @@ if ($conn->connect_error) {
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST'){
   if(isset($_POST['save'])){
-    $u_name = $_POST['u_name'];
-    $u_email = $_POST['u_email'];
-    $phone= $_POST['phone'];
-    $u_message = $_POST['u_message'];
+    if(empty($_POST['u_name'])){
+      $nameErr="Name cannot be empty";
+    }
+    else{
+      $u_name=test_input($_POST['u_name']);
+      if(test_name($u_name)==false){
+        $nameErr ="Only letters and white space allowed in name.";
+      }
+    }
+    if (empty($_POST['u_email'])) {
+      $emailErr = "Email is required";
+    }
+    else {
+      $u_email = test_input($_POST['u_email']);
+    // check if e-mail address is well-formed
+    if (validateEmail($u_email)==false) {
+      $emailErr = "Invalid email format";
+    }
+  }
+  if(empty($_POST['phone'])){
+    $phoneErr="Phone number can not be blank!";
+  }
+  else {
+    $phone=$_POST['phone'];
+    if(validatePhone($phone)==false){
+      $phoneErr="Please enter a valid phone number";
+    }
+  }
+  if(empty($_POST['u_message'])){
+    $msgErr="Message cannot be empty! Please type something to send us your message...";
+  }
+  else{
+    $u_message=test_input($_POST['u_message']);
+  }
 
 
     // $stmt = $conn->prepare("INSERT INTO user_feedback (u_name,u_email,phone,u_message) VALUES (?, ?, ?, ?)");
