@@ -19,52 +19,6 @@
 
 </head>
 <body>
-  
-    <div class="menubar1">
-        <div class="logo" style="display: inline; float: left;">
-            <img src="photo/logo.png">
-        </div>
-      <div>
-    <ul>
-        <a href="#"><li  class="menubarItems">Home</li></a>
-        <a href="about.html"><li  class="menubarItems">About Us</li></a>
-        <a href="#"><li class="menubarItems">Services</li></a>  
-        <a href="#"><li class="menubarItems">Schedule</li></a>  
-        <a href="#"><li class="menubarItems">Exams</li></a>
-        <a href="contact.html"><li class="menubarItems">Contact</li></a>
-    </ul>
-    
-   </div> 
-</div>
-
- <div class="popup1">
-    <h2>Contact US</h2>
-    <p><br><br> Provide us your feedback and queries so we can help you or make amends</p> 
-  </div>
-  <h1>Get In Touch</h1>
-  <p class="p"><i>"We are here to help you. Please feel free to leave us a message <br> on how we could assist you".</i></p>
-  
-</div>
-
-
- 
-<div class="contact-box">
-  <form method="POST"> 
-    <!-- form method="POST" action="userfeedback.php" -->
-    <h2>Contact Form</h2>
-    <input type="text" class="input-field" required name="u_name" placeholder="Name">
-    <input type="text" class="input-field" required name="u_email" placeholder="Your e-mail address">
-    <input type="text" class="input-field" required name="phone" placeholder="Enter phone no">
-    <textarea type="text" required class="input-field textarea-field" name="u_message" placeholder="Message"></textarea>
-    <input type="submit" value=" Send Message" name="save"  class="btn"> 
-  </form>
- </div>
-
-
-
-</body>
-
-
 <?php
 function test_input($data) {
   $data = trim($data);//Strip unnecessary characters (extra space, tab, newline) from the user input data
@@ -108,7 +62,11 @@ function validateEmail($email) {
   // The email address is valid.
   return true;
 }
-$nameErr = $emailErr = $phoneErr ="";
+$nameErr = $emailErr = $phoneErr =$msgErr="";
+$u_name=$u_email=$u_message="";
+$phone=null;
+$valcheck=true;
+
 @include("db_connection.php");
 $host = 'localhost';
 $username = 'root';
@@ -127,35 +85,41 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST'){
   if(isset($_POST['save'])){
     if(empty($_POST['u_name'])){
       $nameErr="Name cannot be empty";
-      echo $nameErr;
+      $valcheck=false;
     }
     else{
       $u_name=test_input($_POST['u_name']);
       if(test_name($u_name)==false){
         $nameErr ="Only letters and white space allowed in name.";
+        $valcheck=false;
       }
     }
     if (empty($_POST['u_email'])) {
       $emailErr = "Email is required";
+      $valcheck=false;
     }
     else {
       $u_email = test_input($_POST['u_email']);
     // check if e-mail address is well-formed
     if (validateEmail($u_email)==false) {
       $emailErr = "Invalid email format";
+      $valcheck=false;
     }
   }
   if(empty($_POST['phone'])){
     $phoneErr="Phone number can not be blank!";
+    $valcheck=false;
   }
   else {
     $phone=$_POST['phone'];
     if(validatePhone($phone)==false){
       $phoneErr="Please enter a valid phone number";
+      $valcheck=false;
     }
   }
   if(empty($_POST['u_message'])){
     $msgErr="Message cannot be empty! Please type something to send us your message...";
+    $valcheck=false;
   }
   else{
     $u_message=test_input($_POST['u_message']);
@@ -168,25 +132,73 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST'){
     // if (! $stmt->execute()) {
     //     echo "Error : " . $stmt->error;
     // } 
-//     $insert="INSERT INTO user_feedback(u_name,u_email,phone,u_message) VALUES ('$u_name', '$u_email', '$phone', '$u_message')";
-//     $query= mysqli_query($conn,$insert);
-//     if($query){
-//       ?>
-//       <script>
-//         swal({
-//   title: "submitted",
-//   text: "Data inserted!",
-//   icon: "success",
-// });
-//       </script>
-//       <?php
-//     }
-  }
-    // Close the database connection
+    $insert="INSERT INTO user_feedback(u_name,u_email,phone,u_message) VALUES ('$u_name', '$u_email', '$phone', '$u_message')";
+    if($valcheck==true){
+    $query= mysqli_query($conn,$insert);
+    if($query){
+      ?>
+         <script>
+          swal({
+    title: "submitted",
+    text: "Data inserted!",
+    icon: "success",
+  });
+        </script>
+        <?php
+    }
+  
+    //Close the database connection
     // $stmt->close();
-    // $conn->close();
+    $conn->close();
+  }
+}
  }
 ?>
+
+  
+    <div class="menubar1">
+        <div class="logo" style="display: inline; float: left;">
+            <img src="photo/logo.png">
+        </div>
+      <div>
+    <ul>
+        <a href="#"><li  class="menubarItems">Home</li></a>
+        <a href="about.html"><li  class="menubarItems">About Us</li></a>
+        <a href="#"><li class="menubarItems">Services</li></a>  
+        <a href="#"><li class="menubarItems">Schedule</li></a>  
+        <a href="#"><li class="menubarItems">Exams</li></a>
+        <a href="contact.html"><li class="menubarItems">Contact</li></a>
+    </ul>
+    
+   </div> 
+</div>
+
+ <div class="popup1">
+    <h2>Contact US</h2>
+    <p><br><br> Provide us your feedback and queries so we can help you or make amends</p> 
+  </div>
+  <h1>Get In Touch</h1>
+  <p class="p"><i>"We are here to help you. Please feel free to leave us a message <br> on how we could assist you".</i></p>
+  
+</div>
+
+
+ 
+<div class="contact-box">
+  <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>"> 
+    <!-- form method="POST" action="userfeedback.php" -->
+    <h2>Contact Form</h2>
+    <input type="text" class="input-field"  name="u_name" placeholder="Name"><span class="error"> <?php echo $nameErr;?></span>
+    <input type="text" class="input-field"  name="u_email" placeholder="Your e-mail address"><span class="error"> <?php echo $emailErr;?></span>
+    <input type="text" class="input-field"  name="phone" placeholder="Enter phone no"><span class="error"><?php echo $phoneErr;?></span>
+    <textarea type="text"  class="input-field textarea-field" name="u_message" placeholder="Message"></textarea><span><?php echo $msgErr;?></span>
+    <input type="submit" value=" Send Message" name="save"  class="btn"> 
+  </form>
+ </div>
+
+
+
+</body>
 
 <footer>
 
