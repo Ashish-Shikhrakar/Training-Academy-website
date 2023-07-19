@@ -19,6 +19,62 @@
 
 </head>
 <body>
+  
+    <div class="menubar1">
+        <div class="logo" style="display: inline; float: left;">
+            <img src="photo/logo.png">
+        </div>
+      <div>
+    <ul>
+        <a href="#"><li  class="menubarItems">Home</li></a>
+        <a href="about.html"><li  class="menubarItems">About Us</li></a>
+        <a href="#"><li class="menubarItems">Services</li></a>  
+        <a href="#"><li class="menubarItems">Schedule</li></a>  
+        <a href="#"><li class="menubarItems">Exams</li></a>
+        <a href="contact.html"><li class="menubarItems">Contact</li></a>
+    </ul>
+    
+   </div> 
+</div>
+
+ <div class="popup1">
+    <h2>Contact US</h2>
+    <p><br><br> Provide us your feedback and queries so we can help you or make amends</p> 
+  </div>
+  <h1>Get In Touch</h1>
+  <p class="p"><i>"We are here to help you. Please feel free to leave us a message <br> on how we could assist you".</i></p>
+  
+</div>
+
+
+ 
+<div class="contact-box">
+  <form method="POST" action="" > 
+    <!-- form method="POST" action="userfeedback.php" -->
+    <h2>Contact Form</h2>
+    <input type="text" class="input-field" required name="u_name" placeholder="Name">
+    <input type="text" class="input-field" required name="u_email" placeholder="Your e-mail address">
+    <input type="text" class="input-field" required name="phone" placeholder="Enter phone no">
+    <textarea type="text" required class="input-field textarea-field" name="u_message" placeholder="Message"></textarea>
+    <input type="submit" value=" Send Message" name="save"  class="btn"> 
+  </form>
+ </div>
+
+ <div class="contact-box">
+  <form method="POST" action="" > 
+    <!-- form method="POST" action="userfeedback.php" -->
+    <h2>Contact Form</h2>
+    <input type="text" class="input-field" required name="u_name" placeholder="Name">
+    <input type="text" class="input-field" required name="u_email" placeholder="Your e-mail address">
+    <input type="text" class="input-field" required name="phone" placeholder="Enter phone no">
+    <textarea type="text" required class="input-field textarea-field" name="u_message" placeholder="Message"></textarea>
+    <input type="submit" value=" Send Message" name="save"  class="btn"> 
+  </form>
+ </div>
+
+</body>
+
+
 <?php
 function test_input($data) {
   $data = trim($data);//Strip unnecessary characters (extra space, tab, newline) from the user input data
