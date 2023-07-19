@@ -49,7 +49,7 @@
 
  
 <div class="contact-box">
-  <form method="POST" action="" > 
+  <form method="POST"> 
     <!-- form method="POST" action="userfeedback.php" -->
     <h2>Contact Form</h2>
     <input type="text" class="input-field" required name="u_name" placeholder="Name">
@@ -60,17 +60,7 @@
   </form>
  </div>
 
- <div class="contact-box">
-  <form method="POST" action="" > 
-    <!-- form method="POST" action="userfeedback.php" -->
-    <h2>Contact Form</h2>
-    <input type="text" class="input-field" required name="u_name" placeholder="Name">
-    <input type="text" class="input-field" required name="u_email" placeholder="Your e-mail address">
-    <input type="text" class="input-field" required name="phone" placeholder="Enter phone no">
-    <textarea type="text" required class="input-field textarea-field" name="u_message" placeholder="Message"></textarea>
-    <input type="submit" value=" Send Message" name="save"  class="btn"> 
-  </form>
- </div>
+
 
 </body>
 
@@ -137,6 +127,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST'){
   if(isset($_POST['save'])){
     if(empty($_POST['u_name'])){
       $nameErr="Name cannot be empty";
+      echo $nameErr;
     }
     else{
       $u_name=test_input($_POST['u_name']);
@@ -177,19 +168,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST'){
     // if (! $stmt->execute()) {
     //     echo "Error : " . $stmt->error;
     // } 
-    $insert="INSERT INTO user_feedback(u_name,u_email,phone,u_message) VALUES ('$u_name', '$u_email', '$phone', '$u_message')";
-    $query= mysqli_query($conn,$insert);
-    if($query){
-      ?>
-      <script>
-        swal({
-  title: "submitted",
-  text: "Data inserted!",
-  icon: "success",
-});
-      </script>
-      <?php
-    }
+//     $insert="INSERT INTO user_feedback(u_name,u_email,phone,u_message) VALUES ('$u_name', '$u_email', '$phone', '$u_message')";
+//     $query= mysqli_query($conn,$insert);
+//     if($query){
+//       ?>
+//       <script>
+//         swal({
+//   title: "submitted",
+//   text: "Data inserted!",
+//   icon: "success",
+// });
+//       </script>
+//       <?php
+//     }
   }
     // Close the database connection
     // $stmt->close();
