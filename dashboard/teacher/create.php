@@ -88,22 +88,22 @@ if (isset($_POST["tid"])) {
               <div class="form-group">
                 <label>name</label><br>
                 <input type="text" name="tname" class="form-control" placeholder="Enter teacher's full name"
-                  value="<?php echo $tname; ?>">
+                  value="<?php echo $tname; ?>"><span><?php echo $nameErr?></span>
               </div>
               <div class="form-group">
                 <label>address</label>
                 <input type="text" name="taddress" class="form-control" placeholder="Enter teacher's address"
-                  value="<?php echo $taddress; ?>">
+                  value="<?php echo $taddress; ?>"><span><?php echo $addressErr?></span>
               </div>
               <div class="form-group">
                 <label for="">email</label>
                 <input type="text" name="email" class="form-control" placeholder="Enterteacher's eamil"
-                  value="<?php echo $email; ?>">
+                  value="<?php echo $email; ?>"><span><?php echo $emailErr?></span>
               </div>
               <div class="form-group">
                 <label for="">phone</label>
                 <input type="text" name="phone" class="form-control" placeholder="Enter teacher's phone"
-                  value="<?php echo $phone; ?>">
+                  value="<?php echo $phone; ?>"><span><?php echo $phoneErr?></span>
               </div>
               <div class="form-group">
                 <label for="">salary</label>
@@ -163,12 +163,63 @@ if (isset($_POST["tid"])) {
 
 <?php
 
+function test_input($data) {
+  $data = trim($data);//Strip unnecessary characters (extra space, tab, newline) from the user input data
+  $data = stripslashes($data);//Remove backslashes (\) from the user input data
+  $data = htmlspecialchars($data);//converts special characters to HTML entities
+  return $data;
+}
+function test_name($data){
+  if (!preg_match("/^[a-zA-Z-' ]*$/",$data)) {
+      return false;
+  }
+  else {
+      return true;
+  }
+}
+function validatePhone($phone) {
 
+// Check if the phone number is a valid format
+if (!preg_match("/^[0-9]{10}+$/", $phone)) {
+  return false;
+
+}
+// The phone number is valid
+else{
+  return true;
+}
+
+}
+$nameErr="";
 if (isset($_POST['save'])) {
-  $tname = $_POST['tname'];
-  $taddress = $_POST['taddress'];
+  if(empty($_POST['tname'])){
+    $nameErr="name cannot be empty";
+  }
+  else{
+    $tname=test_input($_POST['tname']);
+    if(test_name($tname)==false){
+      $nameErr="enter valid name";
+    }
+  }
+  if(empty($_POST['taddress'])){
+    $nameErr="name cannot be empty";
+  }
+  else{
+    $taddress=test_input($_POST['taddress']);
+    if(test_name($tname)==false){
+      $nameErr="enter valid address";
+    }
+  }
+  if(empty($_POST['phone'])){
+   $phoneErr="phone cammot be empty";
+}
+else{
+    $phone=$_POST['phone'];//required max length 10
+    if(validatePhone($phone)==false){
+        $phoneErr="enter valid number";
+    }
+}
   $email = $_POST['email'];
-  $phone = $_POST['phone'];
   $salary = $_POST['salary'];
   $cid = $_POST['cid'];
   $mode = $_POST['mode'];
