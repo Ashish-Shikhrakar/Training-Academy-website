@@ -17,8 +17,6 @@
 <link rel="stylesheet" type="text/css" href="https://common.olemiss.edu/_js/sweet-alert/sweet-alert.css">
 
 
-</head>
-<body>
   
     <div class="menubar1">
         <div class="logo" style="display: inline; float: left;">
