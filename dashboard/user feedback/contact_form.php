@@ -338,10 +338,11 @@ input[type="email"] {
 
 
  <div class="contact-box">
+    
   <form method="POST" action=""> 
-    <!-- action=https://formspree.io/f/mqkvkvde -->
 
     <!-- form method="POST" action="userfeedback.php" -->
+
     <h2>Contact Form</h2>
     <input type="text" class="input-field" required name="u_name" autocomplete="false" placeholder="Name">
     <input type="text" class="input-field" required name="u_email" autocomplete="false" placeholder="demo@gmail.com">
@@ -372,14 +373,9 @@ input[type="email"] {
 </html>
 
 <?php
-@include("db_connection.php");
-$host = 'localhost';
-$username = 'root';
-$password = '';
-$database = 'army_project';
-$conn = new mysqli($host, $username, $password, $database);
+//include("db_connection.php");
+$conn = new mysqli("localhost", "root", "", "army_project");
 
-// Check connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }

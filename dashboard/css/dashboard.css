@@ -51,6 +51,15 @@ margin-top: 40px;
 
 }
 
+
+.values .val-box span{
+     text-decoration: none;
+     color: rgb(134, 141, 151);
+     font-weight: 300px;
+     transition: 0.3s ease;
+ }
+
+
 #menu .items li i{
 color: rgb(134, 141, 151);
 width: 30px;

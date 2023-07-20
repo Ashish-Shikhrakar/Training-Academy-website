@@ -17,7 +17,7 @@ include($_SERVER['DOCUMENT_ROOT'].'/ARMY-WEBSITE-PROJECT/dashboard/common/sideba
             <table class="table table-border">
 				<thead>
 					<tr>
-						<th>ID</th>
+						<!-- <th>ID</th> -->
 						<th>User Name</th>
 						<th>Email</th>
 						<th>Phone</th>
@@ -41,7 +41,7 @@ include($_SERVER['DOCUMENT_ROOT'].'/ARMY-WEBSITE-PROJECT/dashboard/common/sideba
 					// Loop through each row and display the elements
 					while ($row = mysqli_fetch_assoc($result)) {
 						echo "<tr>";
-						echo "<td>" . $row['u_id'] . "</td>";
+						// echo "<td>" . $row['u_id'] . "</td>";
 						echo "<td>" . $row['u_name'] . "</td>";
 						echo "<td>" . $row['u_email'] . "</td>";
                         echo "<td>" . $row['phone'] . "</td>";
