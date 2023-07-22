@@ -1,7 +1,6 @@
 span {
     margin-bottom: 5px;
-
-    display: block;
+    /* display: block; */
 }
 
 label {
@@ -9,7 +8,7 @@ label {
 }
 
 .card1 {
-    position: absolute;
+    position: relative;
     width: 400px;
     height: 600px;
     transition: 0.3s ease-out;

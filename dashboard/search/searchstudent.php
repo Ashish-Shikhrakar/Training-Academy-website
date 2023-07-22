@@ -7,6 +7,7 @@ include($_SERVER['DOCUMENT_ROOT'].'/ARMY-WEBSITE-PROJECT/dashboard/common/sideba
 <section id ="interface" >
    <?php  include($_SERVER['DOCUMENT_ROOT'].'/ARMY-WEBSITE-PROJECT/dashboard/common/top-menu.php')?>
 
+<div class="searchstudent">
    <div class="container">
         <div class="row">
             <div class="col-md-12 mt-5">
@@ -49,7 +50,7 @@ include($_SERVER['DOCUMENT_ROOT'].'/ARMY-WEBSITE-PROJECT/dashboard/common/sideba
                                     if(isset($_POST['search_btn'])){
                                         $search_txt = $_POST['search_txt'];
 
-                                        $query = "SELECT * FROM student_reg where CONCAT(fname,lname,p_address,father_name) like '%$search_txt %' ";
+                                        $query = "SELECT * FROM student_reg where CONCAT(father_name,fname,lname,p_address) like '%$search_txt %' ";
                                         $query_run=mysqli_query($conn,$query);
                                         
 
@@ -92,6 +93,7 @@ include($_SERVER['DOCUMENT_ROOT'].'/ARMY-WEBSITE-PROJECT/dashboard/common/sideba
                 </div>
             </div>
         </div>
+    </div>
     </div>
     </section> 
 </section>

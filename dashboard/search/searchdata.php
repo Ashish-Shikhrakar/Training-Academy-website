@@ -7,7 +7,7 @@ include($_SERVER['DOCUMENT_ROOT'] . '/ARMY-WEBSITE-PROJECT/dashboard/common/side
 <section id="interface">
     <?php include($_SERVER['DOCUMENT_ROOT'] . '/ARMY-WEBSITE-PROJECT/dashboard/common/top-menu.php') ?>
 
-
+	<div class="dashboardstyle">
 
     <div class="values">
 
@@ -37,6 +37,7 @@ include($_SERVER['DOCUMENT_ROOT'] . '/ARMY-WEBSITE-PROJECT/dashboard/common/side
             <div> <span>Feedback</span></a> </div>
 
         </div>
+</div>
 </div>
 </section>
 

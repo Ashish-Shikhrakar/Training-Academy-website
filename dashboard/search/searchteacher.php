@@ -6,7 +6,7 @@ include($_SERVER['DOCUMENT_ROOT'].'/ARMY-WEBSITE-PROJECT/dashboard/common/sideba
     
 <section id ="interface" >
    <?php  include($_SERVER['DOCUMENT_ROOT'].'/ARMY-WEBSITE-PROJECT/dashboard/common/top-menu.php')?>
-
+<div class="searchteacher">
    <div class="container">
         <div class="row">
             <div class="col-md-12 mt-5">
@@ -106,6 +106,7 @@ include($_SERVER['DOCUMENT_ROOT'].'/ARMY-WEBSITE-PROJECT/dashboard/common/sideba
                 </div>
             </div>
         </div>
+    </div>
     </div>
     </section> 
 </section>

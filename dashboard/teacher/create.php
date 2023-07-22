@@ -13,6 +13,11 @@ $submit_message = '';
 $mode = "Add";
 // $name = '';
 // $tmp = '';
+$phoneErr='';
+$addressErr='';
+$nameErr='';
+$emailErr='';
+// $row='';
 
 if (isset($_POST["tid"])) {
   $tid = $_POST["tid"];
@@ -37,8 +42,8 @@ if (isset($_POST["tid"])) {
     $cid = $row["cid"];
     $foto = $row["photo"];
     $changed_ph = '';
-//      $name = $_FILES["photo"]["name"];
-//      $tmp = $_FILES["photo"]["tmp_name"];
+    //  $name = $_FILES["photo"]["name"];
+    //  $tmp = $_FILES["photo"]["tmp_name"];
 }
 
 }
@@ -88,7 +93,7 @@ if (isset($_POST["tid"])) {
               <div class="form-group">
                 <label>name</label><br>
                 <input type="text" name="tname" class="form-control" placeholder="Enter teacher's full name"
-                  value="<?php echo $tname; ?>"><span><?php echo $nameErr?></span>
+                  value="<?php echo $tname; ?>"><span><?php echo $nameErr ?></span>
               </div>
               <div class="form-group">
                 <label>address</label>
@@ -159,9 +164,22 @@ if (isset($_POST["tid"])) {
 </html>
 
 
-
-
 <?php
+if (isset($_POST['save'])) {
+  $tname = $_POST['tname'];
+  $taddress = $_POST['taddress'];
+  $email = $_POST['email'];
+  $phone = $_POST['phone'];
+  $salary = $_POST['salary'];
+  $cid = $_POST['cid'];
+  $mode = $_POST['mode'];
+  // $file = $_FILES['photo']['tmp_name'];
+
+  //  $file = addslashes(file_get_contents($_FILES["image"]["temp_name"]));
+  // $file = isset($_FILES['photo']) ? $_FILES['photo'] : null;
+
+  $name = $_FILES["photo"]["name"];
+  $tmp = $_FILES["photo"]["tmp_name"];
 
 function test_input($data) {
   $data = trim($data);//Strip unnecessary characters (extra space, tab, newline) from the user input data
@@ -219,21 +237,21 @@ else{
         $phoneErr="enter valid number";
     }
 }
-  $email = $_POST['email'];
-  $salary = $_POST['salary'];
-  $cid = $_POST['cid'];
-  $mode = $_POST['mode'];
-  // $file = $_FILES['photo']['tmp_name'];
+  // $email = $_POST['email'];
+  // $salary = $_POST['salary'];
+  // $cid = $_POST['cid'];
+  // $mode = $_POST['mode'];
+  // // $file = $_FILES['photo']['tmp_name'];
 
-  //  $file = addslashes(file_get_contents($_FILES["image"]["temp_name"]));
-  // $file = isset($_FILES['photo']) ? $_FILES['photo'] : null;
+  // //  $file = addslashes(file_get_contents($_FILES["image"]["temp_name"]));
+  // // $file = isset($_FILES['photo']) ? $_FILES['photo'] : null;
 
-  $name = $_FILES["photo"]["name"];
-  $tmp = $_FILES["photo"]["tmp_name"];
+  // $name = $_FILES["photo"]["name"];
+  // $tmp = $_FILES["photo"]["tmp_name"];
   
   // print_R($_FILES);exit;
 
-  $uploadStatus = move_uploaded_file($tmp, "../../uploadsS/" . $name);
+  $uploadStatus = move_uploaded_file($tmp, "../../uploadsT/" . $name);
   if ($uploadStatus) {
 
     //echo $name;exit;
@@ -271,5 +289,5 @@ else{
   // Close the database connection
   mysqli_close($conn);
 }
-
+}
 ?>

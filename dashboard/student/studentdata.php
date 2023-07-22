@@ -4,7 +4,7 @@
         include($_SERVER['DOCUMENT_ROOT'].'/ARMY-WEBSITE-PROJECT/dashboard/common/sidebar.php')
 ?>
 
-    <link rel="stylesheet" href="../css/card1.css">
+    <link rel="stylesheet" href="../css/card.css">
    
     <script>
         function tougleShowMore(){
@@ -27,7 +27,7 @@
    include($_SERVER['DOCUMENT_ROOT'].'/ARMY-WEBSITE-PROJECT/dashboard/common/top-menu.php')
 ?>
 	
-   
+    <div class="studentdata">
 
     <form action="" method="POST" enctype="multipart/form-data">
 		<div class="container my-9">
@@ -190,9 +190,9 @@
             </div>
 
 </form>
-
+</div>
             
-
+</section>
 
  
 

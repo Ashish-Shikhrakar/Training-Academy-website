@@ -14,12 +14,11 @@ body{
 #menu{
     background-color: rgb(55, 44, 44);
     width: 300px;
-    height:720px ;
+    height:100vh ;
+    position: fixed;
+    float: left;
 }
 #menu h2{
-    /* text-transform: uppercase; */
-    /* letter-spacing:.1em; */
-    /* line-height: normal; */
     /* font-size: 2rem; */
     color:#fff;
     /* margin-left:  10px; */
@@ -85,14 +84,75 @@ margin: 0 10px 0 25px;
 #menu .items li:hover i,
 #menu .items li:hover a{
 color: #fff;
-} 
+}
 
 #interface{
-    width: calc(100% - 250px);
+    /* width: calc(100% - 250px); */
+    width: 100%;
     justify-content: right;
 /*    background-color: rgb(89, 85, 85);*/
     
+} 
+.studentdata{
+    float:right; 
+    margin-top: 80px;
+    margin-right:650px;
 }
+.teacherdata{
+    /* float:right;  */
+    margin-top: 86px;
+    padding-left: 250px;
+    margin-left: 0px;
+}
+
+.feedbackdata{
+
+    margin-top: 86px;
+    padding-left: 250px;
+    margin-right: 0px;
+
+}
+
+.dashboardstyle{
+    float:right; 
+    margin-top: 86px;
+    justify-content: space-between;
+    margin-right: 210px;
+}
+
+
+.couserstyle{
+    float:right; 
+    margin-top: 80px;
+    margin-right: 300px;
+}
+.searchteacher{
+    margin-top: 80px;
+    padding-left: 270px;
+    margin-right:px;
+}
+
+
+.searchstudent{
+    margin-top: 80px;
+    padding-left: 270px;
+    margin-right:px;
+}
+
+
+.searchcourse{
+    margin-top: 80px;
+    padding-left: 270px;
+    margin-right:px;
+}
+
+.searchfeedback{
+    margin-top: 80px;
+    padding-left: 270px;
+    margin-right:px;
+}
+
+
 
 #interface .nav{
     padding: 15px 30px;
@@ -101,6 +161,10 @@ color: #fff;
     border-bottom: 3px solid #594ef7;
     align-items: center;
     justify-content: space-between;
+    float: right;
+    width: 80%;
+    position: fixed;
+    margin-left: 300px;
 }
 #interface .nav .search{
     display: flex;
