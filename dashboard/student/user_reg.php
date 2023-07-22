@@ -1,53 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php 
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student Registration Form</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <script>
-        function updateLabels() {
-            const selectedDate = new Date(document.getElementById("datePicker").value);
-            const bsDate = convertToBS(selectedDate);
-            const age = calculateAge(selectedDate);
-            document.getElementById("bsdate").value = (bsDate);
-            document.getElementById("ag").value=(age);
-            console.log(selectedDate);
-        }
+        include($_SERVER['DOCUMENT_ROOT'].'/ARMY-WEBSITE-PROJECT/dashboard/common/header.php');
+        include($_SERVER['DOCUMENT_ROOT'].'/ARMY-WEBSITE-PROJECT/dashboard/common/sidebar.php')
+?>
 
-        function convertToBS(date) {
-            const bsYear = date.getFullYear() + 57;
-            const bsMonth = (date.getMonth() + 3) % 12 || 12;
-            const bsDay = (date.getDate() + 2) % 30 || 30;
-            return `${bsYear}-${bsMonth}-${bsDay}`;
-        }
-
-        function calculateAge(selectedDate) {
-            const currentDate = new Date();
-            let age = currentDate.getFullYear() - selectedDate.getFullYear();
-            console.log(age)
-
-            const currentMonth = currentDate.getMonth();
-            const selectedMonth = selectedDate.getMonth();
-
-            const currentDay = currentDate.getDate();
-            const selectedDay = selectedDate.getDate();
-
-            if (currentMonth < selectedMonth || (currentMonth === selectedMonth && currentDay < selectedDay)) {
-                age--;
-            }
-
-            return Math.max(age, 0);
-        }
-    </script>
-    
-</head>
-
-<body>
+  
     
     <div class="master">
         <div class="top">
@@ -237,7 +194,7 @@
                     <br><br>
                     <!-- contact number -->
                     <label>Contact no</label>
-                    <input type="tel" required id="phone" name="contact_no"  >
+                    <input type="tel" required id="phone" name="contact_no" maxlength="10"/>
                     <br><br>
                 </div>
 
@@ -263,7 +220,7 @@
                     <br><br>
                     <!-- contact number -->
                     <label>Contact no</label>
-                    <input type="tel" id="phone" required name="f_contact_no"  >
+                    <input type="tel" id="phone" required name="f_contact_no" maxlength="10"/> 
                     <br><br>
                     <p> If father is /was in the British Army /GSPF/<br>Indian Army
                         /Nepal Government Officier/<br>Nepal Army or Nepal
@@ -291,7 +248,7 @@
                     <br><br>
                     <!-- contact number -->
                     <label>Contact no</label>
-                    <input type="tel" id="phone" required name="m_contact_no" >
+                    <input type="tel" id="phone" required name="m_contact_no" maxlength="10"/> 
                     <br><br>
                     <!-- Guardian's detail -->
                     <label>Guradian's Name</label>
@@ -306,8 +263,8 @@
                     <input type="tel" name="r_contact_no"  maxlength="10" />
                     <br><br><br>
                     <!-- button -->
-                    <input type="submit" class="btn btn-primary" value="Submit" style="height:45px">
-                    <input type="reset" class="btn " value="Reset" style="height:45px">
+                    <input type="submit" class="btn btn-primary" value="Submit">
+                    <input type="reset" class="btn btn-primary" value="Reset" >
                 </div>
 
             </div>
@@ -325,6 +282,39 @@
        
     </div>
 
-</body>
+    <script>
+        function updateLabels() {
+            const selectedDate = new Date(document.getElementById("datePicker").value);
+            const bsDate = convertToBS(selectedDate);
+            const age = calculateAge(selectedDate);
+            document.getElementById("bsdate").value = (bsDate);
+            document.getElementById("ag").value=(age);
+            console.log(selectedDate);
+        }
 
-</html>
+        function convertToBS(date) {
+            const bsYear = date.getFullYear() + 57;
+            const bsMonth = (date.getMonth() + 3) % 12 || 12;
+            const bsDay = (date.getDate() + 2) % 30 || 30;
+            return `${bsYear}-${bsMonth}-${bsDay}`;
+        }
+
+        function calculateAge(selectedDate) {
+            const currentDate = new Date();
+            let age = currentDate.getFullYear() - selectedDate.getFullYear();
+            console.log(age)
+
+            const currentMonth = currentDate.getMonth();
+            const selectedMonth = selectedDate.getMonth();
+
+            const currentDay = currentDate.getDate();
+            const selectedDay = selectedDate.getDate();
+
+            if (currentMonth < selectedMonth || (currentMonth === selectedMonth && currentDay < selectedDay)) {
+                age--;
+            }
+
+            return Math.max(age, 0);
+        }
+    </script>
+    

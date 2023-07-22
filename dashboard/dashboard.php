@@ -1,11 +1,12 @@
 <?php 
 include($_SERVER['DOCUMENT_ROOT'].'/ARMY-WEBSITE-PROJECT/dashboard/common/header.php');
 include($_SERVER['DOCUMENT_ROOT'].'/ARMY-WEBSITE-PROJECT/dashboard/common/sidebar.php')?>
+	
 
     
 <section id ="interface" >
    <?php  include($_SERVER['DOCUMENT_ROOT'].'/ARMY-WEBSITE-PROJECT/dashboard/common/top-menu.php')?>
-	
+<div class="dashboardstyle">
         <div class="values">
             <div class="val-box">
                 <i class="fas fa-users"></i>
@@ -37,4 +38,7 @@ include($_SERVER['DOCUMENT_ROOT'].'/ARMY-WEBSITE-PROJECT/dashboard/common/sideba
                 </div>
 
             </div>
- </section>  
+            </div>
+ </section> 
+ 
+ 

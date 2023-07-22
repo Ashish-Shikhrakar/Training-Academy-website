@@ -1,7 +1,6 @@
 span {
     margin-bottom: 5px;
-
-    display: block;
+    /* display: block; */
 }
 
 label {
@@ -9,14 +8,13 @@ label {
 }
 
 .card1 {
-    /* position: absolute */
-    /* left: 0px; */
-    width: 300px;
-    height: 800px;
+    position: relative;
+    width: 400px;
+    height: 600px;
     transition: 0.3s ease-out;
     box-shadow: 0 3px 15px rgba(0,0,0,0.7);
     max-width: auto;
-    min-width: 200px;
+    min-width: 300px;
 }
 
 .card-all { 

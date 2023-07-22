@@ -5,9 +5,9 @@ include($_SERVER['DOCUMENT_ROOT'] . '/ARMY-WEBSITE-PROJECT/dashboard/common/side
 
 <section id="interface">
 	<?php include($_SERVER['DOCUMENT_ROOT'] . '/ARMY-WEBSITE-PROJECT/dashboard/common/top-menu.php') ?>
-
+	<div class="couserstyle">
 		<form action="" method="POST" enctype="multipart/form-data">
-			<div class="container my-5">
+			<div class="container">
 				<h2 style="text-align:center">Course Information</h2>
 
 				<a href="course.php" role="button"><input type="button" class="btn btn-primary" href="course.php"
@@ -64,6 +64,7 @@ include($_SERVER['DOCUMENT_ROOT'] . '/ARMY-WEBSITE-PROJECT/dashboard/common/side
 				</table>
 			</div>
 		</form>
+		</div>
 </section>
 
 <script>
