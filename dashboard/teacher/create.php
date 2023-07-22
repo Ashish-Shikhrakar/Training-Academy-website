@@ -13,7 +13,7 @@ $submit_message = '';
 $mode = "Add";
 // $name = '';
 // $tmp = '';
-
+$nameErr=$phoneErr=$addressErr=$emailErr="";
 if (isset($_POST["tid"])) {
   $tid = $_POST["tid"];
   $mode = "Update";
@@ -202,12 +202,12 @@ if (isset($_POST['save'])) {
     }
   }
   if(empty($_POST['taddress'])){
-    $nameErr="name cannot be empty";
+    $addressErr="name cannot be empty";
   }
   else{
     $taddress=test_input($_POST['taddress']);
     if(test_name($tname)==false){
-      $nameErr="enter valid address";
+      $addressErr="enter valid address";
     }
   }
   if(empty($_POST['phone'])){
