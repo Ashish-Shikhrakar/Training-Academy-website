@@ -320,7 +320,7 @@
 
     <div class="popupnotice" id="popup">
       <div class="popupcontent" style="overflow:hidden;overflow-y:scroll;height:620px;text-align:left;">
-        <img src="photo/close.png" style="width:20px;height:20px;float:right;margin:5px;cursor:pointer;"
+        <img src="photo/close.png" style="width:12px;height:12px;margin:12px;cursor:pointer;position:absolute;left:96%;top:0;"
           onclick="closepopup()">
         <?php
         include('dashboard/student/user_reg.php');

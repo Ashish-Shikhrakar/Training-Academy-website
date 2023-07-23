@@ -41,6 +41,27 @@
             return Math.max(age, 0);
         }
     </script>
+    <style>
+        .form-button{
+            width: 80px;
+            margin-top: 50px;
+            padding: 10px 0;
+            background: #A7A44E;
+            color: #fff;
+            border: 0;
+            outline: none;
+            font-size: 14px;
+            border-radius: 5px;
+            cursor: pointer;
+            box-shadow: 0 5px 5px rgba(0, 0, 0,0.2);
+        }
+        .opt-box{
+            border: 2px dashed;
+            margin: 5px auto 5px auto;
+            padding: 5px;
+            padding-left: 10px;
+        }
+    </style>
 <!-- </head> -->
 
 <!-- <body> -->
@@ -48,37 +69,45 @@
         <div class="top">
             <div class="top-left">
                 <img src="photo/logo.png"><br><br>
-                <p>Training Center,Dholahity,Lalitpur
+                
+            </div>
+            <div>
+            <div style="float:left;">
+            <p>Training Center<br>Dholahity,Lalitpur
                     Nepal.<br> ph: 01-5574095/9851046632
                 </p>
             </div>
-            <div class="top-right">
+            <div class="top-right" style="float:right;">
                 <table border="1" style="border-collapse:collapse">
                     <tr>
                         <td width="30"></td>
-                        <td align="center"> pan no:-602988144</td>
+                        <td align="center" style="padding:5px"> pan no:-602988144</td>
                         <td width="30"></td>
                     </tr>
                 </table>
             </div>
+            </div>
+            
         </div>
         <form method="post" action="user_db.php" enctype="multipart/form-data">
             <div class="middle">
 
-                <div class="middle-left">
-                    <h2>
+                <div class="middle-left" style="clear:both;">
+                    <h2 class="servicetitle">
                         <center>Application Form</center>
                     </h2>
                     <br>
+                    
+                </div>
+                    <div style="float:left;border-right: 2px solid; padding-right: 30px;">
                     <h3>
-                        <center>Personal Detail</center>
+                        Personal Details
                     </h3>
-
-
+                    <br>
                     <!-- Reporting date -->
-                    <label>Reporting date</label>
+                    <!-- <label>Reporting date</label>
                     <input type="date" name="reporting_date">
-                    <br><br>
+                    <br><br> -->
                     <!-- attempt -->
                     <label>Attempt:</label>
                     <input type="radio" name="attempt" value="1st" />1st
@@ -88,8 +117,8 @@
                     <br><br>
                     <!-- name -->
                     <label>Name</label>
-                    <input type="text" required name="Fname" placeholder="First name" maxlength="30" /><br>
-                    <br><input type="text" name="Lname" required placeholder="Last name" maxlength="30" />
+                    <input type="text" required name="Fname" placeholder="First name" maxlength="30" style="width: 150px;" />
+                    <input type="text" name="Lname" required placeholder="Last name" maxlength="30" style="width: 150px;"/>
                     <br><br>
                     <!-- jat -->
                     <label>Jaat</label>
@@ -233,20 +262,19 @@
                     <label>Contact no</label>
                     <input type="tel" id="phone" name="phone" required >
                     <br><br>
-                </div>
-
-
-
-
-                <div class="middle-right">
                     <!-- Photo -->
                     <label>Upload photo</label>
                     <input type="file" class="photo" required name="photo">
-                    <br><br>
+                    </div>
+                    
+                    
+
+
+                <div class="middle-right" style="float:right;">
                     <h3>
-                        <center>Family and Guardian Details</center>
+                        Family and Guardian Details
                     </h3>
-                    <br><br>
+                    <br>
                     <!-- father's name -->
                     <label>Father's Name</label>
                     <input type="text" name="father_name" required placeholder="Enter name" maxlength="30" />
@@ -259,10 +287,11 @@
                     <label>Contact no</label>
                     <input type="tel" id="phone" name="f_contact_no"  required>
                     <br><br>
-                    <p> If father is /was in the British Army /GSPF/<br>Indian Army
+                    <div class="opt-box">
+                    <p style="font-weight:600">If father is /was in the British Army /GSPF/<br>Indian Army
                         /Nepal Government Officier/<br>Nepal Army or Nepal
                         Police then please given<br> his service details.</p>
-                    <br><br>
+                    <br>
                     <!-- service no. -->
                     <label>Service no</label>
                     <input type="number" name="service_no" maxlength="10" />
@@ -275,6 +304,8 @@
                     <label>Regt</label>
                     <input type="number" name="regt" maxlength="10" />
                     <br><br>
+                    </div>
+                    <br>
                     <!-- mother's name -->
                     <label>Mother's Name</label>
                     <input type="text" name="mother_name" required placeholder="Full name" maxlength="30" />
@@ -300,19 +331,19 @@
                     <input type="number" name="r_contact_no"  maxlength="10" />
                     <br><br>
                     <!-- button -->
-                    <input type="submit" class="btn" value="Submit">
-                    <input type="reset" class="btn" value="Reset">
+                    <input type="submit" class="form-button" value="Submit">
+                    <input type="reset" class="form-button" value="Reset">
                 </div>
 
             </div>
-            <div class="bottom">
+            <div class="bottom" style="clear:both;">
+            <br><br>
             <P>
-
                 <input type="checkbox" name ="aggre">  I will accept all the rules and regulation of this institute and if do any
                 mistakes or if I’m not able to follow the rules and regulation of this institute then I will accept any
                 punishment from this AIM GURKHA.
             </P>
-        </div>
+            </div>
         </form>
        
     </div>
