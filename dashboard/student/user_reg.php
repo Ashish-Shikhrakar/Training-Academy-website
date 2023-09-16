@@ -2,10 +2,11 @@
 <html lang="en"> -->
 
 <!-- <head> -->
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <!-- <link rel="stylesheet" href="dashboard/student/style.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script>
         function updateLabels() {
             const selectedDate = new Date(document.getElementById("datePicker").value);
@@ -69,19 +70,18 @@
         <div class="top">
             <div class="top-left">
                 <img src="photo/logo.png"><br><br>
-                
             </div>
             <div>
             <div style="float:left;">
-            <p>Training Center<br>Dholahity,Lalitpur
-                    Nepal.<br> ph: 01-5574095/9851046632
+            <p><b><i class="fa-solid fa-location-dot"></i> Training Center,Dholahity,Lalitpur,
+                    Nepal.<br> <i class="fa fa-phone"></i> Phone: 01-5574095/9851046632
                 </p>
             </div>
             <div class="top-right" style="float:right;">
                 <table border="1" style="border-collapse:collapse">
                     <tr>
                         <td width="30"></td>
-                        <td align="center" style="padding:5px"> pan no:-602988144</td>
+                        <td align="center" style="padding:5px"><b> pan no:-602988144</td>
                         <td width="30"></td>
                     </tr>
                 </table>
@@ -91,15 +91,13 @@
         </div>
         <form method="post" action="user_db.php" enctype="multipart/form-data">
             <div class="middle">
-
                 <div class="middle-left" style="clear:both;">
                     <h2 class="servicetitle">
                         <center>Application Form</center>
                     </h2>
                     <br>
-                    
-                </div>
-                    <div style="float:left;border-right: 2px solid; padding-right: 30px;">
+                
+                    <div style="float:left;border-right: 2px solid; padding-right: 100px;">
                     <h3>
                         Personal Details
                     </h3>
@@ -109,6 +107,7 @@
                     <input type="date" name="reporting_date">
                     <br><br> -->
                     <!-- attempt -->
+                    
                     <label>Attempt:</label>
                     <input type="radio" name="attempt" value="1st" />1st
                     <input type="radio" name="attempt" value="2nd" />2nd
@@ -266,9 +265,10 @@
                     <label>Upload photo</label>
                     <input type="file" class="photo" required name="photo">
                     </div>
-                    
-                    
+                 </div>
 
+                    
+                    
 
                 <div class="middle-right" style="float:right;">
                     <h3>
@@ -339,9 +339,10 @@
             <div class="bottom" style="clear:both;">
             <br><br>
             <P>
-                <input type="checkbox" name ="aggre">  I will accept all the rules and regulation of this institute and if do any
+                <input type="checkbox" name ="aggre"><b>I will accept all the rules and regulation of this institute and if do any
                 mistakes or if I’m not able to follow the rules and regulation of this institute then I will accept any
                 punishment from this AIM GURKHA.
+                <br>नोट: भर्ना गर्दा बुझाएको भर्ना शुल्क कुनै कारण बस CANDIDATE बिभिद कारणले ट्रेनिंग न आएमा या ट्रेनिंग सेन्टर छोडेमा या बहिष्कार गरिएमा फेरी फिर्ता पाइने छैन,धन्यबाद |</b>
             </P>
             </div>
         </form>

@@ -331,7 +331,8 @@ h2 {
     margin-bottom: 0px;
     margin-left: 0px;
     line-height: 25px;
-}
+} 
+
 
 .responsive-cell-block {
     min-height: 75px;
@@ -707,3 +708,29 @@ footer{
         text-align: center;
     }
 }
+    .master{
+    background-color: #D2D2D2;
+   }
+   .middle-right input{
+    height: 30px;
+    border:1px solid #777;
+    outline: none;
+    border-radius: 5px;
+    margin-left: 0px;
+    padding-left: 15px;
+    font-family:Poppins;
+    display: inline-block; 
+  } 
+  .middle .middle-left input{
+    height: 30px;
+    border:1px solid #777;
+    outline: none;
+    border-radius: 5px;
+    margin-left: 0px;
+    padding-left: 15px;
+    font-family:Poppins;
+    display: inline-block; 
+  } 
+  
+
+  
