@@ -77,14 +77,16 @@
                     Nepal.<br> <i class="fa fa-phone"></i> Phone: 01-5574095/9851046632
                 </p>
             </div>
-            <div class="top-right" style="float:right;">
-                <table border="1" style="border-collapse:collapse">
+            <div class="top-right" style="float:right">
+                <table border="1" style="border-collapse:collapse;margin-left:100px;">
                     <tr>
                         <td width="30"></td>
                         <td align="center" style="padding:5px"><b> pan no:-602988144</td>
                         <td width="30"></td>
                     </tr>
                 </table>
+                <br><label>Upload photo</label>
+                    <input type="file" class="photo" required name="photo">
             </div>
             </div>
             
@@ -93,7 +95,7 @@
             <div class="middle">
                 <div class="middle-left" style="clear:both;">
                     <h2 class="servicetitle">
-                        <center>Application Form</center>
+                        <br><center>Application Form</center>
                     </h2>
                     <br>
                 
@@ -262,8 +264,8 @@
                     <input type="tel" id="phone" name="phone" required >
                     <br><br>
                     <!-- Photo -->
-                    <label>Upload photo</label>
-                    <input type="file" class="photo" required name="photo">
+                    <!-- <label>Upload photo</label>
+                    <input type="file" class="photo" required name="photo"> -->
                     </div>
                  </div>
 
@@ -339,7 +341,7 @@
             <div class="bottom" style="clear:both;">
             <br><br>
             <P>
-                <input type="checkbox" name ="aggre"><b>I will accept all the rules and regulation of this institute and if do any
+                <input type="checkbox" name ="aggre"><b> I will accept all the rules and regulation of this institute and if do any
                 mistakes or if I’m not able to follow the rules and regulation of this institute then I will accept any
                 punishment from this AIM GURKHA.
                 <br>नोट: भर्ना गर्दा बुझाएको भर्ना शुल्क कुनै कारण बस CANDIDATE बिभिद कारणले ट्रेनिंग न आएमा या ट्रेनिंग सेन्टर छोडेमा या बहिष्कार गरिएमा फेरी फिर्ता पाइने छैन,धन्यबाद |</b>
