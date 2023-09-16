@@ -6,39 +6,56 @@ include($_SERVER['DOCUMENT_ROOT'] . '/ARMY-WEBSITE-PROJECT/dashboard/common/side
 
 <section id="interface">
     <?php include($_SERVER['DOCUMENT_ROOT'] . '/ARMY-WEBSITE-PROJECT/dashboard/common/top-menu.php') ?>
+    <div class="dashboardstyle">
 
-	<div class="dashboardstyle">
+        <div class="values">
+                <div class="val-box">
+                    <a href="searchstudent.php">
+                        <i class="fas fa-users"></i>
+                        
+                        <div> <span>Students</span>
+                    </a>
+                    <!-- <h3>425</h3> -->
 
-    <div class="values">
-
-        <div class="val-box">
-        <a href="searchstudent.php" >
-            <i class="fas fa-users" ></i>
-            <div> <span>Students</span></a> </div>
+                        </div>
         </div>
 
 
-        <div class="val-box">
-            <a href="searchteacher.php"> 
-            <i class="fas fa-user"></i>
-            <div> <span>Teacher</span> </a> </div>
-        </div>
+                <div class="val-box">
+                    <a href="searchteacher.php">
+                        <i class="fas fa-user"></i>
+                        <div> <span>Teacher</span>
+                    </a>
+                </div>
+    </div>
 
 
-        <div class="val-box">
-        <a href="searchcourse.php">
-            <i class="fas fa-book"></i>
-            <div> <span>Course</span></a> </div>
-        </div>
+                <div class="val-box">
+                    <a href="searchcourse.php">
+                        <i class="fas fa-book"></i>
+                        <div> <span>Course</span>
+                    </a>
+                </div>
+    </div>
 
-        <div class="val-box">
-        <a href="searchfeedback.php">
-            <i class="fas fa-sms"></i>
-            <div> <span>Feedback</span></a> </div>
+                <div class="val-box">
+                    <a href="searchfeedback.php">
+                        <i class="fas fa-sms"></i>
+                        <div> <span>Feedback</span>
+                    </a>
+                </div>
 
-        </div>
-</div>
-</div>
+                <!-- <div class="val-box">
+                    <a href="searchshcedule.php">
+                        <i class="fas fa-table"></i>
+                        <div> <span>Schedule</span>
+                    </a>
+                </div>
+                 -->
+
+    </div>
+    </div>
+    </div>
 </section>
 
 

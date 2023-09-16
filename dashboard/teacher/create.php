@@ -17,20 +17,20 @@ $phoneErr='';
 $addressErr='';
 $nameErr='';
 $emailErr='';
-// $row='';
+$row='';
 
 if (isset($_POST["tid"])) {
   $tid = $_POST["tid"];
-  $mode = "Update";
+  $mode = "Update";                                     //for 2 operation like edit(update),insert.
 
   $sql = "SELECT * FROM teacher WHERE tid = '$tid'";
 
   // Execute the query
   $result = mysqli_query($conn, $sql);
+                                                      // Check if there are any rows returned
 
-  // Check if there are any rows returned
-  if (mysqli_num_rows($result) > 0) {
-    // Loop through each row and display the elements
+  if (mysqli_num_rows($result) > 0) {                 // Loop through each row and display the elements
+    
   
     $row = mysqli_fetch_assoc($result);
     $tid = $row["tid"];

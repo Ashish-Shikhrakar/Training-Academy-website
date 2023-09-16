@@ -1,7 +1,7 @@
 <?php
     
 if (isset($_POST["cr_id"])) {
-    $cr_id  = $_POST["cr_id"];
+    
     $host = 'localhost';
     $username = 'root';
     $password = '';
@@ -15,6 +15,11 @@ if (isset($_POST["cr_id"])) {
         die("Connection failed: " . $conn->connect_error);
     }
 
+
+
+    $cr_id  = $_POST["cr_id"];
+
+    
     function delete_inventory($conn, $cr_id) {
         $sql = "DELETE FROM `course` WHERE `cr_id` = ?";
         $statement = mysqli_stmt_init($conn);

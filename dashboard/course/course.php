@@ -30,8 +30,7 @@
                             </div>
                             <div class="form-group">
                                 <label>Teacher Name</label>
-                                <input type="text" name="c_t_name" class="form-control"
-                                    placeholder="Enter teacher's name">
+                                <input type="text" name="c_t_name" class="form-control" required placeholder="Enter teacher's name">
                             </div>
                     
                             <div class="form-group">

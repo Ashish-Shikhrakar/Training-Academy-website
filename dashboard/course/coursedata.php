@@ -68,6 +68,9 @@ include($_SERVER['DOCUMENT_ROOT'] . '/ARMY-WEBSITE-PROJECT/dashboard/common/side
 </section>
 
 <script>
+
+// eidt operation 
+
 	function editThis(cr_id) {
 		var form = document.createElement("form");
 		form.method = "POST";
@@ -83,6 +86,10 @@ include($_SERVER['DOCUMENT_ROOT'] . '/ARMY-WEBSITE-PROJECT/dashboard/common/side
 		document.body.appendChild(form);
 		form.submit();
 	}
+
+
+	// delete operation 
+
 
 	function deleteThis(cr_id) {
 		var form = document.createElement("form");

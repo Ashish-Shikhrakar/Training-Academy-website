@@ -19,12 +19,13 @@
 				<table class="table table-border">
 					<thead>
 						<tr>
-							<!-- <th>ID</th> -->
+							
 							<th>User Name</th>
 							<th>Email</th>
 							<th>Phone</th>
 							<th>Message</th>
 							<th>Action</th>
+							<!-- <th>mark as read</th> -->
 						</tr>
 					</thead>
 					<?php
@@ -43,11 +44,12 @@
 						// Loop through each row and display the elements
 						while ($row = mysqli_fetch_assoc($result)) {
 							echo "<tr>";
-							// echo "<td>" . $row['u_id'] . "</td>";
+							
 							echo "<td>" . $row['u_name'] . "</td>";
 							echo "<td>" . $row['u_email'] . "</td>";
 							echo "<td>" . $row['phone'] . "</td>";
 							echo "<td>" . $row['u_message'] . "</td>";
+							
 
 
 							echo "<td>";
@@ -57,8 +59,9 @@
 							// echo '<button  onclcik="deleteThis(' . $row["tid"] . ')">Delete</button>';
 							echo '<input class="btn btn-danger" type="button" onclick="deleteThis(' . $row["u_id"] . ')" value="Delete">';
 
-							echo '</td>';
-							echo '</tr>';
+							// echo '</td>';
+							// echo "<td>" . $row['u_id'] . "</td>";
+							// echo '</tr>';
 
 						}
 					}
@@ -69,6 +72,10 @@
 		</form>
 	</div>
 </secttion>
+
+<!-- <label for="check"><input type="checkbox" id="check" name ="aggre"> </label>  -->
+
+
 	<script>
 		function editThis(u_id) {
 			var form = document.createElement("form");

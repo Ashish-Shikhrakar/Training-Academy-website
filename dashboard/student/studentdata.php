@@ -4,7 +4,7 @@
         include($_SERVER['DOCUMENT_ROOT'].'/ARMY-WEBSITE-PROJECT/dashboard/common/sidebar.php')
 ?>
 
-    <link rel="stylesheet" href="../css/card.css">
+    <link rel="stylesheet" href="../css/carda.css">
    
     <script>
         function tougleShowMore(){
@@ -30,13 +30,13 @@
     <div class="studentdata">
 
     <form action="" method="POST" enctype="multipart/form-data">
-		<div class="container my-9">
+		<div class="container">
 			<h2 style="text-align:center">Student Information</h2>
 
 			<a class="btn btn-primary" href="user_reg.php" role="button">Add Student</a> 
              <!-- <a class="btn btn-primary" href="../dashboard.php" role="button">Back</a> -->
 		
-                <div class="table card-all table-border">
+                <div class="card-all table table-border">
 				
                     <?php
 				
@@ -171,7 +171,7 @@
                                 echo "<span>";
                                 
                                 // <!-- <a class="btn btn-primary" href="">hello</a> -->
-                                echo '<button class="btn btn-primary" onclick="tougleShowMore()">Show more</button>';
+                                // echo '<button class="btn btn-primary" onclick="tougleShowMore()">Show more</button>';
                                 echo '<input type="button" class="btn btn-primary" onclick="editThis('.$row["st_id"].')" value="Edit">';
                                 echo '&nbsp';
                                 // echo '<button  onclcik="deleteThis(' . $row["st_id"] . ')">Delete</button>';

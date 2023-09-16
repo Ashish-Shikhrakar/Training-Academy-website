@@ -26,7 +26,7 @@
 
 
     <div class="head">
-        <h3>Army Training Academy</h3>
+        <h3>Aim Gurkha Training Academy</h3>
     </div>
     <div class="profile">
 

@@ -33,35 +33,34 @@ include($_SERVER['DOCUMENT_ROOT'].'/ARMY-WEBSITE-PROJECT/dashboard/common/sideba
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php
+                            <?php
                                
-                                if (isset($_POST['search_txt'])) {
-                                    echo 
-                                    '<script>
-                                        let clearMe = document.getElementById("clearMe");
-                                        clearMe.innerHTML = "";
-                                    </script>';
-                                
-                                    if ($_POST["search_txt"] === '') {
-                                        // do nothing
-                                    } else {
-                              
-                                    $conn = mysqli_connect("localhost","root","","army_project");
-                                    if(isset($_POST['search_btn'])){
-                                        $search_txt = $_POST['search_txt'];
+                               if (isset($_POST['search_txt'])) {
+                                   echo 
+                                   '<script>
+                                       let clearMe = document.getElementById("clearMe");
+                                       clearMe.innerHTML = "";
+                                   </script>';
+                               
+                                   if ($_POST["search_txt"] === '') {
+                                       // do nothing
+                                   } else {
+                             
+                                   $conn = mysqli_connect("localhost","root","","army_project");
+                                   if(isset($_POST['search_btn'])){
+                                       $search_txt = $_POST['search_txt'];
 
-                                        $query = "SELECT * FROM student_reg where CONCAT(father_name,fname,lname,p_address) like '%$search_txt %' ";
-                                        $query_run=mysqli_query($conn,$query);
-                                        
+                                       $query = "SELECT * FROM student_reg where CONCAT(fname,lname,father_name) like '%$search_txt %' ";
+                                       $query_run=mysqli_query($conn,$query);
+                                       
 
-                                        if(mysqli_num_rows($query_run)>0){
-                                                echo '<div id="clearMe">';
+                                       if(mysqli_num_rows($query_run)>0){
+                                               echo '<div id="clearMe">';
 
-                                                while($row = mysqli_fetch_array($query_run)){
+                                               while($row = mysqli_fetch_array($query_run)){
 
-                                                    
-                                                    ?>
-                            
+                                                   
+                                                   ?>
                                                     <tr>
                                                         <td><?php echo $row['st_id']; ?></td>
                                                         <td><?php echo $row['fname']; ?></td>
@@ -85,7 +84,7 @@ include($_SERVER['DOCUMENT_ROOT'].'/ARMY-WEBSITE-PROJECT/dashboard/common/sideba
                                     }
                                 }
                             }
-                                ?>
+                        ?>
                                
                             </tbody>
                         </table>
@@ -95,5 +94,5 @@ include($_SERVER['DOCUMENT_ROOT'].'/ARMY-WEBSITE-PROJECT/dashboard/common/sideba
         </div>
     </div>
     </div>
-    </section> 
+</section> 
 </section>

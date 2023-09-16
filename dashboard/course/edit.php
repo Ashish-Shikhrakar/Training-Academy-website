@@ -1,8 +1,12 @@
 <?php
-$conn = mysqli_connect("localhost", "root","", "army_project");
-// $db = mysqli_select_db($conn, 'army_project');
+$conn = new mysqli("localhost", "root", "", "army_project");
 
-    $cr_id='';
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+    $cr_id = '';
     $cname = '';
     $c_t_name = '';
     $cid = '';
@@ -11,7 +15,7 @@ $conn = mysqli_connect("localhost", "root","", "army_project");
     $cr_id = $_POST["cr_id"];
 
     
-    $sql = "SELECT * FROM course WHERE cr_id = '$cr_id'";
+    $sql = "SELECT * FROM `course` WHERE cr_id = '$cr_id'";
 
     $result = mysqli_query($conn, $sql);
 
@@ -24,6 +28,9 @@ $conn = mysqli_connect("localhost", "root","", "army_project");
         $cname = $row['cname'];
         $c_t_name = $row['c_t_name'];
         $cid = $row['cid'];
+        $cr_id = '';
+        $cr_id = $_POST['cr_id'];
+    
     }
  }
 ?>
@@ -39,7 +46,7 @@ $conn = mysqli_connect("localhost", "root","", "army_project");
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css">
 
-    <title>Course</title>
+    <title>Edit Course</title>
 </head>
 
 <body>
@@ -94,19 +101,23 @@ $conn = mysqli_connect("localhost", "root","", "army_project");
 <?php
 
 
-if (isset($_POST['submit'])) {
+if (isset($_POST["submit"])) {
     $cname = $_POST['cname'];
     $c_t_name = $_POST['c_t_name'];
     $cid = $_POST['cid'];
+    // $cr_id = '';
+    // $cr_id = $_POST['cr_id'];
 
 
 //    $query = "UPDATE course SET cname = '$cname', c_t_name = '$c_t_name', cid = '$cid' WHERE cr_id =' $cr_id'";
-   $query = "UPDATE `course` SET `cname`='$cname',`c_t_name`='$c_t_name',`cid`='$cid' WHERE `cr_id` = '$cr_id'";
+   
+
+    $query = "UPDATE `course` SET `cname`='$cname', `c_t_name`='$c_t_name', `cid`='$cid' WHERE `cr_id` = '$cr_id'";
 
     // Execute query
     if (mysqli_query($conn, $query)) {
     //     header('Location: course.php?error=none');
-    //     // echo "Data updated successfully.";
+        echo "Data updated successfully.";
     // } 
     // else {
        
