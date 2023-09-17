@@ -174,16 +174,16 @@ if (isset($_POST["st_id"])) {
     <div class="master">
         <div class="top">
             <div class="top-left">
-                <img src="../images/logo.png"><br><br>
+                <img src="photo/logo.png"><br><br>
                 <p>Training Center,Dholahity,Lalitpur
                     Nepal.<br> ph: 01-5574095/9851046632
                 </p>
             </div>
-            <div class="top-right">
-                <table border="1" style="border-collapse:collapse">
+            <div class="top-right style="float:right;">
+            <table border="1" style="border-collapse:collapse">
                     <tr>
                         <td width="30"></td>
-                        <td align="center"> pan no:-602988144</td>
+                        <td align="center" style="padding:5px"><b> pan no:-602988144</td>
                         <td width="30"></td>
                     </tr>
                 </table>

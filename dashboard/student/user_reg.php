@@ -1,48 +1,113 @@
-<?php 
 
-        include($_SERVER['DOCUMENT_ROOT'].'/ARMY-WEBSITE-PROJECT/dashboard/common/header.php');
-        include($_SERVER['DOCUMENT_ROOT'].'/ARMY-WEBSITE-PROJECT/dashboard/common/sidebar.php')
-?>
 
-  
+
+
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
+    <!-- <link rel="stylesheet" href="dashboard/student/style.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script>
+        function updateLabels() {
+            const selectedDate = new Date(document.getElementById("datePicker").value);
+            const bsDate = convertToBS(selectedDate);
+            const age = calculateAge(selectedDate);
+            document.getElementById("bsdate").value = (bsDate);
+            document.getElementById("ag").value=(age);
+            console.log(selectedDate);
+        }
+
+        function convertToBS(date) {
+            const bsYear = date.getFullYear() + 57;
+            const bsMonth = (date.getMonth() + 3) % 12 || 12;
+            const bsDay = (date.getDate() + 2) % 30 || 30;
+            return `${bsYear}-${bsMonth}-${bsDay}`;
+        }
+
+        function calculateAge(selectedDate) {
+            const currentDate = new Date();
+            let age = currentDate.getFullYear() - selectedDate.getFullYear();
+            console.log(age)
+
+            const currentMonth = currentDate.getMonth();
+            const selectedMonth = selectedDate.getMonth();
+
+            const currentDay = currentDate.getDate();
+            const selectedDay = selectedDate.getDate();
+
+            if (currentMonth < selectedMonth || (currentMonth === selectedMonth && currentDay < selectedDay)) {
+                age--;
+            }
+
+            return Math.max(age, 0);
+        }
+    </script>
+    <style>
+        .form-button{
+            width: 80px;
+            margin-top: 50px;
+            padding: 10px 0;
+            background: #A7A44E;
+            color: #fff;
+            border: 0;
+            outline: none;
+            font-size: 14px;
+            border-radius: 5px;
+            cursor: pointer;
+            box-shadow: 0 5px 5px rgba(0, 0, 0,0.2);
+        }
+        .opt-box{
+            border: 2px dashed;
+            margin: 5px auto 5px auto;
+            padding: 5px;
+            padding-left: 10px;
+        }
+    </style>
+<!-- </head> -->
+
+<!-- <body> -->
     <div class="master">
         <div class="top">
             <div class="top-left">
-                <img src="../images/logo.png"><br>
-                <p><b>Training Center,Dholahity,Lalitpur
-                <br> <i class="fa fa-phone"></i>
-                 01-5574095/+977-9851046632</b>
+                <img src="photo/logo.png"><br><br>
+            </div>
+            <div>
+            <div style="float:left;">
+            <p><b><i class="fa-solid fa-location-dot"></i> Training Center,Dholahity,Lalitpur,
+                    Nepal.<br> <i class="fa fa-phone"></i> Phone: 01-5574095/9851046632
                 </p>
             </div>
-            <div class="top-right">
+            <div class="top-right" style="float:right;">
                 <table border="1" style="border-collapse:collapse">
                     <tr>
                         <td width="30"></td>
-                        <td align="center"><b>pan no:-602988144<b></td>
+                        <td align="center" style="padding:5px"><b> pan no:-602988144</td>
                         <td width="30"></td>
                     </tr>
                 </table>
             </div>
+            </div>
+            
         </div>
-        <form method="post" action="user_db.php" enctype="multipart/form-data">
+        <form method="post" action="dashboard/student/user_db.php" enctype="multipart/form-data">
             <div class="middle">
-
-                <div class="middle-left">
-                    <h2>
+                <div class="middle-left" style="clear:both;">
+                    <h2 class="servicetitle">
                         <center>Application Form</center>
                     </h2>
                     <br>
+                
+                    <div style="float:left;border-right: 2px solid; padding-right: 100px;">
                     <h3>
-                        <center>Personal Detail</center>
+                        Personal Details
                     </h3>
-
-
+                    <br>
                     <!-- Reporting date -->
                     <!-- <label>Reporting date</label>
                     <input type="date" name="reporting_date">
                     <br><br> -->
                     <!-- attempt -->
+                    
                     <label>Attempt:</label>
                     <input type="radio" name="attempt" value="1st" />1st
                     <input type="radio" name="attempt" value="2nd" />2nd
@@ -50,20 +115,20 @@
                     <input type="radio" name="attempt" value="4th" />4th
                     <br><br>
                     <!-- name -->
-                    <label>First Name</label>
-                    <input type="text"  name="fname" required placeholder="First name" maxlength="30" /><br><br>
-                    <label>Last Name</label>
-                    <input type="text"  name="lname" required placeholder="Last name" maxlength="30" /><br><br>
+                    <label>Name</label>
+                    <input type="text" required name="fname" placeholder="First name" maxlength="30" style="width: 150px;" />
+                    <input type="text" name="lname" required placeholder="Last name" maxlength="30" style="width: 150px;"/>
+                    <br><br>
                     <!-- jat -->
                     <label>Jaat</label>
-                    <input type="text" name="jat" required placeholder="" maxlength="30" />
+                    <input type="text" name="jat" placeholder="" maxlength="30" />
                     <br> <br>
                     <!-- main jat -->
                     <label>Main Jaat</label>
-                    <input type="text" name="main_jat" required placeholder="" maxlength="30" />
+                    <input type="text" name="main_jat" placeholder="" maxlength="30" />
                     <br><br>
                     <!-- education -->
-                    <label>Education</label>
+                    <label>Educatiion</label>
                     <select name="education" id="edu">
                         <option value="see">SEE</option>
                         <option value="10 +2">10 +2</option>
@@ -72,10 +137,10 @@
                     <br><br>
                     <!-- date of birth -->
                     <label for="datePicker">Date of Birth:</label>
-                   <input type="date" id="datePicker" name="DOB" onchange="updateLabels()"><br><br>
+                   <input type="date" id="datePicker"  onchange="updateLabels()"><br><br>
 
                     <label id="bsLabel">BS:</label>
-                    <input type="text" name="bsdt" id="bsdate">
+                    <input type="text" name="DOB" id="bsdate">
                     <!-- <span id="bsValue"></span> -->
                     <br><br>
                     
@@ -86,18 +151,18 @@
                     <br><br>
                     <!-- religion -->
                     <label>religion</label>
-                    <input type="text" required name="religion"  maxlength="100" />
+                    <input type="text" name="religion" required maxlength="100" />
                     <br><br>
                     <!-- faculty -->
                     <label> faculty</label>
-                    <input type="text" name="faculty" required  placeholder="District" maxlength="100" />
+                    <input type="text" name="faculty" required placeholder="District" maxlength="100" />
                     <br><br>
                     <!--permanent address -->
                     <label>Permanent Address</label>
-                    <input type="text" name="p_address" required  placeholder="District" maxlength="100" />
+                    <input type="text" name="p_address" required placeholder="District" maxlength="100" />
                     <br><br>
                     <!--permanent ward -->
-                    <label> Ward</label>
+                    <label> ward</label>
                     <select name="p_ward" id="ward">
                         <option value="null"></option>
                         <option value="1">1</option>
@@ -144,10 +209,10 @@
                     <br><br>
                     <!--temporary address -->
                     <label>Temporary Address</label>
-                    <input type="text" name="t_address" required placeholder="District" maxlength="100" />
+                    <input type="text" name="t_address" placeholder="District" maxlength="100" />
                     <br><br>
                     <!--temporary ward -->
-                    <label> Ward</label>
+                    <label> ward</label>
                     <select name="t_ward" id="ward">
                         <option value="null"></option>
                         <option value="1">1</option>
@@ -186,46 +251,47 @@
                     <br><br>
                     <!--temporary VDC/RM/MP -->
                     <select name="t_vdc_rm_mp">
-                        <option value="V.D.C">V.D.C</option>
+                        <option value="V.D.C">V.D.C<v /option>
                         <option value="R.M">R.M</option>
                         <option value="M.P">M.P</option>
                     </select>
-                    <input type="text" name="t_txt_vdc_rm_mp" required placeholder="" maxlength="100" />
+                    <input type="text" name="t_txt_vdc_rm_mp"  placeholder="" maxlength="100" />
                     <br><br>
                     <!-- contact number -->
                     <label>Contact no</label>
-                    <input type="tel" required id="phone" name="contact_no" maxlength="10"/>
+                    <input type="tel" id="phone" name="contact_no" required >
                     <br><br>
-                </div>
-
-
-
-
-                <div class="middle-right">
                     <!-- Photo -->
-                    <p>Upload photo</p>
-                    <input type="file" class="pphoto"  name="photo">
-                    <br><br>
+                    <label>Upload photo</label>
+                    <input type="file" class="photo" required name="photo">
+                    </div>
+                 </div>
+
+                    
+                    
+
+                <div class="middle-right" style="float:right;">
                     <h3>
-                        <center>Family and Guardian Details</center>
+                        Family and Guardian Details
                     </h3>
-                    <br><br>
+                    <br>
                     <!-- father's name -->
                     <label>Father's Name</label>
-                    <input type="text" name="father_name" required  placeholder="Enter name" maxlength="30" />
+                    <input type="text" name="father_name" required placeholder="Enter name" maxlength="30" />
                     <br><br>
                     <!-- father's occupation -->
                     <label> Occupation</label>
-                    <input type="text" name="f_occupation" required placeholder="" maxlength="30" />
+                    <input type="text" name="f_occupation" placeholder="" maxlength="30" />
                     <br><br>
                     <!-- contact number -->
                     <label>Contact no</label>
-                    <input type="tel" id="phone" required name="f_contact_no" maxlength="10"/> 
+                    <input type="tel" id="phone" name="f_contact_no"  required>
                     <br><br>
-                    <p> If father is /was in the British Army /GSPF/<br>Indian Army
+                    <div class="opt-box">
+                    <p style="font-weight:600">If father is /was in the British Army /GSPF/<br>Indian Army
                         /Nepal Government Officier/<br>Nepal Army or Nepal
                         Police then please given<br> his service details.</p>
-                    <br><br>
+                    <br>
                     <!-- service no. -->
                     <label>Service no</label>
                     <input type="number" name="service_no" maxlength="10" />
@@ -238,17 +304,19 @@
                     <label>Regt</label>
                     <input type="number" name="regt" maxlength="10" />
                     <br><br>
+                    </div>
+                    <br>
                     <!-- mother's name -->
                     <label>Mother's Name</label>
                     <input type="text" name="mother_name" required placeholder="Full name" maxlength="30" />
                     <br><br>
                     <!-- mother's occupation -->
                     <label> Occupation</label>
-                    <input type="text" name="m_occupation" required placeholder="" maxlength="30" />
+                    <input type="text" name="m_occupation" placeholder="" maxlength="30" />
                     <br><br>
                     <!-- contact number -->
                     <label>Contact no</label>
-                    <input type="tel" id="phone" required name="m_contact_no" maxlength="10"/> 
+                    <input type="tel" id="phone" name="m_contact_no" required>
                     <br><br>
                     <!-- Guardian's detail -->
                     <label>Guradian's Name</label>
@@ -260,61 +328,32 @@
                     <br><br>
                     <!-- Guardian contact -->
                     <label>Contact no</label>
-                    <input type="tel" name="r_contact_no"  maxlength="10" />
-                    <br><br><br>
+                    <input type="number" name="r_contact_no"  maxlength="10" />
+                    <br><br>
                     <!-- button -->
-                    <input type="submit" class="btn btn-primary" value="Submit">
-                    <input type="reset" class="btn btn-primary" value="Reset" >
+                    <input type="submit" class="form-button" value="Submit">
+                    <input type="reset" class="form-button" value="Reset">
                 </div>
 
             </div>
-            <div class="bottom">
+            <div class="bottom" style="clear:both;">
+            <br><br>
             <P>
-
-               <label for="check"><input type="checkbox" id="check" name ="aggre"> </label> <b> I will accept all the rules and regulation of this institute and if do any
+                <input type="checkbox" name ="aggre"><b>I will accept all the rules and regulation of this institute and if do any
                 mistakes or if I’m not able to follow the rules and regulation of this institute then I will accept any
-                punishment from this AIM GURKHA.</b>
-                <br>
-               <b> नोट: भर्ना गर्दा बुझाएको भर्ना शुल्क कुनै कारण बस CANDIDATE बिभिद कारणले ट्रेनिंग न आएमा या ट्रेनिंग सेन्टर छोडेमा या बहिष्कार गरिएमा फेरी फिर्ता पाइने छैन,धन्यबाद |</b>
-             </p>
-        </div>
+                punishment from this AIM GURKHA.
+                <br>नोट: भर्ना गर्दा बुझाएको भर्ना शुल्क कुनै कारण बस CANDIDATE बिभिद कारणले ट्रेनिंग न आएमा या ट्रेनिंग सेन्टर छोडेमा या बहिष्कार गरिएमा फेरी फिर्ता पाइने छैन,धन्यबाद |</b>
+            </P>
+            </div>
         </form>
        
     </div>
 
-    <script>
-        function updateLabels() {
-            const selectedDate = new Date(document.getElementById("datePicker").value);
-            const bsDate = convertToBS(selectedDate);
-            const age = calculateAge(selectedDate);
-            document.getElementById("bsdate").value = (bsDate);
-            document.getElementById("ag").value=(age);
-            console.log(selectedDate);
-        }
+<!-- </body> -->
 
-        function convertToBS(date) {
-            const bsYear = date.getFullYear() + 57;
-            const bsMonth = (date.getMonth() + 3) % 12 || 12;
-            const bsDay = (date.getDate() + 2) % 30 || 30;
-            return `${bsYear}-${bsMonth}-${bsDay}`;
-        }
+<!-- </html> -->
 
-        function calculateAge(selectedDate) {
-            const currentDate = new Date();
-            let age = currentDate.getFullYear() - selectedDate.getFullYear();
-            console.log(age)
 
-            const currentMonth = currentDate.getMonth();
-            const selectedMonth = selectedDate.getMonth();
 
-            const currentDay = currentDate.getDate();
-            const selectedDay = selectedDate.getDate();
 
-            if (currentMonth < selectedMonth || (currentMonth === selectedMonth && currentDay < selectedDay)) {
-                age--;
-            }
 
-            return Math.max(age, 0);
-        }
-    </script>
-    

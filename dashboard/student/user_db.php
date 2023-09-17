@@ -1,5 +1,27 @@
+
+
+
+
 <?php
 include ('db_connection.php');
+// Database configuration
+$host = 'localhost';
+$username = 'root';
+$password = '';
+$database = 'army_project';
+
+// Create a new connection
+$conn = new mysqli($host, $username, $password, $database);
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+// Set the charset to UTF-8
+$conn->set_charset("utf8");
+
+
 function test_input($data) {
     $data = trim($data);//Strip unnecessary characters (extra space, tab, newline) from the user input data
     $data = stripslashes($data);//Remove backslashes (\) from the user input data
@@ -425,13 +447,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   
     echo $error;
 
-
-
-
-
-// .. ....
     // $aggre = isset($_POST['aggre']) ? 1 : 0;
     // Prepare and bind the form data to insert into the database
+
+    if($valch==true){
 
     $stmt = $conn->prepare("INSERT INTO student_reg (attempt, fname, lname, jat, main_jat, education, DOB, age,religion, faculty, p_address,p_ward, p_vdc_rm_mp, p_txt_vdc_rm_mp,t_address, t_ward, t_vdc_rm_mp, t_txt_vdc_rm_mp, contact_no,photo,father_name, f_occupation, f_contact_no, service_no, rank, mother_name, m_occupation, m_contact_no, guradian_name, relation, r_contact_no) 
      VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
@@ -439,19 +458,33 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $stmt->bind_param("sssssssisssisssississsiiississi", $attempt, $fname, $lname, $jat, $main_jat, $education, $DOB,$age, $religion, $faculty, $p_address,$p_ward, $p_vdc_rm_mp, $p_txt_vdc_rm_mp,$t_address,$t_ward, $t_vdc_rm_mp, $t_txt_vdc_rm_mp,$contact_no, $name, $father_name, $f_occupation, $f_contact_no, $service_no, $rank, $mother_name, $m_occupation,$m_contact_no, $guradian_name, $relation, $r_contact_no);
         //ssssssiisssisssisssssiiiississi//Change blind parameter.
         // Execute the prepared statement
-    if($valch==true){
+    
         if ($stmt->execute()) {
             echo "Data inserted successfully.";
+            
+
         } else {
             echo "Error inserting data: " . $stmt->error;
+           
+
         }
+        
+
+        $stmt->close();
+        $conn->close();
     }   
     // Close the statement and database connection
-    $stmt->close();
-    $conn->close();
+    
     }
 }
 else{
     echo "Please verified the terms and condition ! THANK YOU !!!";
 }
+
+
+
+
+
+
 ?>
+
