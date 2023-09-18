@@ -366,7 +366,7 @@
             encode : true,
             beforeSend : function(){
 
-                $('$mybtn').html('<span class="glyphicon glyphicon-repeat fast-right-spinner"></span> Sending');
+                $('#mybtn').html('<span class="glyphicon glyphicon-repeat fast-right-spinner"></span> Sending');
             },
             success : function(response){
 
