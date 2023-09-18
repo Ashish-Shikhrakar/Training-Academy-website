@@ -65,7 +65,7 @@ include($_SERVER['DOCUMENT_ROOT'] . '/ARMY-WEBSITE-PROJECT/dashboard/common/side
                             // echo '&nbsp;';
 							// <!-- <a class="btn btn-primary" href="">hello</a> -->
 
-							echo '<input type="button" class="btn btn-primary" onclick="editThis(' . $row["st_id"] . ')" value="Print">';
+							echo '<input type="button" class="btn btn-primary" onclick="editThis(' . $row["st_id"] . ')" value="View More">';
 							echo '&nbsp;';
 
 

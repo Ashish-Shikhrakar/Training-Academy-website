@@ -19,6 +19,11 @@ $nameErr='';
 $emailErr='';
 $row='';
 
+$name = $_FILES["photo"]["name"];
+$tmp = $_FILES["photo"]["tmp_name"];
+$row = move_uploaded_file($tmp, "../../uploadsT/".$name);
+
+
 if (isset($_POST["tid"])) {
   $tid = $_POST["tid"];
   $mode = "Update";                                     //for 2 operation like edit(update),insert.
@@ -124,6 +129,9 @@ if (isset($_POST["tid"])) {
               <label for="">photo</label>
               <?php 
                 if ($mode === "Add") {
+                  $name = $_FILES["photo"]["name"];
+                  $tmp = $_FILES["photo"]["tmp_name"];
+                  $row = move_uploaded_file($tmp, "../../uploadsT/".$name);
                   echo '<input type="file" name="photo" class="form-control">';
                 } elseif ($mode === "Update") {
                   if ($row["photo"]) {
