@@ -89,7 +89,7 @@
             </div>
             
         </div>
-        <form method="post" action="dashboard/student/user_db" enctype="multipart/form-data">
+        <form method="post" action="dashboard/student/user_db.php" enctype="multipart/form-data" id="myForm">
             <div class="middle">
                 <div class="middle-left" style="clear:both;">
                     <h2 class="servicetitle">
@@ -348,6 +348,7 @@
         </form>
        
     </div>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 
     <script type="text/javascript">
 
