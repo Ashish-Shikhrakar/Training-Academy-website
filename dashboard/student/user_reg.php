@@ -89,7 +89,7 @@
             </div>
             
         </div>
-        <form method="post" action="dashboard/student/user_db.php" enctype="multipart/form-data">
+        <form method="post" action="dashboard/student/user_db" enctype="multipart/form-data">
             <div class="middle">
                 <div class="middle-left" style="clear:both;">
                     <h2 class="servicetitle">
@@ -359,7 +359,7 @@
         $.ajax({
 
             type : 'post',
-            url : 'contact.php',
+            url : 'user_db.php',
             data : FormData,
             dataTYpe : 'json',
             encode : true,
