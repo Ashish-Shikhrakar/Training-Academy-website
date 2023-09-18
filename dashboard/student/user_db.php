@@ -460,15 +460,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // Execute the prepared statement
     
         if ($stmt->execute()) {
-            echo "Data inserted successfully.";
+            $message = "ok";
             
 
         } else {
-            echo "Error inserting data: " . $stmt->error;
+            $message = "could not send/ insert";
            
-
         }
-        
+        echo json_encode($message);
 
         $stmt->close();
         $conn->close();

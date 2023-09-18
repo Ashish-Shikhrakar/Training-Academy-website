@@ -331,7 +331,7 @@
                     <input type="number" name="r_contact_no"  maxlength="10" />
                     <br><br>
                     <!-- button -->
-                    <input type="submit" class="form-button" value="Submit">
+                    <input type="submit" class="form-button" value="Submit" name="submit" id="mybtn">
                     <input type="reset" class="form-button" value="Reset">
                 </div>
 
