@@ -1,7 +1,7 @@
-<!-- <!DOCTYPE html>
-<html lang="en"> -->
 
-<!-- <head> -->
+
+
+
 <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
@@ -89,7 +89,7 @@
             </div>
             
         </div>
-        <form method="post" action="user_db.php" enctype="multipart/form-data">
+        <form method="post" action="dashboard/student/user_db.php" enctype="multipart/form-data">
             <div class="middle">
                 <div class="middle-left" style="clear:both;">
                     <h2 class="servicetitle">
@@ -116,8 +116,8 @@
                     <br><br>
                     <!-- name -->
                     <label>Name</label>
-                    <input type="text" required name="Fname" placeholder="First name" maxlength="30" style="width: 150px;" />
-                    <input type="text" name="Lname" required placeholder="Last name" maxlength="30" style="width: 150px;"/>
+                    <input type="text" required name="fname" placeholder="First name" maxlength="30" style="width: 150px;" />
+                    <input type="text" name="lname" required placeholder="Last name" maxlength="30" style="width: 150px;"/>
                     <br><br>
                     <!-- jat -->
                     <label>Jaat</label>
@@ -259,7 +259,7 @@
                     <br><br>
                     <!-- contact number -->
                     <label>Contact no</label>
-                    <input type="tel" id="phone" name="phone" required >
+                    <input type="tel" id="phone" name="contact_no" required >
                     <br><br>
                     <!-- Photo -->
                     <label>Upload photo</label>
@@ -324,7 +324,7 @@
                     <br><br>
                     <!-- Guardian relation -->
                     <label>Relation</label>
-                    <input type="text" name="Relation"  maxlength="30" />
+                    <input type="text" name="relation"  maxlength="30" />
                     <br><br>
                     <!-- Guardian contact -->
                     <label>Contact no</label>
@@ -349,6 +349,53 @@
        
     </div>
 
+    <script type="text/javascript">
+
+    $('document').ready(function(){
+        $('#myForm').on('submit',function(e){
+            e.preventDefault(); //prevent default form submition
+            var FormData = $('#myForm').serialize();
+
+        $.ajax({
+
+            type : 'post',
+            url : 'contact.php',
+            data : FormData,
+            dataTYpe : 'json',
+            encode : true,
+            beforeSend : function(){
+
+                $('$mybtn').html('<span class="glyphicon glyphicon-repeat fast-right-spinner"></span> Sending');
+            },
+            success : function(response){
+
+                response = JSON.parse(response);
+
+                if(response== "ok"){
+
+                    $('sendmessage').html('Your message has been sent successfully.');
+                }else{
+
+                    $('errormessage').html(response);
+                }
+
+            }
+
+        });
+
+        });
+
+
+    });
+
+
+</script>
+
 <!-- </body> -->
 
 <!-- </html> -->
+
+
+
+
+
