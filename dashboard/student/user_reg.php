@@ -360,24 +360,20 @@
         $.ajax({
 
             type : 'post',
-            url : 'user_db.php',
+            url : 'dashboard/student/user_db.php',
             data : FormData,
             dataTYpe : 'json',
             encode : true,
             beforeSend : function(){
-
                 $('#mybtn').html('<span class="glyphicon glyphicon-repeat fast-right-spinner"></span> Sending');
             },
             success : function(response){
-
-                response = JSON.parse(response);
-
-                if(response== "ok"){
-
+                var data = JSON.parse(response);
+                if(data== "ok"){
                     $('sendmessage').html('Your message has been sent successfully.');
                 }else{
 
-                    $('errormessage').html(response);
+                    $('errormessage').html(data);
                 }
 
             }
@@ -388,8 +384,6 @@
 
 
     });
-
-
 </script>
 
 <!-- </body> -->
