@@ -367,7 +367,7 @@
             beforeSend : function(){
                 $('#mybtn').html('<span class="glyphicon glyphicon-repeat fast-right-spinner"></span> Sending');
             },
-            success : function(response){
+            complete : function(response){
                 var data = JSON.parse(response);
                 if(data== "ok"){
                     $('sendmessage').html('Your message has been sent successfully.');
