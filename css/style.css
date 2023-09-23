@@ -732,13 +732,11 @@ footer{
     display: inline-block; 
 */
 .footer-clean .social-link a{
-    /* display: inline-block; */
     height: 41px;
     width: 41px;
     float: right;
     background-color: #A7A44E; 
     margin: 0 10px 10px 0;
-    /* text-align: ; */
     line-height: 40px;
     color:#FFFFFF ;
     transition: all 0.5s ease;

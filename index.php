@@ -381,7 +381,8 @@
               <a href="https://www.instagram.com/aimgurkha/" target="_blank"><i class="fab fa-instagram"></i></a>
               <a href="https://www.facebook.com/profile.php?id=100063674538639" target="_blank"><i class="fab fa-facebook-f"></i></a>
               <a href="https://www.facebook.com/messages/t/155741854590882" target="_blank"><i class="fab fa-facebook-messenger"></i></a>
-              <a href="https://wa.me/03062000920" target="_blank"><i class="fab fa-whatsapp"></i></a>
+              <!-- <a href="https://wa.me/03062000920" target="_blank"><i class="fab fa-whatsapp"></i></a> -->
+              <a href="https://mail.google.com/mail/u/0/#search/aimgurkha%40gmail.com?compose=GTvVlcSMSqJlnVVmbVlgCQhkmjvrbMpDKcwDtGBZPPNjwxlRxwbkNVVKWzDscSwbcNpZmQCPTvhpl" target="_blank"><i class="fa fa-envelope"></i></a>
             </div>
 
             <div style="clear:both;"><a href="#"><i class="icon ion-social-facebook"></i></a><a href="#"><i
