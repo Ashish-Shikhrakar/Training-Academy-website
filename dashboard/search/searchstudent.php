@@ -62,7 +62,7 @@ include($_SERVER['DOCUMENT_ROOT'].'/ARMY-WEBSITE-PROJECT/dashboard/common/sideba
                                    if(isset($_POST['search_btn'])){
                                        $search_txt = $_POST['search_txt'];
 
-                                       $query = "SELECT * FROM student_reg where CONCAT(st_id,Fname,father_name) like '%$search_txt %' ";
+                                       $query = "SELECT * FROM student_reg where CONCAT(fname,lname,father_name) like '%$search_txt %' ";
                                        $query_run=mysqli_query($conn,$query);
                                        
 
@@ -82,7 +82,7 @@ include($_SERVER['DOCUMENT_ROOT'].'/ARMY-WEBSITE-PROJECT/dashboard/common/sideba
                                                         <td><?php echo $row['father_name']; ?></td>
                                                         
                                                     </tr>
-                                                    <?php
+                                                  <?php
                                                 }
                                                 echo '</div>';
                                         }
@@ -106,4 +106,5 @@ include($_SERVER['DOCUMENT_ROOT'].'/ARMY-WEBSITE-PROJECT/dashboard/common/sideba
         </div>
     </div>
     </div>
-</section>
+</section> 
+

@@ -120,4 +120,5 @@ include($_SERVER['DOCUMENT_ROOT'].'/ARMY-WEBSITE-PROJECT/dashboard/common/sideba
         </div>
     </div>
     </div>
+    <!-- </section>  -->
 </section>
