@@ -28,7 +28,7 @@ if (isset($_POST["st_id"])) {
         mysqli_stmt_execute($statement);
         mysqli_stmt_close($statement);
         
-        header("location: studentdata.php?error=none");
+        header("location: test.php?error=none");
         exit();
     }
     delete_inventory($conn, $st_id);

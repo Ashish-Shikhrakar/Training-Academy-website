@@ -13,7 +13,10 @@ include($_SERVER['DOCUMENT_ROOT'] . '/ARMY-WEBSITE-PROJECT/dashboard/common/side
 			<div class="container">
 				<h2 style="text-align:center">Students Information</h2>
 
-				<a class="btn btn-primary" href="../dashboard.php" role="button">Back</a>
+                <!-- <a class="btn btn-primary" href="user_reg.php" role="button" style="float:left;">Add Student</a> -->
+
+
+				<!-- <a class="btn btn-primary" href="../dashboard.php" role="button">Back</a> -->
 
 				<!-- <a class="btn btn-primary" href="../dashboard.php" role="button">Back</a>
 				<a class="btn btn-primary" href="course.php" role="button">Add Course</a> -->
@@ -48,6 +51,7 @@ include($_SERVER['DOCUMENT_ROOT'] . '/ARMY-WEBSITE-PROJECT/dashboard/common/side
 					if (mysqli_num_rows($result) > 0) {
 						// Loop through each row and display the elements
 						while ($row = mysqli_fetch_assoc($result)) {
+                            $fileName = $row['photo'];
                             echo "<tr>";
 							echo "<td>" . $row['st_id'] . "</td>";
 							echo "<td>" . $row['fname'] . "</td>";
@@ -55,7 +59,11 @@ include($_SERVER['DOCUMENT_ROOT'] . '/ARMY-WEBSITE-PROJECT/dashboard/common/side
 							echo "<td>" . $row['DOB'] . "</td>";
                             echo "<td>" . $row['contact_no'] . "</td>";
                             echo "<td>" . $row['father_name'] . "</td>";
-							echo "<td>" . $row['photo'] . "</td>";
+							// echo "<td>" . $row['photo'] . "</td>";
+                            if ($row["photo"]) {
+								echo '<td><img width="100px" src="../../uploadsS/' . $fileName . '"alt="Image"></td>';
+							}
+
 							
 
 
@@ -65,7 +73,9 @@ include($_SERVER['DOCUMENT_ROOT'] . '/ARMY-WEBSITE-PROJECT/dashboard/common/side
                             // echo '&nbsp;';
 							// <!-- <a class="btn btn-primary" href="">hello</a> -->
 
-							echo '<input type="button" class="btn btn-primary" onclick="editThis(' . $row["st_id"] . ')" value="View More">';
+							echo '<input type="button" class="btn btn-primary" onclick="printThis(' . $row["st_id"] . ')" value="View More">';
+							// echo '<a class="btn btn-primary" href="edit.php" role="button">View More</a>';
+
 							echo '&nbsp;';
 
 
@@ -90,6 +100,22 @@ include($_SERVER['DOCUMENT_ROOT'] . '/ARMY-WEBSITE-PROJECT/dashboard/common/side
 
 
 <script>
+
+function printThis(st_id) {
+            var form = document.createElement("form");
+            form.method = "POST";
+            form.action = "print.php";
+
+            var input = document.createElement("input");
+            input.type = "hidden";
+            input.name = "st_id";
+            input.value = st_id;
+
+            form.appendChild(input);
+
+            document.body.appendChild(form);
+            form.submit();
+        }
 
         function editThis(st_id) {
             var form = document.createElement("form");

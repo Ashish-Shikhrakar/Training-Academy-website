@@ -1,6 +1,4 @@
-
 <?php
-
 $conn = new mysqli("localhost", "root", "", "army_project");
 
 // Check connection
@@ -52,6 +50,8 @@ $relation = '';
 $r_contact_no = '';
 $sid = '';
 $changed_ph = '';
+$row='';
+
 
 
 if (isset($_POST["st_id"])) {
@@ -101,6 +101,11 @@ if (isset($_POST["st_id"])) {
         $relation = $row['relation'];
         $r_contact_no = $row['r_contact_no'];
 
+
+        $name = $row["photo"];
+        $foto = $row["photo"];//change photo
+        $changed_ph = '';
+
         // $name = $_FILES["photo"]["name"];
         // $tmp = $_FILES["photo"]["tmp_name"];
         // $uploadStatus=move_uploaded_file($tmp, "../../uploadsS/".$name);
@@ -113,10 +118,6 @@ if (isset($_POST["st_id"])) {
 }
 
 ?>
-
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -126,7 +127,7 @@ if (isset($_POST["st_id"])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Update Student</title>
-    <link rel="stylesheet" href="style.css">
+    <!-- <link rel="stylesheet" href="style.css"> -->
     <script>
         function updateLabels() {
             const selectedDate = new Date(document.getElementById("datePicker").value);
@@ -161,26 +162,73 @@ if (isset($_POST["st_id"])) {
 
             return Math.max(age, 0);
         }
-    </script>
-<script>
+    
+
     function pictureChanged(){
       var image = document.getElementById("hidephoto");
       image.style.display = "none";
     }
+
+    // function sucess() {
+    //         var x;
+
+    //         var r = confirm("Please wait !!! Printing takes some times THANK YOU  !");
+
+    //         document.getElementById("demo").innerHTML = x;
+
+    //     }
+
+
   </script>
+  <style>
+    .center {
+        margin: auto;
+        width: 70%;
+        border: 3px solid green;
+        padding: 10px;
+        }
+     .form-button{
+            width: 80px;
+            margin-top: 50px;
+            padding: 10px 0;
+            background: #A7A44E;
+            color: #fff;
+            border: 0;
+            outline: none;
+            font-size: 14px;
+            border-radius: 5px;
+            cursor: pointer;
+            box-shadow: 0 5px 5px rgba(0, 0, 0,0.2);
+        }
+        .opt-box{
+            border: 2px dashed;
+            margin: 5px auto 5px auto;
+            padding: 5px;
+            padding-left: 10px;
+        }
+  </style>
 </head>
 
 <body>
-    <div class="master">
-        <div class="top">
+
+
+    <div class="center"  style="align-center">
+    <div class="top">
             <div class="top-left">
-                <img src="photo/logo.png"><br><br>
-                <p>Training Center,Dholahity,Lalitpur
-                    Nepal.<br> ph: 01-5574095/9851046632
+                <img src="../images/logo.png">
+                <div style="float:right;">
+                <a class="btn btn-primary" href="test.php" role="button">Back</a>
+                </div>
+                <br><br>
+            </div>
+            <div>
+            <div style="float:left;">
+            <p><b><i class="fa-solid fa-location-dot"></i> Training Center,Dholahity,Lalitpur,
+                    Nepal.<br> <i class="fa fa-phone"></i> Phone: 01-5574095/9851046632
                 </p>
             </div>
-            <div class="top-right style="float:right;">
-            <table border="1" style="border-collapse:collapse">
+            <div class="top-right" style="float:right;">
+                <table border="1" style="border-collapse:collapse">
                     <tr>
                         <td width="30"></td>
                         <td align="center" style="padding:5px"><b> pan no:-602988144</td>
@@ -188,14 +236,22 @@ if (isset($_POST["st_id"])) {
                     </tr>
                 </table>
             </div>
+            </div>
+            
         </div>
-        <form method="post" action="" enctype="multipart/form-data">
+        <form method="post" action="" id="MyForm" enctype="multipart/form-data">
             <div class="middle">
 
-                <div class="middle-left">
-                    <h2><center>Application Form</center></h2>
+                <div class="middle-left" style="clear:both;">
+                    <h1 class="servicetitle">
+                         <center>Application Form</center>
+                        </h1>
                     <br>
-                    <h3><center>Personal Detail</center></h3>
+                    <div style="float:left;border-right: 2px solid; padding-right: 100px;">
+                    <h3>
+                        Personal Details
+                    </h3>
+                    <br>
 
                     <input type="radio" id="first" <?php echo ($attempt === "1st") ? 'checked' : ''; ?> name="attempt" value="1st" /><label for="first">1st</label>
                     <input type="radio" id="second" <?php echo ($attempt === "2nd") ? 'checked' : ''; ?> name="attempt" value="2nd" /><label for="second">2nd</label>
@@ -352,21 +408,42 @@ if (isset($_POST["st_id"])) {
                     <label>Contact no</label>
                     <input type="tel" id="phone" name="contact_no" placeholder="Enter your contact number" required value="<?php echo $contact_no; ?>">
                     <br><br>
-                </div>
+            
 
-
-
-
-                <div class="middle-right">
+                <!-- <div class="middle-right"> -->
                     <!-- Photo -->
+                    
+
+                    </div>
+                    </div>
+                    
+                    <div class="middle-right" style="float:right;">
+
+                    <div>
                     <label>Upload photo</label>
-                    <input type="file" class="pphoto" required name="photo">
-                    <br><br>
-                    <br><br>
+                    <?php
+                    //  echo '<input type="file" name="photo" class="form-control">';
+                    // if ($row["photo"]) {
+                        if($st_id!=""){
+                            echo '<br><td><img id="hidephoto" width="100px" src="../../uploadsS/'.$foto. '"alt="Image"></td>';
+                        }
+                        
+                        // echo '<input type = "text" name="photo-text" value = '.$foto.' style="visibility:hidden;">';
+                      //}
+                      echo '<input type="file" name="photo" class="form-control" onchange="pictureChanged()">';
+                      // $changed_ph = $_FILES['photo']['name'];
+                      ?>
+                        </div>
+
+
+
+
+                    <!-- <input type="file" class="photo" required name="photo"><br><br> -->
                     <h3>
-                        <center>Family and Guardian Details</center>
+                        Family and Guardian Details
                     </h3>
-                    <br><br>
+                    <br>
+                    
                     <!-- father's name -->
                     <label>Father's Name</label>
                     <input type="text" name="father_name" required placeholder="Enter father name" maxlength="30" value="<?php echo $father_name; ?>"/>
@@ -379,10 +456,11 @@ if (isset($_POST["st_id"])) {
                     <label>Contact no</label>
                     <input type="tel" id="phone" name="f_contact_no" placeholder="Enter occupation" required value="<?php echo $f_contact_no; ?>">
                     <br><br>
+                    <div class="opt-box">
                     <p> If father is /was in the British Army /GSPF/<br>Indian Army
                         /Nepal Government Officier/<br>Nepal Army or Nepal
                         Police then please given<br> his service details.</p>
-                    <br><br>
+                    <br>
                     <!-- service no. -->
                     <label>Service no</label>
                     <input type="number" name="service_no" placeholder="Enter service number" maxlength="10" value="<?php echo $service_no; ?>"/>
@@ -393,8 +471,10 @@ if (isset($_POST["st_id"])) {
                     <br><br>
                     <!-- Registration -->
                     <label>Regtistration</label>
-                    <input type="number" name="regt" placeholder="Enter Regtistration" maxlength="10" value="<?php echo $regt; ?>"/>
+                    <input type="number" name="regt" placeholder="" maxlength="10" value="<?php echo $regt; ?>"/>
                     <br><br>
+                </div>
+                <br>
                     <!-- mother's name -->
                     <label>Mother's Name</label>
                     <input type="text" name="mother_name" required placeholder="Full Mother name" maxlength="30" value="<?php echo $mother_name; ?>"/>
@@ -426,9 +506,10 @@ if (isset($_POST["st_id"])) {
                 </div>
 
             </div>
-            <div class="bottom">
+            <div class="bottom" style="clear:both;">
+            <br><br>
             <P>
-                <input type="checkbox" name ="aggre"> <b> I will accept all the rules and regulation of this institute and if do any
+                <input type="checkbox" checked name ="aggre"> <b> I will accept all the rules and regulation of this institute and if do any
                 mistakes or if I’m not able to follow the rules and regulation of this institute then I will accept any
                 punishment from this AIM GURKHA.</b>
                 <br>
@@ -436,9 +517,11 @@ if (isset($_POST["st_id"])) {
                 </p>
             </div>
         </form>
-
+        
     </div>
+    <!-- <input type="print" class="btn btn-primary" value="print"> -->
 
+<br><br>
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
         integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
         crossorigin="anonymous"></script>
@@ -450,11 +533,10 @@ if (isset($_POST["st_id"])) {
         crossorigin="anonymous"></script>
 </body>
 
+
+
 </html>
-
-
 <?php 
-
 if (isset($_POST["submit"])) {
     $attempt = $_POST['attempt'];
     $fname = $_POST['fname'];
@@ -488,20 +570,52 @@ if (isset($_POST["submit"])) {
     $r_contact_no = $_POST['r_contact_no'];
     $sid = $_POST['sid'];
 
-    $query = "UPDATE `student_reg` SET `attempt`='$attempt',`fname`='$fname',`lname`='$lname',`jat`='$jat',`main_jat`='$main_jat',`education`='$education',`DOB`='$DOB',`age`='$age',`religion`='$religion',`faculty`='$faculty',`p_address`='$p_address',`p_ward`='$p_ward',`p_vdc_rm_mp`='$p_vdc_rm_mp',`p_txt_vdc_rm_mp`='$p_txt_vdc_rm_mp',`t_address`='$t_address',`t_ward`='$t_ward',`t_vdc_rm_mp`='$t_vdc_rm_mp',`t_txt_vdc_rm_mp`='$t_txt_vdc_rm_mp',`contact_no`='$contact_no',`father_name`='$father_name',`f_occupation`='$f_occupation',`f_contact_no`='$f_contact_no',`service_no`='$service_no',`rank`='$rank',`mother_name`='$mother_name',`m_occupation`='$m_occupation',`m_contact_no`='$m_contact_no',`guradian_name`='$guradian_name',`relation`='$relation',`r_contact_no`='$r_contact_no' WHERE st_id= '$sid'";
+    
+    
 
+    $destination=$_SERVER["DOCUMENT_ROOT"]."/army-website-project/uploadsS/".$name ;
+    $uploadStatus=move_uploaded_file($tmp,$destination);
+      
+
+
+
+      $check = $_FILES['photo']['name'];
+      echo $check;
+      if ($check!='') {
+        $name = $_FILES["photo"]["name"];
+        $tmp = $_FILES["photo"]["tmp_name"];
+                        $query = "UPDATE `student_reg` SET `attempt`='$attempt',`fname`='$fname',`lname`='$lname',`jat`='$jat',`main_jat`='$main_jat',`education`='$education',`DOB`='$DOB',`age`='$age',`religion`='$religion',`faculty`='$faculty',`p_address`='$p_address',`p_ward`='$p_ward',`p_vdc_rm_mp`='$p_vdc_rm_mp',`p_txt_vdc_rm_mp`='$p_txt_vdc_rm_mp',`t_address`='$t_address',`t_ward`='$t_ward',`t_vdc_rm_mp`='$t_vdc_rm_mp',`t_txt_vdc_rm_mp`='$t_txt_vdc_rm_mp',`contact_no`='$contact_no',`photo`='$name',`father_name`='$father_name',`f_occupation`='$f_occupation',`f_contact_no`='$f_contact_no',`service_no`='$service_no',`rank`='$rank',`mother_name`='$mother_name',`m_occupation`='$m_occupation',`m_contact_no`='$m_contact_no',`guradian_name`='$guradian_name',`relation`='$relation',`r_contact_no`='$r_contact_no' WHERE st_id= '$sid'";
+                    }
+      else{
+            
+            $query = "UPDATE `student_reg` SET `attempt`='$attempt',`fname`='$fname',`lname`='$lname',`jat`='$jat',`main_jat`='$main_jat',`education`='$education',`DOB`='$DOB',`age`='$age',`religion`='$religion',`faculty`='$faculty',`p_address`='$p_address',`p_ward`='$p_ward',`p_vdc_rm_mp`='$p_vdc_rm_mp',`p_txt_vdc_rm_mp`='$p_txt_vdc_rm_mp',`t_address`='$t_address',`t_ward`='$t_ward',`t_vdc_rm_mp`='$t_vdc_rm_mp',`t_txt_vdc_rm_mp`='$t_txt_vdc_rm_mp',`contact_no`='$contact_no',`father_name`='$father_name',`f_occupation`='$f_occupation',`f_contact_no`='$f_contact_no',`service_no`='$service_no',`rank`='$rank',`mother_name`='$mother_name',`m_occupation`='$m_occupation',`m_contact_no`='$m_contact_no',`guradian_name`='$guradian_name',`relation`='$relation',`r_contact_no`='$r_contact_no' WHERE st_id= '$sid'";
+
+      }
     if (mysqli_query($conn, $query)) {
-
-        //header("location: ../studentdata.php");
-
-        // header('Location: ../studentdata.php?error=none');
-
-        // echo 'Updated successfully ';
-        // }
-        // else{
-        // echo "Error: " . mysqli_error($conn);
+        // header('Location: test.php?error=none');
+    
     }
     mysqli_close($conn);
 }
 
 ?>
+
+<script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const form = document.getElementById("MyForm");
+
+            form.addEventListener("submit", function(event) {
+                //event.preventDefault(); // Prevent the default form submission
+               
+
+                // Process your form data here, e.g., send it to the server via AJAX
+                // ...
+
+                // After processing the form data, change the window location
+                window.location.href = "test.php"; // Replace with the desired URL
+
+                 
+            });
+           
+        });
+</script>

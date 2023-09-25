@@ -1,8 +1,5 @@
-
-
-
-
 <?php
+
 include ('db_connection.php');
 // Database configuration
 $host = 'localhost';
@@ -445,7 +442,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     }
   
-    echo $error;
 
     // $aggre = isset($_POST['aggre']) ? 1 : 0;
     // Prepare and bind the form data to insert into the database
@@ -460,30 +456,31 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // Execute the prepared statement
     
         if ($stmt->execute()) {
-            echo "Data inserted successfully.";
+            $message = "ok";
+            header("location: ../../index.php");
             
 
         } else {
-            echo "Error inserting data: " . $stmt->error;
+            $message = "could not send/ insert";
+            header("location: ../../index.php");
            
-
         }
         
+        print json_encode($message);
 
         $stmt->close();
         $conn->close();
-    }   
-    // Close the statement and database connection
+    }
+    
+    else{
+        echo $error;
+    }
     
     }
 }
 else{
-    echo "Please verified the terms and condition ! THANK YOU !!!";
+   echo"Please verified the terms and condition ! THANK YOU !!!";
 }
-
-
-
-
 
 
 ?>

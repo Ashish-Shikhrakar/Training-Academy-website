@@ -22,7 +22,7 @@ include($_SERVER['DOCUMENT_ROOT'] . '/ARMY-WEBSITE-PROJECT/dashboard/common/side
 							<th>Email</th>
 							<th>Phone</th>
 							<th>Salary</th>
-							<th>C ID</th>
+							<th>CID</th>
 							<th>Photo</th>
 							<th>Action</th>
 						</tr>

@@ -7,6 +7,19 @@ include($_SERVER['DOCUMENT_ROOT'].'/ARMY-WEBSITE-PROJECT/dashboard/common/sideba
 <section id ="interface" >
    <?php  include($_SERVER['DOCUMENT_ROOT'].'/ARMY-WEBSITE-PROJECT/dashboard/common/top-menu.php')?>
 <div class="searchfeedback">
+
+<form action="" method="post">
+                            <div class="row"style="margin-left: 60px;">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <input type="text" name="search_txt" class="form-control" placeholder="search">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <button type="submit" class="btn btn-primary" name="search_btn">Search</button>
+                                </div>
+                            </div>
+                        </form>
    <div class="container">
         <div class="row">
             <div class="col-md-12 mt-5">
@@ -91,6 +104,5 @@ include($_SERVER['DOCUMENT_ROOT'].'/ARMY-WEBSITE-PROJECT/dashboard/common/sideba
             </div>
         </div>
     </div>
-                        </div>
-    </section> 
+</div> 
 </section>

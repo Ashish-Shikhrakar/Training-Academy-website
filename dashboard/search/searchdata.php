@@ -7,6 +7,8 @@ include($_SERVER['DOCUMENT_ROOT'] . '/ARMY-WEBSITE-PROJECT/dashboard/common/side
 <section id="interface">
     <?php include($_SERVER['DOCUMENT_ROOT'] . '/ARMY-WEBSITE-PROJECT/dashboard/common/top-menu.php') ?>
     <div class="dashboardstyle">
+    
+
 
         <div class="values">
                 <div class="val-box">

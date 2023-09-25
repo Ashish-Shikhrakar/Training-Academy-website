@@ -10,7 +10,7 @@ $phone = '';
 $salary = '';
 $cid = '';
 $submit_message = '';
-$mode = "Add";
+$mode = '';
 // $name = '';
 // $tmp = '';
 $phoneErr='';
@@ -18,13 +18,13 @@ $addressErr='';
 $nameErr='';
 $emailErr='';
 $row='';
-
-
+// $row=['photo'];
+$txtname='';
 
 
 if (isset($_POST["tid"])) {
   $tid = $_POST["tid"];
-  $mode = "Update";                                     //for 2 operation like edit(update),insert.
+  // $mode = "Update";                                     //for 2 operation like edit(update),insert.
 
   $sql = "SELECT * FROM teacher WHERE tid = '$tid'";
 
@@ -43,13 +43,45 @@ if (isset($_POST["tid"])) {
     $phone = $row["phone"];
     $salary = $row["salary"];
     $cid = $row["cid"];
-    $foto = $row["photo"];
+    $foto = $row["photo"];//change photo
     $changed_ph = '';
+    // $name = $row["photo"]["name"];
+    // $tmp = $row["photo"]["tmp_name"];
     //  $name = $_FILES["photo"]["name"];
     //  $tmp = $_FILES["photo"]["tmp_name"];
 }
 
 }
+
+
+
+
+
+// $tid=$_POST['tid'];
+if(empty($tid)){
+  $txtname = "Add";
+  $mode='Add';
+}
+else{
+  $txtname = "Update";
+  $mode='Update';
+}
+ 
+
+
+
+// if(empty($txtname)){
+//   $test=$_POST['txtname'];
+//     if($test == 'Add'){
+//     $mode='Add';
+//   }
+//   else{
+//     $mode='Update';
+//   }
+// }
+
+
+
 
 ?>
 <!doctype html>
@@ -82,6 +114,10 @@ if (isset($_POST["tid"])) {
           <div class="card-header">
             <h2>
               <?php echo ($mode === "Add") ? "Insert " : "Update "; ?>teacher data
+
+          
+
+
             </h2>
           </div>
           <div>
@@ -93,64 +129,63 @@ if (isset($_POST["tid"])) {
             <!-- <?php //echo $submit_message ?> -->
             <form action="" method="POST" enctype="multipart/form-data">
 
+            <input type="hidden" name="txtname" value="<?php echo $txtname; ?>"  id="txt">
+
               <div class="form-group">
-                <label>name</label><br>
+                <label>Name</label><br>
                 <input type="text" name="tname" class="form-control" placeholder="Enter teacher's full name"
                   value="<?php echo $tname; ?>"><span><?php echo $nameErr ?></span>
               </div>
               <div class="form-group">
-                <label>address</label>
+                <label>Address</label>
                 <input type="text" name="taddress" class="form-control" placeholder="Enter teacher's address"
                   value="<?php echo $taddress; ?>"><span><?php echo $addressErr?></span>
               </div>
               <div class="form-group">
-                <label for="">email</label>
+                <label for="">Email</label>
                 <input type="text" name="email" class="form-control" placeholder="Enterteacher's eamil"
                   value="<?php echo $email; ?>"><span><?php echo $emailErr?></span>
               </div>
               <div class="form-group">
-                <label for="">phone</label>
+                <label for="">Phone</label>
                 <input type="text" name="phone" class="form-control" placeholder="Enter teacher's phone"
                   value="<?php echo $phone; ?>"><span><?php echo $phoneErr?></span>
               </div>
               <div class="form-group">
-                <label for="">salary</label>
+                <label for="">Salary</label>
                 <input type="bignit" name="salary" class="form-control" placeholder="Enter teacher's salary"
                   value="<?php echo $salary; ?>">
               </div>
               <div class="form-group">
-                <label for="">course id</label>
+                <label for="">Course id</label>
                 <input type="text" name="cid" class="form-control" placeholder="Enter teacher course id"
                   value="<?php echo $cid; ?>">
               </div>
               <div class="form-group">
-              <label for="">photo</label>
+              <label for="">Photo</label>
               <?php 
-                if ($mode === "Add") {
-                  // $name = $_FILES["photo"]["name"];
-                  // $tmp = $_FILES["photo"]["tmp_name"];
-                  // $row = move_uploaded_file($tmp, "../../uploadsT/".$name);
-                  echo '<input type="file" name="photo" class="form-control">';
-                } elseif ($mode === "Update") {
-                  if ($row["photo"]) {
-                    echo '<br><td><img id="hidephoto" width="100px" src="../../uploadsT/'.$row['photo']. '"alt="Image"></td>';
-                    echo '<input type = "text" name="photo-text" value = '.$foto.' style="visibility:hidden">';
-                  }
-                  echo '<input type="file" name="photo" class="form-control" onchange="pictureChanged()">';
-                  // $changed_ph = $_FILES['photo']['name'];
-                  // echo '<br><td><img id="dhidephoto" width="100px" src="../../uploadsT/'.$changed_ph. '"alt="Image"></td>';
-                }
+
+                    if ($mode == "Add") {
+                      echo '<input type="file" name="photo" class="form-control">';
+                    } elseif ($mode == "Update") {
+                      if ($row["photo"]) {
+                        echo '<br><td><img id="hidephoto" width="100px" src="../../uploadsT/'.$row['photo']. '"alt="Image"></td>';
+                        echo '<input type = "text" name="photo-text" value = '.$foto.' style="visibility:hidden">';
+                      }
+                      echo '<input type="file" name="photo" class="form-control" onchange="pictureChanged()">';
+                      // $changed_ph = $_FILES['photo']['name'];
+                      // echo '<br><td><img id="dhidephoto" width="100px" src="../../uploadsT/'.$changed_ph. '"alt="Image"></td>';
+                    }
+
               ?>
                 
-                <!--  -->
               </div>
               <div class="form-group">
                 <input type="hidden" name="mode" value="<?php echo $mode; ?>">
                 <input type="hidden" name="tid" value="<?php echo $tid; ?>">
-                <button type="submit" name="save" class="btn btn-primary">
-                  <?php echo $mode; ?>
-                </button>
-                <button type="reset" name="reset" class="btn btn-primary">clear</button>
+                <button type="submit" name="save" class="btn btn-primary"><?php echo $mode; ?></button>
+                <button type="reset" name="reset" class="btn btn-primary">Clear</button>
+                
               </div>
             </form>
           </div>
@@ -178,7 +213,7 @@ if (isset($_POST['save'])) {
   $phone = $_POST['phone'];
   $salary = $_POST['salary'];
   $cid = $_POST['cid'];
-  $mode = $_POST['mode'];
+  // $mode = $_POST['mode'];
   // $file = $_FILES['photo']['tmp_name'];
 
   //  $file = addslashes(file_get_contents($_FILES["image"]["temp_name"]));
@@ -186,92 +221,99 @@ if (isset($_POST['save'])) {
 
   $name = $_FILES["photo"]["name"];
   $tmp = $_FILES["photo"]["tmp_name"];
-
-function test_input($data) {
-  $data = trim($data);//Strip unnecessary characters (extra space, tab, newline) from the user input data
-  $data = stripslashes($data);//Remove backslashes (\) from the user input data
-  $data = htmlspecialchars($data);//converts special characters to HTML entities
-  return $data;
-}
-function test_name($data){
-  if (!preg_match("/^[a-zA-Z-' ]*$/",$data)) {
-      return false;
-  }
-  else {
-      return true;
-  }
-}
-function validatePhone($phone) {
-
-// Check if the phone number is a valid format
-if (!preg_match("/^[0-9]{10}+$/", $phone)) {
-  return false;
-
-}
-// The phone number is valid
-else{
-  return true;
-}
-
-}
-$nameErr="";
-if (isset($_POST['save'])) {
-  if(empty($_POST['tname'])){
-    $nameErr="name cannot be empty";
-  }
-  else{
-    $tname=test_input($_POST['tname']);
-    if(test_name($tname)==false){
-      $nameErr="enter valid name";
-    }
-  }
-  if(empty($_POST['taddress'])){
-    $addressErr="name cannot be empty";
-  }
-  else{
-    $taddress=test_input($_POST['taddress']);
-    if(test_name($tname)==false){
-      $addressErr="enter valid address";
-    }
-  }
-  if(empty($_POST['phone'])){
-   $phoneErr="phone cammot be empty";
-}
-else{
-    $phone=$_POST['phone'];//required max length 10
-    if(validatePhone($phone)==false){
-        $phoneErr="enter valid number";
-    }
-}
-  // $email = $_POST['email'];
-  // $salary = $_POST['salary'];
-  // $cid = $_POST['cid'];
-  // $mode = $_POST['mode'];
-  // // $file = $_FILES['photo']['tmp_name'];
-
-  // //  $file = addslashes(file_get_contents($_FILES["image"]["temp_name"]));
-  // // $file = isset($_FILES['photo']) ? $_FILES['photo'] : null;
-
-  // $name = $_FILES["photo"]["name"];
-  // $tmp = $_FILES["photo"]["tmp_name"];
-  
-  // print_R($_FILES);exit;
-
   $uploadStatus = move_uploaded_file($tmp, "../../uploadsT/" . $name);
-  if ($uploadStatus) {
-
+    if ($uploadStatus) {      
     //echo $name;exit;
-  }
-  // print_r($_FILES);
-  // Validate and process the data
+    }
+
+    function test_input($data) {
+                  $data = trim($data);//Strip unnecessary characters (extra space, tab, newline) from the user input data
+                  $data = stripslashes($data);//Remove backslashes (\) from the user input data
+                  $data = htmlspecialchars($data);//converts special characters to HTML entities
+                  return $data;
+        }
+    function test_name($data){
+        if (!preg_match("/^[a-zA-Z-' ]*$/",$data)) {
+            return false;
+        }
+        else {
+            return true;
+        }
+      }
+        function validatePhone($phone) {
+
+        // Check if the phone number is a valid format
+        if (!preg_match("/^[0-9]{10}+$/", $phone)) {
+          return false;
+
+        }
+        // The phone number is valid
+        else{
+          return true;
+        }
+
+        }
+        $nameErr="";
+        if (isset($_POST['save'])) {
+          if(empty($_POST['tname'])){
+            $nameErr="name cannot be empty";
+          }
+          else{
+            $tname=test_input($_POST['tname']);
+            if(test_name($tname)==false){
+              $nameErr="enter valid name";
+            }
+          }
+          if(empty($_POST['taddress'])){
+            $addressErr="name cannot be empty";
+          }
+          else{
+            $taddress=test_input($_POST['taddress']);
+            if(test_name($tname)==false){
+              $addressErr="enter valid address";
+            }
+          }
+          if(empty($_POST['phone'])){
+          $phoneErr="phone cammot be empty";
+        }
+        else{
+            $phone=$_POST['phone'];//required max length 10
+            if(validatePhone($phone)==false){
+                $phoneErr="enter valid number";
+            }
+        }
 
 
 
-  if ($mode === "Add") {
+
+
+
+            // $email = $_POST['email'];
+            // $salary = $_POST['salary'];
+            // $cid = $_POST['cid'];
+            // $mode = $_POST['mode'];
+            // // $file = $_FILES['photo']['tmp_name'];
+
+            // //  $file = addslashes(file_get_contents($_FILES["image"]["temp_name"]));
+            // // $file = isset($_FILES['photo']) ? $_FILES['photo'] : null;
+
+            // $name = $_FILES["photo"]["name"];
+            // $tmp = $_FILES["photo"]["tmp_name"];
+            
+            // print_R($_FILES);exit;
+
+            
+            // print_r($_FILES);
+            // Validate and process the data
+
+// $query='';
+
+    if ($mode == "Add") {
     // Insert the data into the teacher table
     $query = "INSERT INTO teacher (tid, tname, taddress, email, phone, salary, cid, photo) 
             VALUES (NULL,'$tname', '$taddress', '$email', '$phone', '$salary', '$cid','$name')";
-  } elseif ($mode === "Update") {
+            
+    } elseif ($mode == "Update") {
     $check = $_FILES['photo']['name'];
     if ($check!='') {
       $query = "UPDATE `teacher` SET `tname`='$tname',`taddress`='$taddress',`email`= '$email',`phone`= '$phone',`salary`= '$salary',`cid`='$cid', `photo`= '$name' WHERE tid = '$tid'";
@@ -279,21 +321,22 @@ else{
       // $query = "UPDATE `teacher` SET `tname`='$tname',`taddress`='$taddress',`email`= '$email',`phone`= '$phone',`salary`= '$salary',`cid`='$cid', `photo`= $foto WHERE tid = ";
       $query = "UPDATE `teacher` SET `tname`= '$tname',`taddress`= '$taddress',`email`= '$email',`phone`= '$phone',`salary`= '$salary',`cid`='$cid', `photo`= '$foto' WHERE `tid`= '$tid'";
     }
-  }
-  
-  //echo $tmp;
-  
-  if (mysqli_query($conn, $query)) {
-    // <?php echo $rootUrl.'
-    header("location: create.php?error=none");
-   
     }
-    else{
-    echo "Error: " . mysqli_error($conn);
-  }
+  
+    //echo $tmp;
+  
+    if (mysqli_query($conn, $query)) {
+      // <?php echo $rootUrl.'
+      // header("location: create.php?error=none");
+      echo $mode ." successful";
+    
+      }
+      else{
+        echo "Error: " . mysqli_error($conn);
+      }
 
-  // Close the database connection
-  mysqli_close($conn);
-}
+    // Close the database connection
+      mysqli_close($conn);
+  }
 }
 ?>

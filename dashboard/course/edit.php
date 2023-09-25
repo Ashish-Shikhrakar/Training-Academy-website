@@ -61,6 +61,8 @@ if ($conn->connect_error) {
                         <form action="" method="POST" enctype="multipart/form-data">
                         <a class="btn btn-primary" href="../course/coursedata.php" role="button">Back</a>
 
+                        <input type="hidden" name="cr_id" value="<?php echo $cr_id; ?>">
+
                             <div class="form-group">
                                 <label>Subject Name</label><br>
                                 <input type="text" name="cname" class="form-control" value="<?php echo $cname; ?>" required placeholder="Enter subject name">
@@ -111,13 +113,14 @@ if (isset($_POST["submit"])) {
 
 //    $query = "UPDATE course SET cname = '$cname', c_t_name = '$c_t_name', cid = '$cid' WHERE cr_id =' $cr_id'";
    
-
-    $query = "UPDATE `course` SET `cname`='$cname', `c_t_name`='$c_t_name', `cid`='$cid' WHERE `cr_id` = '$cr_id'";
+//
+    $query = "UPDATE `course` SET `cname`='$cname', `c_t_name`='$c_t_name', `cid`='$cid' WHERE cr_id = '$cr_id'";
 
     // Execute query
     if (mysqli_query($conn, $query)) {
-    //     header('Location: course.php?error=none');
         echo "Data updated successfully.";
+    header('Location: course.php?error=none');
+        
     // } 
     // else {
        

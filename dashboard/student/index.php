@@ -32,13 +32,13 @@
             <a href="index.php">
               <li class="menubarItems">Home</li>
             </a>
-            <a href="about.html">
+            <a href="about.php">
               <li class="menubarItems">About Us</li>
             </a>
-            <a href="notice.html">
+            <a href="notice.php">
               <li class="menubarItems">Notice</li>
             </a>
-            <a href="schedule.html">
+            <a href="schedule.php">
               <li class="menubarItems">Schedule</li>
             </a>
             <a href="contact_form.php">

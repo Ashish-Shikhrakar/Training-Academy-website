@@ -1,47 +1,57 @@
 <?php
 
-@include 'config.php';
+// @include 'config.php';
 
-session_start();
+// session_start();
 
-if(!isset($_SESSION['admin_name'])){
-   header('location:login_form.php');
-}
+// if(!isset($_SESSION['admin_name'])){
+//    header('location:login_form.php');
+// }
+
+
+include($_SERVER['DOCUMENT_ROOT'] . '/ARMY-WEBSITE-PROJECT/dashboard/common/header.php');
+include($_SERVER['DOCUMENT_ROOT'] . '/ARMY-WEBSITE-PROJECT/dashboard/common/sidebar.php') ?>
+
+
+<section id="interface">
+	<?php include($_SERVER['DOCUMENT_ROOT'] . '/ARMY-WEBSITE-PROJECT/dashboard/common/top-menu.php');
 
 ?>
-
+<!-- 
 <!DOCTYPE html>
 <html lang="en">
 <head>
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>admin page</title>
+   <title>Admin page</title> -->
 
    <!-- custom css file link  -->
    <link rel="stylesheet" href="css/style.css">
 
-</head>
-<body>
+<!-- </head>
+<body> -->
    
 <div class="container">
 
    <div class="content">
-      <h3>hi, <span>admin</span></h3>
-      <h1>welcome <span><?php echo $_SESSION['admin_name'] ?></span></h1>
-      <!-- <p>this is an admin page</p> -->
-      <a href="login_form.php" class="btn">login</a>
-      <a href="register_form.php" class="btn">register</a>
+      <h3>hi, <span>Admin</span></h3>
+      <h1>Welcome <span><?php echo $_SESSION['admin_name'] ?></span></h1>
+      <p>this is an admin page</p>
+      <!-- <a href="login_form.php" class="btn">Login</a>
+      <a href="register_form.php" class="btn">Register</a>
       <a href="../dashboard/dashboard.php" class="btn">Dashboard</a>
-      <a href="logout.php" class="btn">logout</a>
+      <a href="logout.php" class="btn">Logout</a> -->
    </div>
 
 </div>
-
-</body>
-</html>
+</section>
 
 
+<!-- </body>
+</html> -->
 
-<a class="btn btn-primary" href='edit.php'?id= '$row[tid]'>Edit</a>
-<a class="btn btn-primary" href='edit.php'?id='$row[tid]'>Delete</a>
+
+
+<!-- <a class="btn btn-primary" href='edit.php'?id= '$row[tid]'>Edit</a>
+<a class="btn btn-primary" href='edit.php'?id='$row[tid]'>Delete</a> -->

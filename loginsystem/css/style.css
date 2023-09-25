@@ -58,7 +58,7 @@
 }
 
 .container .content .btn:hover{
-   background: crimson;
+   background: rgb(58, 34, 39);
 }
 
 .form-container{
@@ -110,8 +110,8 @@
 }
 
 .form-container form .form-btn:hover{
-   background: crimson;
-   color:#fff;
+   background: rgb(252, 248, 249);
+   color:#360303;
 }
 
 .form-container form p{

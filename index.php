@@ -32,16 +32,16 @@
             <a href="index.php">
               <li class="menubarItems">Home</li>
             </a>
-            <a href="about.html">
+            <a href="about.php">
               <li class="menubarItems">About Us</li>
             </a>
-            <a href="notice.html">
+            <a href="notice.php">
               <li class="menubarItems">Notice</li>
             </a>
-            <a href="schedule.html">
+            <a href="schedule.php">
               <li class="menubarItems">Schedule</li>
             </a>
-            <a href="contact_form.php">
+            <a href="contact.php">
               <li class="menubarItems">Contact</li>
             </a>
           </ul>
@@ -340,11 +340,11 @@
                 referrerpolicy="no-referrer-when-downgrade"></iframe>
 
             </div>
-            <div style="display: grid; grid-template-columns: 1fr 1fr 1fr 1fr;">
+            <div style="display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; text-align: left;padding: 30px;">
 
 
               <div style="position: relative;">
-                <h3 class="introtitle" style="text-align:left;">Services</h3>
+                <h3 class="introtitle" style="text-align:left;padding-left: 0px;margin-left: 0px;">Services</h3>
                 <ul style="text-align:left;">
                   <li><a href="#">Web design</a></li>
                   <li><a href="#">Development</a></li>
@@ -353,7 +353,7 @@
 
               </div>
               <div style="position: relative;">
-                <h3 class="introtitle" style="text-align:left;">About</h3>
+                <h3 class="introtitle" style="text-align:left;padding-left: 0px;margin-left: 0px;">About</h3>
                 <ul style="text-align:left;">
                   <li><a href="#">Company</a></li>
                   <li><a href="#">Team</a></li>
@@ -361,7 +361,7 @@
                 </ul>
               </div>
               <div style="position: relative;">
-                <h3 class="introtitle" style="text-align:left;">Careers</h3>
+                <h3 class="introtitle" style="text-align:left;padding-left: 0px;margin-left: 0px;">Careers</h3>
                 <ul style="text-align:left;">
                   <li><a href="#">Job openings</a></li>
                   <li><a href="#">Employee success</a></li>
@@ -369,7 +369,7 @@
                 </ul>
               </div>
               <div style="position: relative;">
-                <h3 class="introtitle" style="text-align:left;">Aim Gurkha</h3>
+                <h3 class="introtitle" style="text-align:left;padding-left: 0px;margin-left: 0px;">Aim Gurkha</h3>
                 <ul style="text-align:left;">
                   <li><a href="#">Dholahity, Lalitpur</a></li>
                   <li><a href="#">aimgurkha@email.com.np</a></li>
@@ -403,6 +403,9 @@
       popup.classList.remove("open-popup");
     }
   </script>
+
+
+
 </body>
 
 </html>
