@@ -114,8 +114,9 @@
 
   <div class="container">
     <div class="contact-box">
-      <form method="POST" action="">
-        <!-- form method="POST" action="userfeedback.php" -->
+    <!-- <form method="POST" action="https://formspree.io/f/mqkvkvde"> -->
+
+        <form method="POST" action="https://formspree.io/f/mjvqadvy">
         <p class="servicetitle" style="text-align: center;font-family: poppins,bold;">Contact Form</p>
         <input type="text" class="input-field" required name="u_name" placeholder="Name">
         <input type="text" class="input-field" required name="u_email" placeholder="Your e-mail address">
@@ -128,18 +129,6 @@
   </div>
 
 
-  <!-- <div class="contact-box">
-    <form method="POST" action="">
-      form method="POST" action="userfeedback.php" 
-      <h2>Contact Form</h2>
-      <input type="text" class="input-field" required name="u_name" placeholder="Name">
-      <input type="text" class="input-field" required name="u_email" placeholder="Your e-mail address">
-      <input type="text" class="input-field" required name="phone" placeholder="Enter phone no">
-      <textarea type="text" required class="input-field textarea-field" name="u_message"
-        placeholder="Message"></textarea>
-      <input type="submit" value=" Send Message" name="save" class="btn">
-    </form>
-  </div> -->
 
 <?php
 /*
@@ -258,6 +247,26 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       </footer>
     </div>
 <script src="jscript.js"></script>
+
+<script src="https://formspree.io/f/xdororlo"></script>
+
+<!-- user feedback message direct on gmail account  -->
+<script>
+    function sendEmail(){
+            Email.send({
+                Host : "smtp.gmail.com",
+                Username : "saurav.shakya2001@gmail.com",
+                Password : "password",
+                To : 'saurav.shakya2001@gmail.com',
+                From : document.getElementById("email").value,
+                Subject : "New feedback from user",
+                Body : "And this is the body",
+            }).then(
+                message => alert(message sent sucessfully)
+            );
+    }
+</script>
+
 </body>
 
 </html>

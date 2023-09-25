@@ -529,6 +529,10 @@ footer{
 .resultslist ul li{
     margin-left: 40px;
 }
+li{
+list-style-type: none;
+}
+
 
 .popupnotice {
     position: fixed;
