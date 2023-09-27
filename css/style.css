@@ -708,6 +708,23 @@ footer{
         text-align: center;
     }
 }
+.footer-clean .social-link a{
+    height: 41px;
+    width: 41px;
+    float: right;
+    background-color: #A7A44E; 
+    margin: 0 10px 10px 0;
+    line-height: 40px;
+    color:#FFFFFF ;
+    transition: all 0.5s ease;
+    margin-right:12px;  
+    border-radius: 5px;
+}
+
+.footer-clean .social-link a:hover{
+  color:#24262b;
+  background-color: white;
+}
     /* .master{
     background-color: #D2D2D2;
    }

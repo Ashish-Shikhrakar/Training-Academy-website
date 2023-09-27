@@ -236,14 +236,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                   <li><a href="#">Dholahity, Lalitpur</a></li>
                   <li><a href="#">aimgurkha@email.com.np</a></li>
                   <li><a href="#">01-5574095/9851046632</a></li>
-
+                   <li><div class="social-link" style="display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; text-align: center; margin-top: 10px;"> 
+                            <a href="https://www.instagram.com/aimgurkha/" target="_blank"><i class="fab fa-instagram"></i></a>
+                            <a href="https://www.facebook.com/profile.php?id=100063674538639" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                            <a href="https://www.facebook.com/messages/t/155741854590882" target="_blank"><i class="fab fa-facebook-messenger"></i></a>
+                            <!-- <a href="https://wa.me/03062000920" target="_blank"><i class="fab fa-whatsapp"></i></a> -->
+                            <a href="https://mail.google.com/mail/u/0/#search/aimgurkha%40gmail.com?compose=GTvVlcRwRQPFTcQVdvMkcSqdjlVTNMvbBSZzlpnTLFjLQzPXlTXrrvDJjdLWfPSnBLMBZFJFSMChS" target="_blank"><i class="fa fa-envelope"></i></a>
+                          </div></li>
                 </ul>
               </div>
             </div>
 
-            <div style="clear:both;"><a href="#"><i class="icon ion-social-facebook"></i></a><a href="#"><i
-                  class="icon ion-social-twitter"></i></a><a href="#"><i class="icon ion-social-snapchat"></i></a><a
-                href="#"><i class="icon ion-social-instagram"></i></a>
+            <div style="clear:both;">
               <p class="copyright" >Aim Gurkha <br> ©2023 All Rights Reserved</p>
             </div>
           </div>
