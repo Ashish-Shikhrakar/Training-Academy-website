@@ -20,7 +20,7 @@ if (isset($_POST["st_id"])) {
         $statement = mysqli_stmt_init($conn);
         
         if (!mysqli_stmt_prepare($statement, $sql)) {
-            header("location: studentdata.php?error=statementfailed");
+            header("location: test.php?error=statementfailed");
             exit();
         }
         

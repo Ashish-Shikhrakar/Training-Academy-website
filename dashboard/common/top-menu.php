@@ -1,29 +1,5 @@
 <div class="nav">
 
-    <!-- <div class="row">
-        <div class="col-md-6">
-            <div class="form-group">
-                <input type="text" name="search_btn" class="form-control" placeholder="What you want ?">
-            </div>
-        </div>
-        <div class="col-md-6">
-            <button type="submit" class="btn btn-primary" name="search_btn" value="search">search</button>
-        </div>
-    </div> -->
-       <!-- <form action="" method="post">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <input type="text" name="search_txt" class="form-control" placeholder="search">
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <button type="submit" class="btn btn-primary" name="search_btn">Search</button>
-                                </div>
-                            </div>
-                        </form> -->
-
-
 
     <div class="head" style="margin-left: 130px;">
         <h3>Aim Gurkha Training Academy</h3>

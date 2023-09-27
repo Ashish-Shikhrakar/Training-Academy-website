@@ -263,21 +263,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
 
-    // // Process VDC/RM/MP selection for permanent address
-    // if ($p_vdc_rm_mp === 'V.D.C') {
-    //     $p_vdc_rm_mp_text = $_POST['p_txt_vdc_rm_mp'];
-    // } elseif ($p_vdc_rm_mp === 'R.M') {
-    //     $p_rm_mp_text = $_POST['p_txt_vdc_rm_mp'];
-    // }
-    // // Process VDC/RM/MP selection for temporary address
-    // // Process VDC/RM/MP selection for temporary address
-    // if ($t_vdc_rm_mp === 'V.D.C') {
-    //     $t_vdc_rm_mp_text = $_POST['t_txt_vdc_rm_mp'];
-    // } elseif ($t_vdc_rm_mp === 'R.M') {
-    //     $t_rm_mp_text = $_POST['t_txt_vdc_rm_mp'];
-    // }
-    // $photo = $_FILES['pp']['name'];
-
     $name = $_FILES["photo"]["name"];
     $tmp = $_FILES["photo"]["tmp_name"];
     // print_R($_FILES);exit;
@@ -452,7 +437,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $stmt = $conn->prepare("INSERT INTO student_reg (attempt, fname, lname, jat, main_jat, education, DOB, age,religion, faculty, p_address,p_ward, p_vdc_rm_mp, p_txt_vdc_rm_mp,t_address, t_ward, t_vdc_rm_mp, t_txt_vdc_rm_mp, contact_no,photo,father_name, f_occupation, f_contact_no, service_no, rank, mother_name, m_occupation, m_contact_no, guradian_name, relation, r_contact_no) 
      VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 
-    $stmt->bind_param("sssssssisssisssississsiiississi", $attempt, $fname, $lname, $jat, $main_jat, $education, $DOB,$age, $religion, $faculty, $p_address,$p_ward, $p_vdc_rm_mp, $p_txt_vdc_rm_mp,$t_address,$t_ward, $t_vdc_rm_mp, $t_txt_vdc_rm_mp,$contact_no, $name, $father_name, $f_occupation, $f_contact_no, $service_no, $rank, $mother_name, $m_occupation,$m_contact_no, $guradian_name, $relation, $r_contact_no);
+    $stmt->bind_param("sssssssisssisssississsiiississi", $attempt, $fname, $lname, $jat, $main_jat, $education, $DOB, $age, $religion, $faculty, $p_address,$p_ward, $p_vdc_rm_mp, $p_txt_vdc_rm_mp,$t_address,$t_ward, $t_vdc_rm_mp, $t_txt_vdc_rm_mp,$contact_no, $name, $father_name, $f_occupation, $f_contact_no, $service_no, $rank, $mother_name, $m_occupation,$m_contact_no, $guradian_name, $relation, $r_contact_no);
         //ssssssiisssisssisssssiiiississi//Change blind parameter.
         // Execute the prepared statement
     
@@ -480,7 +465,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 else{
-   echo"Please verified the terms and condition ! THANK YOU !!!";
+//    echo"Please verified the terms and condition ! THANK YOU !!!";
 }
 
 
@@ -629,10 +614,10 @@ else{
                     <br><br>
                     <!-- date of birth -->
                     <label for="datePicker">Date of Birth:</label>
-                   <input type="date" id="datePicker"  onchange="updateLabels()"><br><br>
+                   <input type="date" id="datePicker"  name="DOB" onchange="updateLabels()"><br><br>
 
                     <label id="bsLabel">BS:</label>
-                    <input type="text" name="DOB" id="bsdate">
+                    <input type="date" id="bsdate">
                     <!-- <span id="bsValue"></span> -->
                     <br><br>
                     

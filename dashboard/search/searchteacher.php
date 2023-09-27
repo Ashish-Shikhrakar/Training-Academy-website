@@ -31,20 +31,7 @@ include($_SERVER['DOCUMENT_ROOT'].'/ARMY-WEBSITE-PROJECT/dashboard/common/sideba
 
                     </div>
                     <div class="cardbody">
-                        <!-- <form action="" method="post">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <input type="text" name="search_txt" class="form-control" placeholder="search">
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <button type="submit" class="btn btn-primary" name="search_btn"
-                                        value="search">search</button>
-                                </div>
-                            </div>
-                        </form> -->
-
+                
                         <table class="table table-border">
                             <thead>
                                 <tr>
@@ -120,5 +107,4 @@ include($_SERVER['DOCUMENT_ROOT'].'/ARMY-WEBSITE-PROJECT/dashboard/common/sideba
         </div>
     </div>
     </div>
-    <!-- </section>  -->
 </section>

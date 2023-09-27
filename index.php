@@ -41,7 +41,7 @@
             <a href="schedule.php">
               <li class="menubarItems">Schedule</li>
             </a>
-            <a href="contact.php">
+            <a href="contact_form.php">
               <li class="menubarItems">Contact</li>
             </a>
           </ul>

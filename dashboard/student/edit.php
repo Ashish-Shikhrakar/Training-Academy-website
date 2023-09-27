@@ -105,6 +105,7 @@ if (isset($_POST["st_id"])) {
         $name = $row["photo"];
         $foto = $row["photo"];//change photo
         $changed_ph = '';
+        $temp='';
 
         // $name = $_FILES["photo"]["name"];
         // $tmp = $_FILES["photo"]["tmp_name"];
@@ -569,7 +570,9 @@ if (isset($_POST["submit"])) {
     $relation = $_POST['relation'];
     $r_contact_no = $_POST['r_contact_no'];
     $sid = $_POST['sid'];
-
+    
+    $name = $_FILES["photo"]["name"];
+    $tmp = $_FILES["photo"]["tmp_name"];
     
     
 
@@ -580,7 +583,7 @@ if (isset($_POST["submit"])) {
 
 
       $check = $_FILES['photo']['name'];
-      echo $check;
+      
       if ($check!='') {
         $name = $_FILES["photo"]["name"];
         $tmp = $_FILES["photo"]["tmp_name"];
