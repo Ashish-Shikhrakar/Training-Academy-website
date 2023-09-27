@@ -7,11 +7,11 @@
     <title>Schedule</title>
     <link rel="icon" type="image/x-icon" href="photo/favicon.ico">
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/css/fontawesome.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Notable&display=swap" rel="stylesheet">
+    <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/css/fontawesome.min.css">
 </head>
 
 <body>
@@ -56,7 +56,7 @@
                     style="background-color: #595E4A; text-align: left; color: #B8B683; padding-left: 20px;">Sunday<img
                         id="drop1" src="photo/dropdown.png" style="float: right; padding: 10px;"></p>
             </div>
-            <div id="drop-table1">
+            <div id="drop-table1" style="display: none;">
                 <table class="table" border="1px solid black" style="border-collapse: collapse;" cellspacing="0"
                     cellpadding="10">
                     <tr>
@@ -117,7 +117,7 @@
                     style="background-color: #595E4A; text-align: left; color: #B8B683; padding-left: 20px;">Monday<img
                         id="drop2" src="photo/dropdown.png" style="float: right; padding: 10px;"></p>
             </div>
-            <div id="drop-table2">
+            <div id="drop-table2" style="display: none;">
                 <table class="table" border="1px solid black" style="border-collapse: collapse;" cellspacing="0"
                     cellpadding="10">
                     <tr>
@@ -477,8 +477,10 @@
 
     <script src="jscript.js"></script>
     <script>
+
         for (let i = 1; i < 7; i++) {
             dropdown(i);
+
         }
 
         function dropdown(day) {
