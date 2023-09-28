@@ -67,10 +67,79 @@ $db = mysqli_select_db($conn, 'army_project');
 
 
 if (isset($_POST['save'])) {
-    $cname = $_POST['cname'];
-    $c_t_name = $_POST['c_t_name'];
-    $cid = $_POST['cid'];
+    // $cname = $_POST['cname'];
+    // $c_t_name = $_POST['c_t_name'];
+    // $cid = $_POST['cid'];
 
+    $error='';
+    $valch=true;
+
+    function test_input($data) {
+                  $data = trim($data);//Strip unnecessary characters (extra space, tab, newline) from the user input data
+                  $data = stripslashes($data);//Remove backslashes (\) from the user input data
+                  $data = htmlspecialchars($data);//converts special characters to HTML entities
+                  return $data;
+        }
+    function test_name($data){
+        if (!preg_match("/^[a-zA-Z-' ]*$/",$data)) {
+            return false;
+        }
+        else {
+            return true;
+        }
+      }
+
+      function isAlphaNumeric($string) {
+        if(!preg_match('/^[a-zA-Z0-9]+$/', $string)){
+        return false;
+        }
+    
+        else{
+                return true;
+        }
+        
+        }
+
+      
+        if(empty($_POST['cname'])){
+          $error.=" Course name cannot be empty";
+          $valch=false;
+        }
+        else{
+          $cname=test_input($_POST['cname']);
+          if(test_name($cname)==false){
+            $error.="<br>Enter valid course name";
+            $valch=false;
+          }
+        }
+
+        if(empty($_POST['c_t_name'])){
+            $error.="Name cannot be empty";
+            $valch=false;
+          }
+          else{
+            $c_t_name=test_input($_POST['c_t_name']);
+            if(test_name($c_t_name)==false){
+              $error.="<br>Enter valid Teacher name";
+              $valch=false;
+            }
+          }
+          if(empty($_POST['cid'])){
+            $error.="Course code cannot be empty";
+            $valch=false;
+          }
+          else{
+            $cid=test_input($_POST['cid']);
+            if(isAlphaNumeric($cid)==false){
+              $error.="<br>Enter valid course code";
+              $valch=false;
+            }
+          }
+
+
+    
+
+    if($valch==true){
 
     $stmt = $conn->prepare("INSERT INTO course (cname,c_t_name,cid) VALUES (?,?,?)");
     $stmt->bind_param("sss", $cname, $c_t_name, $cid);
@@ -82,9 +151,15 @@ if (isset($_POST['save'])) {
        
         echo "Data inserted successfully.";
     }
-    // Close the database connection
     $stmt->close();
     $conn->close();
 }
+else{
+    echo "<div class='alert alert-danger'>".$error."</div>";
+}
+    // Close the database connection
+   
+}
+
 
 ?>

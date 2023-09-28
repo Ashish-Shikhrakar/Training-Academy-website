@@ -32,19 +32,7 @@ include($_SERVER['DOCUMENT_ROOT'].'/ARMY-WEBSITE-PROJECT/dashboard/common/sideba
 
                     </div>
                     <div class="cardbody">
-                        <!-- <form action="" method="post">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <input type="text" name="search_txt" class="form-control" placeholder="search">
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <button type="submit" class="btn btn-primary" name="search_btn"
-                                        value="search">search</button>
-                                </div>
-                            </div>
-                        </form> -->
+                    
 
                         <table class="table table-border">
                             <thead>
@@ -74,7 +62,7 @@ include($_SERVER['DOCUMENT_ROOT'].'/ARMY-WEBSITE-PROJECT/dashboard/common/sideba
                                     if(isset($_POST['search_btn'])){
                                         $search_txt = $_POST['search_txt'];
 
-                                        $query = "SELECT * FROM course where CONCAT(cname) like '%$search_txt %' ";
+                                        $query = "SELECT * FROM course where (cname) = '$search_txt'";
                                         $query_run=mysqli_query($conn,$query);
                                         
 
@@ -105,8 +93,11 @@ include($_SERVER['DOCUMENT_ROOT'].'/ARMY-WEBSITE-PROJECT/dashboard/common/sideba
                                             <?php
                                         }
                                     }
+                                    mysqli_close($conn);
+                                    
                                 }
                             }
+
                                 ?>
                                
                             </tbody>

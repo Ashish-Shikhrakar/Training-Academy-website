@@ -40,12 +40,12 @@ include($_SERVER['DOCUMENT_ROOT'] . '/ARMY-WEBSITE-PROJECT/dashboard/common/side
                 </div>
     </div>
 
-                <div class="val-box">
+                <!-- <div class="val-box">
                     <a href="searchfeedback.php">
                         <i class="fas fa-sms"></i>
                         <div> <span>Feedback</span>
                     </a>
-                </div>
+                </div> -->
 
                 <!-- <div class="val-box">
                     <a href="searchshcedule.php">

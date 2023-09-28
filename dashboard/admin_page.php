@@ -1,12 +1,6 @@
 <?php
 
-// @include 'config.php';
 
-// session_start();
-
-// if(!isset($_SESSION['admin_name'])){
-//    header('location:login_form.php');
-// }
 
 
 include($_SERVER['DOCUMENT_ROOT'] . '/ARMY-WEBSITE-PROJECT/dashboard/common/header.php');
@@ -16,15 +10,34 @@ include($_SERVER['DOCUMENT_ROOT'] . '/ARMY-WEBSITE-PROJECT/dashboard/common/side
 <section id="interface">
 	<?php include($_SERVER['DOCUMENT_ROOT'] . '/ARMY-WEBSITE-PROJECT/dashboard/common/top-menu.php');
 
+$aname=$_SESSION['admin_name'];
 ?>
-<!-- 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-   <meta charset="UTF-8">
-   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Admin page</title> -->
+<?php
+
+// if (isset($_POST["id"])) {
+//    $id = $_POST["id"];
+
+   $sql = "SELECT * FROM `admin_form` WHERE name = '$aname'";
+
+
+   $result = mysqli_query($conn, $sql);
+
+   // Check if there are any rows returned
+   if (mysqli_num_rows($result) > 0) {
+       // Loop through each row and display the elements
+
+       $row = mysqli_fetch_assoc($result);
+
+      //  $name = $row['name'];
+      //  $email = $row['email'];
+      //  $password = $row['password'];
+       $id = $_POST['id'];
+
+   
+      
+   }
+?>
+
 
    <!-- custom css file link  -->
    <link rel="stylesheet" href="css/style.css">
@@ -35,23 +48,38 @@ include($_SERVER['DOCUMENT_ROOT'] . '/ARMY-WEBSITE-PROJECT/dashboard/common/side
 <div class="container">
 
    <div class="content">
-      <h3>hi, <span>Admin</span></h3>
+      <!-- <h3>hi, </h3> -->
       <h1>Welcome <span><?php echo $_SESSION['admin_name'] ?></span></h1>
       <p>this is an admin page</p>
-      <!-- <a href="login_form.php" class="btn">Login</a>
       <a href="register_form.php" class="btn">Register</a>
-      <a href="../dashboard/dashboard.php" class="btn">Dashboard</a>
-      <a href="logout.php" class="btn">Logout</a> -->
+      <a href="logout.php" class="btn">Logout</a> <br>
+      <br><br>
+      <!-- <a href="change_account.php" class="btn" >Change account details</a> -->
+      <?php
+      echo '<input class="btn " type="button" style="padding: 10px 22px;" onclick="editThis(' . $row["id"] . ')" value="Change account details">';
+
+      ?>
    </div>
 
 </div>
 </section>
 
+<script>
+function editThis(id) {
+		var form = document.createElement("form");
+		form.method = "POST";
+		form.action = "change_account.php";
 
-<!-- </body>
-</html> -->
+		var input = document.createElement("input");
+		input.type = "hidden";
+		input.name = "id";
+		input.value = id;
 
+		form.appendChild(input);
 
+		document.body.appendChild(form);
+		form.submit();
+	}
+   </script>
 
-<!-- <a class="btn btn-primary" href='edit.php'?id= '$row[tid]'>Edit</a>
-<a class="btn btn-primary" href='edit.php'?id='$row[tid]'>Delete</a> -->
+   

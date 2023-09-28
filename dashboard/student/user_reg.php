@@ -50,7 +50,7 @@ function validatePhone($phone) {
 
 
 $error="";
-$attempt=$fname=$lname=$jat=$main_jat=$education=$DOB=$age=$religion=$faculty=$p_address=$p_vdc_rm_mp=$p_txt_vdc_rm_mp=$t_address=$t_vdc_rm_mp=$p_vdc_rm_mp=$t_txt_vdc_rm_mp=$father_name=$f_occupation=$mother_name=$m_occupation=$guradian_name=$relation="";
+$attempt=$fname=$lname=$jat=$main_jat=$education=$DOB=$age=$religion=$faculty=$p_address=$p_vdc_rm_mp=$p_txt_vdc_rm_mp=$t_address=$t_vdc_rm_mp=$p_vdc_rm_mp=$t_txt_vdc_rm_mp=$father_name=$f_occupation=$mother_name=$m_occupation=$guradian_name=$relation=$contact_no=$f_contact_no=$m_contact_no=$r_contact_no=$t_ward=$p_ward=NULL;
 $aggre = false;
 $valch=true;
 
@@ -257,10 +257,25 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     else{
         $contact_no=$_POST['contact_no'];//required max length 10
         if(validatePhone($contact_no)==false){
-            $error.="<br> enter valid number";
+            $error.="<br> Enter user's valid number";
             $valch=false;
         }
+        else{
+            $query= ("select * from student_reg where contact_no='$contact_no' OR f_contact_no='$contact_no' OR m_contact_no='$contact_no'");
+            
+            $result = mysqli_query($conn, $query);
+
+          
+            if (mysqli_num_rows($result) > 0) {
+                echo 'Number already exists';
+                $valch =false;
+                }
+
+        }
     }
+
+
+
 
 
     $name = $_FILES["photo"]["name"];
@@ -309,13 +324,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     //validation for father name
     if(empty($_POST['father_name'])){
-        $error.="<br>father name required";
+        $error.="<br>Father name required";
         $valch=false;
     }
     else{
         $father_name = test_input($_POST['father_name']);//required
         if(test_name($father_name)==false){
-            $error.="<br> enter valid name";
+            $error.="<br> Enter Father's valid name";
             $valch=false;
         }
     }
@@ -328,7 +343,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     else{
         $f_occupation = test_input($_POST['f_occupation']);//required
         if(test_name($f_occupation)==false){
-            $error.="<br> enter valid name";
+            $error.="<br>Enter valid father occupation ";
             $valch=false;
         }
     }
@@ -341,7 +356,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     else{
         $f_contact_no = $_POST['f_contact_no'];//required
         if(validatePhone($f_contact_no)==false){
-            $error.="<br> enter valid number";
+            $error.="<br> enter valid Father's number";
             $valch=false;
         }
     }
@@ -358,7 +373,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     else{
         $mother_name = test_input($_POST['mother_name']);//required
         if(test_name($mother_name)==false){
-            $error.="<br> enter valid name";
+            $error.="<br> enter valid mother's name";
             $valch=false;
         }
     }
@@ -371,7 +386,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     else{
         $m_occupation = test_input($_POST['m_occupation']);//required   
         if(test_name($m_occupation)==false){
-            $error.="<br> enter valid occupation";
+            $error.="<br> enter valid mother's occupation";
             $valch=false;
         }
     }
@@ -384,7 +399,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     else{
         $m_contact_no = $_POST['m_contact_no'];//required
         if(validatePhone($m_contact_no)==false){
-            $error.="<br> enter valid number";
+            $error.="<br> enter valid mother's number";
             $valch=false;
         }
     }
@@ -397,7 +412,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     else{
         $guradian_name = test_input($_POST['guradian_name']);//not necessary
         if(test_name($guradian_name)==false){
-            $error.="<br> enter valid name";
+            $error.="<br> enter valid Guardian's  name";
             $valch=false;
         }
     }
@@ -423,7 +438,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     else{
         $r_contact_no = $_POST['r_contact_no'];//not necessary
         if(validatePhone($r_contact_no)==false){
-            $error.="<br> enter valid number";
+            $error.="<br> enter valid guardian's  number";
             $valch=false;
         }
     }
@@ -438,7 +453,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
      VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 
     $stmt->bind_param("sssssssisssisssississsiiississi", $attempt, $fname, $lname, $jat, $main_jat, $education, $DOB, $age, $religion, $faculty, $p_address,$p_ward, $p_vdc_rm_mp, $p_txt_vdc_rm_mp,$t_address,$t_ward, $t_vdc_rm_mp, $t_txt_vdc_rm_mp,$contact_no, $name, $father_name, $f_occupation, $f_contact_no, $service_no, $rank, $mother_name, $m_occupation,$m_contact_no, $guradian_name, $relation, $r_contact_no);
-        //ssssssiisssisssisssssiiiississi//Change blind parameter.
+       
         // Execute the prepared statement
     
         if ($stmt->execute()) {
@@ -459,6 +474,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
     
     else{
+        
+
+       // <script type="text/javascript">
+          //  $('#myForm').on('submit',function(e){
+           // e.preventDefault(); 
+
+           // });
+       // </script> 
+
+        
         echo $error;
     }
     
@@ -593,16 +618,16 @@ else{
                     <br><br>
                     <!-- name -->
                     <label>Name</label>
-                    <input type="text" required name="fname" placeholder="First name" maxlength="30" style="width: 150px;" />
-                    <input type="text" name="lname" required placeholder="Last name" maxlength="30" style="width: 150px;"/>
+                    <input type="text" required name="fname" value="<?php echo $fname; ?>" placeholder="First name" maxlength="30" style="width: 150px;" />
+                    <input type="text" name="lname" required value="<?php echo $lname; ?>" placeholder="Last name" maxlength="30" style="width: 150px;"/>
                     <br><br>
                     <!-- jat -->
                     <label>Jaat</label>
-                    <input type="text" name="jat" placeholder="" maxlength="30" />
+                    <input type="text" name="jat" value="<?php echo $jat; ?>" placeholder="" maxlength="30" />
                     <br> <br>
                     <!-- main jat -->
                     <label>Main Jaat</label>
-                    <input type="text" name="main_jat" placeholder="" maxlength="30" />
+                    <input type="text" name="main_jat" value="<?php echo $main_jat; ?>" placeholder="" maxlength="30" />
                     <br><br>
                     <!-- education -->
                     <label>Educatiion</label>
@@ -614,29 +639,29 @@ else{
                     <br><br>
                     <!-- date of birth -->
                     <label for="datePicker">Date of Birth:</label>
-                   <input type="date" id="datePicker"  name="DOB" onchange="updateLabels()"><br><br>
+                   <input type="date" id="datePicker" value="<?php echo $DOB; ?>" name="DOB" onchange="updateLabels()"><br><br>
 
                     <label id="bsLabel">BS:</label>
-                    <input type="date" id="bsdate">
+                    <input type="date"  id="bsdate">
                     <!-- <span id="bsValue"></span> -->
                     <br><br>
                     
                     <!-- age -->
                     <label id="ageLabel">Age:</label>
                    <!-- <span id="age" ></span><br><br> -->
-                   <input type="text" name="age" id="ag">
+                   <input type="text" value="<?php echo $age; ?>" name="age" id="ag">
                     <br><br>
                     <!-- religion -->
                     <label>religion</label>
-                    <input type="text" name="religion" required maxlength="100" />
+                    <input type="text" name="religion" value="<?php echo $religion; ?>" required maxlength="100" />
                     <br><br>
                     <!-- faculty -->
                     <label> faculty</label>
-                    <input type="text" name="faculty" required placeholder="District" maxlength="100" />
+                    <input type="text" name="faculty" value="<?php echo $faculty; ?>" required placeholder="District" maxlength="100" />
                     <br><br>
                     <!--permanent address -->
                     <label>Permanent Address</label>
-                    <input type="text" name="p_address" required placeholder="District" maxlength="100" />
+                    <input type="text" name="p_address" required value="<?php echo $p_address; ?>" placeholder="District" maxlength="100" />
                     <br><br>
                     <!--permanent ward -->
                     <label> ward</label>
@@ -682,18 +707,18 @@ else{
                         <option value="R.M">R.M</option>
                         <option value="M.P">M.P</option>
                     </select>
-                    <input type="text" name="p_txt_vdc_rm_mp" required placeholder="" maxlength="100" />
+                    <input type="text" name="p_txt_vdc_rm_mp" value="<?php echo $p_txt_vdc_rm_mp; ?>" required placeholder="" maxlength="100" />
                     <br><br>
                     <!--temporary address -->
                     <label>Temporary Address</label>
-                    <input type="text" name="t_address" placeholder="District" maxlength="100" />
+                    <input type="text" name="t_address" value="<?php echo $t_address; ?>" placeholder="District" maxlength="100" />
                     <br><br>
                     <!--temporary ward -->
                     <label> ward</label>
-                    <select name="t_ward" id="ward">
+                    <select name="t_ward" id="ward" style="width:40px;">
                         <option value="null"></option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
+                        <option value="1" <?php $t_ward =="1"?'selected="selected"':'';?>>1</option>
+                        <option value="2" >2</option>
                         <option value="3">3</option>
                         <option value="4">4</option>
                         <option value="5">5</option>
@@ -732,15 +757,15 @@ else{
                         <option value="R.M">R.M</option>
                         <option value="M.P">M.P</option>
                     </select>
-                    <input type="text" name="t_txt_vdc_rm_mp"  placeholder="" maxlength="100" />
+                    <input type="text" name="t_txt_vdc_rm_mp" value="<?php echo $t_txt_vdc_rm_mp; ?>"  placeholder="" maxlength="100" />
                     <br><br>
                     <!-- contact number -->
                     <label>Contact no</label>
-                    <input type="tel" id="phone" name="contact_no" required >
+                    <input type="tel" id="phone" value="<?php echo $contact_no; ?>" name="contact_no" required >
                     <br><br>
                     <!-- Photo -->
                     <label>Upload photo</label>
-                    <input type="file" class="photo" required name="photo">
+                    <input type="file" class="photo"  required name="photo">
                     </div>
                  </div>
 
@@ -754,15 +779,15 @@ else{
                     <br>
                     <!-- father's name -->
                     <label>Father's Name</label>
-                    <input type="text" name="father_name" required placeholder="Enter name" maxlength="30" />
+                    <input type="text" name="father_name"value="<?php echo $father_name; ?>" required placeholder="Enter name" maxlength="30" />
                     <br><br>
                     <!-- father's occupation -->
                     <label> Occupation</label>
-                    <input type="text" name="f_occupation" placeholder="" maxlength="30" />
+                    <input type="text" name="f_occupation" value="<?php echo $f_occupation; ?>" placeholder="" maxlength="30" />
                     <br><br>
                     <!-- contact number -->
                     <label>Contact no</label>
-                    <input type="tel" id="phone" name="f_contact_no"  required>
+                    <input type="tel" id="phone" name="f_contact_no" value="<?php echo $f_contact_no; ?>" required>
                     <br><br>
                     <div class="opt-box">
                     <p style="font-weight:600">If father is /was in the British Army /GSPF/<br>Indian Army
@@ -771,11 +796,11 @@ else{
                     <br>
                     <!-- service no. -->
                     <label>Service no</label>
-                    <input type="number" name="service_no" maxlength="10" />
+                    <input type="number" name="service_no" value="<?php echo $service_no; ?>" maxlength="10" />
                     <br><br>
                     <!-- rank -->
                     <label>Rank</label>
-                    <input type="number" name="rank" maxlength="10" />
+                    <input type="number" name="rank" value="<?php echo $rank; ?>" maxlength="10" />
                     <br><br>
                     <!-- Registration -->
                     <label>Regt</label>
@@ -785,30 +810,31 @@ else{
                     <br>
                     <!-- mother's name -->
                     <label>Mother's Name</label>
-                    <input type="text" name="mother_name" required placeholder="Full name" maxlength="30" />
+                    <input type="text" name="mother_name"value="<?php echo $mother_name; ?>" required placeholder="Full name" maxlength="30" />
                     <br><br>
                     <!-- mother's occupation -->
                     <label> Occupation</label>
-                    <input type="text" name="m_occupation" placeholder="" maxlength="30" />
+                    <input type="text" name="m_occupation" value="<?php echo $m_occupation; ?>"placeholder="" maxlength="30" />
                     <br><br>
                     <!-- contact number -->
                     <label>Contact no</label>
-                    <input type="tel" id="phone" name="m_contact_no" required>
+                    <input type="tel" id="phone" value="<?php echo $m_contact_no; ?>" name="m_contact_no" required>
                     <br><br>
                     <!-- Guardian's detail -->
                     <label>Guradian's Name</label>
-                    <input type="text" name="guradian_name"  placeholder="Full name" maxlength="30" />
+                    <input type="text" name="guradian_name" value="<?php echo $guradian_name; ?>" placeholder="Full name" maxlength="30" />
                     <br><br>
                     <!-- Guardian relation -->
                     <label>Relation</label>
-                    <input type="text" name="relation"  maxlength="30" />
+                    <input type="text" name="relation" value="<?php echo $relation; ?>"  maxlength="30" />
                     <br><br>
                     <!-- Guardian contact -->
                     <label>Contact no</label>
-                    <input type="number" name="r_contact_no"  maxlength="10" />
+                    <input type="tel" name="r_contact_no" value="<?php echo $r_contact_no; ?>"  maxlength="10" />
                     <br><br>
                     <!-- button -->
                     <input type="submit" class="form-button" value="Submit" name="submit" id="mybtn">
+                     <?php //if(!$valch) echo 'disabled'; ?> 
                     <input type="reset" class="form-button" value="Reset">
                 </div>
 
@@ -830,8 +856,9 @@ else{
     
 
 
-    <!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-    <script type="text/javascript">
+     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+
+    <!--<script type="text/javascript">
 
     $('document').ready(function(){
         $('#myForm').on('submit',function(e){
@@ -876,7 +903,30 @@ else{
 
 </script> -->
 
-<!-- </body> -->
 
-<!-- </html> -->
+<!-- <script type="text/javascript">
+    
+function  checkfunction(obj){
+
+    $.post("dashboard/student/user_reg.php",$(obj).serialize(),function(data){
+//    var ob1=<?php //echo json_encode($valch); ?>;
+var ob1=false;
+  alert(ob1);
+  
+   if(ob1==true){
+    return true;
+   }
+   else{
+    var ob2=<?php //echo json_encode($error); ?>;
+    alert (ob2);
+    return false;
+   }
+//  alert("success");
+
+ });
+
+ }
+
+</script> -->
+
 

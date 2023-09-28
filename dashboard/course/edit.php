@@ -104,29 +104,99 @@ if ($conn->connect_error) {
 
 
 if (isset($_POST["submit"])) {
-    $cname = $_POST['cname'];
-    $c_t_name = $_POST['c_t_name'];
-    $cid = $_POST['cid'];
-    // $cr_id = '';
-    // $cr_id = $_POST['cr_id'];
+//     $cname = $_POST['cname'];
+//     $c_t_name = $_POST['c_t_name'];
+//     $cid = $_POST['cid'];
+//     $cr_id = '';
+//     $cr_id = $_POST['cr_id'];
 
 
-//    $query = "UPDATE course SET cname = '$cname', c_t_name = '$c_t_name', cid = '$cid' WHERE cr_id =' $cr_id'";
+// //    $query = "UPDATE course SET cname = '$cname', c_t_name = '$c_t_name', cid = '$cid' WHERE cr_id =' $cr_id'";
    
-//
+
+    $error='';
+    $valch=true;
+
+    function test_input($data) {
+                  $data = trim($data);//Strip unnecessary characters (extra space, tab, newline) from the user input data
+                  $data = stripslashes($data);//Remove backslashes (\) from the user input data
+                  $data = htmlspecialchars($data);//converts special characters to HTML entities
+                  return $data;
+        }
+    function test_name($data){
+        if (!preg_match("/^[a-zA-Z-' ]*$/",$data)) {
+            return false;
+        }
+        else {
+            return true;
+        }
+      }
+
+      function isAlphaNumeric($string) {
+        if(!preg_match('/^[a-zA-Z0-9]+$/', $string)){
+        return false;
+        }
+    
+        else{
+                return true;
+        }
+        
+        }
+
+      
+        if(empty($_POST['cname'])){
+          $error.=" Course name cannot be empty";
+          $valch=false;
+        }
+        else{
+          $cname=test_input($_POST['cname']);
+          if(test_name($cname)==false){
+            $error.="<br>Enter valid course name";
+            $valch=false;
+          }
+        }
+
+        if(empty($_POST['c_t_name'])){
+            $error.="Name cannot be empty";
+            $valch=false;
+          }
+          else{
+            $c_t_name=test_input($_POST['c_t_name']);
+            if(test_name($c_t_name)==false){
+              $error.="<br>Enter valid Teacher name";
+              $valch=false;
+            }
+          }
+          if(empty($_POST['cid'])){
+            $error.="Course code cannot be empty";
+            $valch=false;
+          }
+          else{
+            $cid=test_input($_POST['cid']);
+            if(isAlphaNumeric($cid)==false){
+              $error.="<br>Enter valid course code";
+              $valch=false;
+            }
+          }
+
+
+    
+
+    if($valch==true){
     $query = "UPDATE `course` SET `cname`='$cname', `c_t_name`='$c_t_name', `cid`='$cid' WHERE cr_id = '$cr_id'";
 
     // Execute query
     if (mysqli_query($conn, $query)) {
         echo "Data updated successfully.";
-    header('Location: course.php?error=none');
-        
-    // } 
-    // else {
-       
-    //     echo "Data not updated ";
+         // header('Location: course.php?error=none');
+    
+        }
+        mysqli_close($conn);
     }
-   mysqli_close($conn);
+    else{
+            echo "<div class='alert alert-danger'>".$error."</div>";
+
+    }       
 }
 
 ?>

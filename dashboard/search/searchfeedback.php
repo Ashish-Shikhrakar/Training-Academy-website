@@ -62,7 +62,7 @@ include($_SERVER['DOCUMENT_ROOT'].'/ARMY-WEBSITE-PROJECT/dashboard/common/sideba
                                     if(isset($_POST['search_btn'])){
                                         $search_txt = $_POST['search_txt'];
 
-                                        $query = "SELECT * FROM user_feedback where CONCAT(u_name,u_email) like '%$search_txt %' ";
+                                        $query = "SELECT * FROM user_feedback where CONCAT(u_name,u_email) like '$search_txt'";
                                         $query_run=mysqli_query($conn,$query);
                                         
 

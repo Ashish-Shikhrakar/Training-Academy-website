@@ -62,7 +62,7 @@ include($_SERVER['DOCUMENT_ROOT'].'/ARMY-WEBSITE-PROJECT/dashboard/common/sideba
                                    if(isset($_POST['search_btn'])){
                                        $search_txt = $_POST['search_txt'];
 
-                                       $query = "SELECT * FROM student_reg where fname like '%$search_txt %' ";
+                                       $query = "SELECT * FROM student_reg where fname = '$search_txt'";
                                        $query_run=mysqli_query($conn,$query);
                                        
 

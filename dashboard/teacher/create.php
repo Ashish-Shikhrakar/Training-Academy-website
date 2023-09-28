@@ -143,7 +143,7 @@ else{
               </div>
               <div class="form-group">
                 <label for="">Email</label>
-                <input type="text" name="email" class="form-control" placeholder="Enterteacher's eamil"
+                <input type="text" name="email" class="form-control" required placeholder="Enterteacher's eamil"
                   value="<?php echo $email; ?>"><span><?php echo $emailErr?></span>
               </div>
               <div class="form-group">
@@ -226,6 +226,9 @@ if (isset($_POST['save'])) {
     //echo $name;exit;
     }
 
+    $error='';
+    $valch=true;
+
     function test_input($data) {
                   $data = trim($data);//Strip unnecessary characters (extra space, tab, newline) from the user input data
                   $data = stripslashes($data);//Remove backslashes (\) from the user input data
@@ -253,61 +256,44 @@ if (isset($_POST['save'])) {
         }
 
         }
-        $nameErr="";
+        // $nameErr="";
         if (isset($_POST['save'])) {
           if(empty($_POST['tname'])){
-            $nameErr="name cannot be empty";
+            $error.="name cannot be empty";
+            $valch=false;
           }
           else{
             $tname=test_input($_POST['tname']);
             if(test_name($tname)==false){
-              $nameErr="enter valid name";
+              $error.="<br>enter valid name";
+              $valch=false;
             }
           }
           if(empty($_POST['taddress'])){
-            $addressErr="name cannot be empty";
+            $error.="<br>name cannot be empty";
+            $valch=false;
           }
           else{
-            $taddress=test_input($_POST['taddress']);
-            if(test_name($tname)==false){
-              $addressErr="enter valid address";
+              $taddress=test_input($_POST['taddress']);
+              if(test_name($taddress)==false){
+                $error.="<br>enter valid address";
+                $valch=false;
             }
           }
           if(empty($_POST['phone'])){
-          $phoneErr="phone cammot be empty";
-        }
-        else{
+            $error.="<br>phone cammot be empty";
+            $valch=false;
+          }
+          else{
             $phone=$_POST['phone'];//required max length 10
             if(validatePhone($phone)==false){
-                $phoneErr="enter valid number";
+                $error.="<br>enter valid number";
+                $valch=false;
+              }
             }
-        }
+      }
 
-
-
-
-
-
-            // $email = $_POST['email'];
-            // $salary = $_POST['salary'];
-            // $cid = $_POST['cid'];
-            // $mode = $_POST['mode'];
-            // // $file = $_FILES['photo']['tmp_name'];
-
-            // //  $file = addslashes(file_get_contents($_FILES["image"]["temp_name"]));
-            // // $file = isset($_FILES['photo']) ? $_FILES['photo'] : null;
-
-            // $name = $_FILES["photo"]["name"];
-            // $tmp = $_FILES["photo"]["tmp_name"];
-            
-            // print_R($_FILES);exit;
-
-            
-            // print_r($_FILES);
-            // Validate and process the data
-
-// $query='';
-
+if($valch==true){
     if ($mode == "Add") {
     // Insert the data into the teacher table
     $query = "INSERT INTO teacher (tid, tname, taddress, email, phone, salary, cid, photo) 
@@ -332,11 +318,15 @@ if (isset($_POST['save'])) {
     
       }
       else{
-        echo "Error: " . mysqli_error($conn);
+
+        echo "Error: sorry" . mysqli_error($conn);
+      }
+      }else{
+        echo $error;
       }
 
     // Close the database connection
       mysqli_close($conn);
   }
-}
+
 ?>

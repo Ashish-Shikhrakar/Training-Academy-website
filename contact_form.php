@@ -1,38 +1,3 @@
-<?php
-//include("db_connection.php");
-$conn = new mysqli("localhost", "root", "", "army_project");
-
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-
-// Check for form submission
-
-if ($_SERVER['REQUEST_METHOD'] === 'POST'){
-    $u_name = $_POST['u_name'];
-    $u_email = $_POST['u_email'];
-    $phone= $_POST['phone'];
-    $u_message = $_POST['u_message'];
-
-
-    $stmt = $conn->prepare("INSERT INTO user_feedback (u_name,u_email,phone,u_message) VALUES (?, ?, ?, ?)");
-    $stmt->bind_param("ssis", $u_name, $u_email, $phone, $u_message);
-    // Execute query
-    if (! $stmt->execute()) {
-        echo "Error : " . $stmt->error;
-    } 
-    else {
-       
-        // echo "Data inserted successfully.";
-    }
-    // Close the database connection
-    $stmt->close();
-    $conn->close();
-}
-?>
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -45,10 +10,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST'){
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Notable&display=swap" rel="stylesheet">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+  <!-- <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet"> -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200&family=Quicksand&display=swap" rel="stylesheet">
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/css/fontawesome.min.css">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
   <script src="https://common.olemiss.edu/_js/sweet-alert/sweet-alert.min.js"></script>
   <link rel="stylesheet" type="text/css" href="https://common.olemiss.edu/_js/sweet-alert/sweet-alert.css">
@@ -88,7 +53,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST'){
     cursor: pointer;
     width: 50%;
     padding: 10px;
-
+    border-radius: 5px;
    
   }
   </style>
@@ -110,13 +75,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST'){
           <a href="index.php">
             <li class="menubarItems">Home</li>
           </a>
-          <a href="about.php">
+          <a href="about.html">
             <li class="menubarItems">About Us</li>
           </a>
-          <a href="notice.php">
+          <a href="notice.html">
             <li class="menubarItems">Notice</li>
           </a>
-          <a href="schedule.php">
+          <a href="schedule.html">
             <li class="menubarItems">Schedule</li>
           </a>
           <a href="contact_form.php">
@@ -149,10 +114,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST'){
 
   <div class="container">
     <div class="contact-box">
-      <form method="POST" action="">
-        <!-- form method="POST" action="userfeedback.php" -->
-        <p class="servicetitle" style="text-align: center;font-family: poppins,bold;">Contact Form</p>
-        <input type="text" class="input-field" required name="u_name" placeholder="Name">
+      <!-- <form method="POST" action=""> -->
+      <form method="POST" action="https://formspree.io/f/mqkvkvde"> 
+          <p class="servicetitle" style="text-align: center;font-family: poppins,bold;">Contact Form</p>
+        <input type="text" class="input-field" required name="u_name" placeholder="Enter Name">
         <input type="text" class="input-field" required name="u_email" placeholder="Your e-mail address">
         <input type="text" class="input-field" required name="phone" placeholder="Enter phone no">
         <textarea type="text" required class="input-field textarea-field" name="u_message"
@@ -161,70 +126,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST'){
       </form>
     </div>
   </div>
-
-
-  <!-- <div class="contact-box">
-    <form method="POST" action="">
-      form method="POST" action="userfeedback.php" 
-      <h2>Contact Form</h2>
-      <input type="text" class="input-field" required name="u_name" placeholder="Name">
-      <input type="text" class="input-field" required name="u_email" placeholder="Your e-mail address">
-      <input type="text" class="input-field" required name="phone" placeholder="Enter phone no">
-      <textarea type="text" required class="input-field textarea-field" name="u_message"
-        placeholder="Message"></textarea>
-      <input type="submit" value=" Send Message" name="save" class="btn">
-    </form>
-  </div> -->
-
-<?php
-/*
-@include("dashboard/student/db_connection.php");
-$host = 'localhost';
-$username = 'root';
-$password = '';
-$database = 'army_project';
-$conn = new mysqli($host, $username, $password, $database);
-
-// Check connection
-if ($conn->connect_error) {
-  die("Connection failed: " . $conn->connect_error);
-}
-
-// Check for form submission
-
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-  if (isset($_POST['save'])) {
-    $u_name = $_POST['u_name'];
-    $u_email = $_POST['u_email'];
-    $phone = $_POST['phone'];
-    $u_message = $_POST['u_message'];
-
-
-    // $stmt = $conn->prepare("INSERT INTO user_feedback (u_name,u_email,phone,u_message) VALUES (?, ?, ?, ?)");
-    // $stmt->bind_param("ssis", $u_name, $u_email, $phone, $u_message);
-    // // Execute query
-    // if (! $stmt->execute()) {
-    //     echo "Error : " . $stmt->error;
-    // } 
-    $insert = "INSERT INTO user_feedback(u_name,u_email,phone,u_message) VALUES ('$u_name', '$u_email', '$phone', '$u_message')";
-    $query = mysqli_query($conn, $insert);
-    if ($query) {
-      ?>
-      <script>
-        swal({
-          title: "submitted",
-          text: "Data inserted!",
-          icon: "success",
-        });
-      </script>
-      <?php
-    }
-  }
-  // Close the database connection
-  // $stmt->close();
-  // $conn->close();
-}*/
-?>
 
 <div class="footer-clean">
       <footer>
@@ -271,14 +172,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                   <li><a href="#">Dholahity, Lalitpur</a></li>
                   <li><a href="#">aimgurkha@email.com.np</a></li>
                   <li><a href="#">01-5574095/9851046632</a></li>
-
+                   <li><div class="social-link" style="display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; text-align: center; margin-top: 10px;"> 
+                            <a href="https://www.instagram.com/aimgurkha/" target="_blank"><i class="fab fa-instagram"></i></a>
+                            <a href="https://www.facebook.com/profile.php?id=100063674538639" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                            <a href="https://www.facebook.com/messages/t/155741854590882" target="_blank"><i class="fab fa-facebook-messenger"></i></a>
+                            <!-- <a href="https://wa.me/03062000920" target="_blank"><i class="fab fa-whatsapp"></i></a> -->
+                            <a href="https://mail.google.com/mail/u/0/#search/aimgurkha%40gmail.com?compose=GTvVlcRwRQPFTcQVdvMkcSqdjlVTNMvbBSZzlpnTLFjLQzPXlTXrrvDJjdLWfPSnBLMBZFJFSMChS" target="_blank"><i class="fa fa-envelope"></i></a>
+                          </div></li>
                 </ul>
               </div>
             </div>
 
-            <div style="clear:both;"><a href="#"><i class="icon ion-social-facebook"></i></a><a href="#"><i
-                  class="icon ion-social-twitter"></i></a><a href="#"><i class="icon ion-social-snapchat"></i></a><a
-                href="#"><i class="icon ion-social-instagram"></i></a>
+            <div style="clear:both;">
               <p class="copyright" >Aim Gurkha <br> ©2023 All Rights Reserved</p>
             </div>
           </div>
@@ -286,6 +191,63 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       </footer>
     </div>
 <script src="jscript.js"></script>
+<script src="https://formspree.io/f/xdororlo"></script> 
+
+<!-- user feedback message direct on gmail account  -->
+
+<script>
+    function sendEmail(){
+            Email.send({
+                Host : "smtp.gmail.com",
+                Username : "bhishmapoudel408@gmail.com",
+                Password : "password",
+                To : 'bhishmapoudel408@gmail.com',
+                From : document.getElementById("email").value,
+                Subject : "New feedback from user",
+                Body : "And this is the body",
+            }).then(
+                message => alert(message sent sucessfully)
+            );
+    }
+</script>
 </body>
 
 </html>
+
+<?php
+@include("db_connection.php");
+$host = 'localhost';
+$username = 'root';
+$password = '';
+$database = 'army_project';
+$conn = new mysqli($host, $username, $password, $database);
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+// Check for form submission
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST'){
+    $u_name = $_POST['u_name'];
+    $u_email = $_POST['u_email'];
+    $phone= $_POST['phone'];
+    $u_message = $_POST['u_message'];
+
+
+    $stmt = $conn->prepare("INSERT INTO user_feedback (u_name,u_email,phone,u_message) VALUES (?, ?, ?, ?)");
+    $stmt->bind_param("ssis", $u_name, $u_email, $phone, $u_message);
+    // Execute query
+    if (! $stmt->execute()) {
+        echo "Error : " . $stmt->error;
+    } 
+    else {
+       
+        // echo "Data inserted successfully.";
+    }
+    // Close the database connection
+    $stmt->close();
+    $conn->close();
+}
+?>
