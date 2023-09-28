@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Aim_Gurkha</title>
+  <title>Aim Gurkha</title>
   <link rel="icon" type="image/x-icon" href="photo/favicon.ico">
   <!-- <link rel="stylesheet" href="dashboard/student/style.css"> -->
   <link rel="stylesheet" href="css/style.css">
@@ -27,8 +27,9 @@
     <div class="menubar">
       <div id="navbar" style="height: 65px;">
         <div class="logo" style="display: inline; float: left;">
-
+          <a href="index.php">
           <img src="photo/logo.png">
+          </a>
         </div>
 
         <div class="nav">
@@ -63,60 +64,66 @@
     </div>
 
     <section class="contentbox">
-      <p class="introtitle">We travel the world, and tell you how it looks!</p>
-      <p class="introtext">
-        Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit
-        consequat ipsum</br>
-        nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris.<br>
-        Morbi accumsan ipsum velit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris.<br>
-        Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt auctor a ornare odio.<br>
+      <p class="introtitle">We train boys for British army and Singapore police. </p>
+      <p class="introtext" style="padding:5px 40px">
+      At our institution, we are dedicated to nurturing and preparing young men with aspirations to join esteemed institutions such as the British Army and the Singapore Police Force.
+      Our specialized training programs and guidance empower these individuals to reach their goals, equipping them with the skills, knowledge, and character needed for a successful career in these honorable services.<br>
       </p>
     </section>
 
     <section class="contentwrapper">
       <div class="servicecontent">
         <div>
-          <p class="servicetitle">Service 1</p>
+          <p class="servicetitle" style="font-size: 44px;">Training Schedule/Routine</p>
           <p class="servicetext">
-            Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit
-            consequat ipsum, <br>
-            nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. <br>
-            Morbi accumsan ipsum velit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. <br>
-            Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt auctor a ornare odio.<br>
+            <ul style="text-align: left;padding-left: 56px; margin-top: 20px;font-size: 22px;">
+              <li>
+                Morning and evening Training
+              </li>
+              <li>Special training for weak candidates</li>
+              <li>Regular glucose water after training</li>
+              <li>Regular call to parents/guardian of those candidates who are absent in Training/Education</li>
+            </ul>
           </p>
         </div>
         <div class="picture-box">
           <img src="photo/for-gurkha-recruitment-page 1.png">
         </div>
       </div>
-      <div class="servicecontent">
+      <div class="servicecontent" style="width:100%;">
 
         <div class="picture-box" style="float: left; text-align: left;">
           <img src="photo/for-gurkha-recruitment-page 1.png">
         </div>
         <div>
-          <p class="servicetitle">Service 2</p>
+          <p class="servicetitle" style="font-size: 44px;">First Aid and Classes</p>
           <p class="servicetext">
-            Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit
-            consequat ipsum, <br>
-            nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. <br>
-            Morbi accumsan ipsum velit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. <br>
-            Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt auctor a ornare odio.<br>
+          <ul style="text-align: left;padding-left: 123px; margin-top: 20px;font-size: 22px;">
+                <li>Doko once in a week</li>
+                <li>Professional/Experience trainer</li>
+                <li>Medi-kit always stand by </li>
+                <li>12 classes of maths and English by professional teachers</li>
+                <li>Special class for weak students </li>
+            </ul>
           </p>
         </div>
       </div>
-      <div class="servicecontent">
+      <div class="servicecontent" style="width:100%;">
         <div>
-          <p class="servicetitle">Service 3</p>
+          <p class="servicetitle" style="font-size: 44px;">Other Facility/Services</p>
           <p class="servicetext">
-            Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit
-            consequat ipsum, <br>
-            nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. <br>
-            Morbi accumsan ipsum velit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. <br>
-            Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt auctor a ornare odio.<br>
+          <ul style="text-align: left;padding-left: 96px; margin-top: 20px;font-size: 22px;">
+              <li>
+                Own gym hall
+              </li>
+              <li>Proper counselling/guidelines</li>
+              <li>Cctv 24hr surveillance</li>
+              <li>Hostel service </li>
+              <li>Lunch service </li>
+            </ul>
           </p>
         </div>
-        <div class="picture-box">
+        <div class="picture-box" style="width:100%;">
           <img src="photo/for-gurkha-recruitment-page 1.png">
         </div>
       </div>
@@ -150,7 +157,7 @@
       <div class="responsive-container-block outer-container">
         <div class="responsive-container-block inner-container">
           <p class="introtitle">
-            Our Founders' Beliefs And Virtue
+            Our Trainers' Beliefs And Virtue
           </p>
           <div class="responsive-container-block">
             <div class="responsive-cell-block wk-desk-3 wk-ipadp-3 wk-tab-6 wk-mobile-12 team-card-container">
@@ -160,7 +167,7 @@
                     src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/expert1.png">
                 </div>
                 <p class="text-blk name">
-                  Maxwell Doe
+                  Ganesh Rai
                 </p>
                 <p class="text-blk position">
                   Instructor
@@ -180,7 +187,7 @@
                     src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/expert2.png">
                 </div>
                 <p class="text-blk name">
-                  Maxwell Doe
+                  Aman Tamang
                 </p>
                 <p class="text-blk position">
                   Instructor
@@ -199,8 +206,8 @@
                   <img class="team-img"
                     src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/expert1.png">
                 </div>
-                <p class="text-blk name">
-                  Maxwell Doe
+                <p class="text-blk name" style="text-align: center;">
+                Bishwo Bijay Hang Rai
                 </p>
                 <p class="text-blk position">
                   Instructor
@@ -222,7 +229,7 @@
         <div class="responsive-container-block outer-container">
           <div class="responsive-container-block inner-container">
             <p class="introtitle">
-              Our Founders' Beliefs And Virtue
+              Hear From Our Students
             </p>
             <div class="responsive-container-block">
               <div class="responsive-cell-block wk-desk-3 wk-ipadp-3 wk-tab-6 wk-mobile-12 team-card-container"

@@ -66,8 +66,9 @@
   <div class="menubar" style="background-image: none; height: 65px;">
     <div id="navbar" style="transition: 0s;">
       <div class="logo" style="display: inline; float: left;">
-
-        <img src="photo/logo.png">
+      <a href="index.php">
+          <img src="photo/logo.png">
+          </a>
       </div>
 
       <div class="nav">

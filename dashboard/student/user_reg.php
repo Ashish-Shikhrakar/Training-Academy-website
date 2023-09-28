@@ -339,7 +339,7 @@
                 <input type="checkbox" name ="aggre"><b>I will accept all the rules and regulation of this institute and if do any
                 mistakes or if I’m not able to follow the rules and regulation of this institute then I will accept any
                 punishment from this AIM GURKHA.
-                <br>नोट: भर्ना गर्दा बुझाएको भर्ना शुल्क कुनै कारण बस CANDIDATE बिभिद कारणले ट्रेनिंग न आएमा या ट्रेनिंग सेन्टर छोडेमा या बहिष्कार गरिएमा फेरी फिर्ता पाइने छैन,धन्यबाद |</b>
+                <br><br>नोट: भर्ना गर्दा बुझाएको भर्ना शुल्क कुनै कारण बस CANDIDATE बिभिद कारणले ट्रेनिंग न आएमा या ट्रेनिंग सेन्टर छोडेमा या बहिष्कार गरिएमा फेरी फिर्ता पाइने छैन,धन्यबाद |</b>
             </P>
             </div>
         </form>
