@@ -262,7 +262,7 @@
         <div class="responsive-container-block outer-container">
           <div class="responsive-container-block inner-container">
             <p class="introtitle">
-              Our Founders' Beliefs And Virtue
+            Hear From Our Students
             </p>
             <div class="responsive-container-block">
               <div class="responsive-cell-block wk-desk-3 wk-ipadp-3 wk-tab-6 wk-mobile-12 team-card-container"
@@ -295,7 +295,7 @@
         <div class="responsive-container-block outer-container">
           <div class="responsive-container-block inner-container">
             <p class="introtitle">
-              Our Founders' Beliefs And Virtue
+            Hear From Our Students
             </p>
             <div class="responsive-container-block">
               <div class="responsive-cell-block wk-desk-3 wk-ipadp-3 wk-tab-6 wk-mobile-12 team-card-container"
