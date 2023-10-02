@@ -206,7 +206,7 @@
                 Subject : "New feedback from user",
                 Body : "And this is the body",
             }).then(
-                message => alert(message sent sucessfully)
+                message => alert("message sent sucessfully")
             );
     }
 </script>
