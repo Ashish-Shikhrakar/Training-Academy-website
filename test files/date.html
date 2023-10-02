@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>r</title>
+</head>
+<body>
+
+  <label for="datePicker">Date:</label>
+  <input type="date" id="datePicker" onchange="updateLabels()"><br><br>
+
+  <label id="bsLabel">BS:</label>
+  <span id="bsValue"></span><br><br>
+
+  <label id="ageLabel">Age:</label>
+  <span id="ageValue"></span><br><br>
+
+  <script>
+    function updateLabels() {
+      const selectedDate = new Date(document.getElementById("datePicker").value);
+      const bsDate = convertToBS(selectedDate);
+      const age = calculateAge(selectedDate);
+      document.getElementById("bsValue").textContent = bsDate;
+      document.getElementById("ageValue").textContent = age;
+    }
+
+    function convertToBS(date) {
+      const bsYear = date.getFullYear() + 57;
+      const bsMonth = (date.getMonth() + 3) % 12 || 12;
+      const bsDay = (date.getDate() + 2) % 30 || 30;
+      return `${bsYear}-${bsMonth}-${bsDay}`;
+    }
+
+    function calculateAge(selectedDate) {
+  const currentDate = new Date();
+  let age = currentDate.getFullYear() - selectedDate.getFullYear();
+
+  const currentMonth = currentDate.getMonth();
+  const selectedMonth = selectedDate.getMonth();
+
+  const currentDay = currentDate.getDate();
+  const selectedDay = selectedDate.getDate();
+
+  if (currentMonth < selectedMonth || (currentMonth === selectedMonth && currentDay < selectedDay)) {
+    age--;
+  }
+
+  return Math.max(age, 0);
+}
+
+  </script>
+</body>
+</html>
